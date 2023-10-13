@@ -139,6 +139,7 @@
       right: 0;
       width: 100vw;
       min-height: 100vh;
+      max-width: 100%;
 
       background-image: url('/images/surf.png');
       background-position: 33% 0.75rem;

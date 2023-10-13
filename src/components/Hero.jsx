@@ -9,8 +9,8 @@ const Hero = () => {
 
   return (
     <>
-      <div className='flex h-screen flex-col items-center justify-between '>
-        <div className={'hero-image dark:opacity-85 opacity-100'}></div>
+      <div className='relative flex h-screen flex-col items-center justify-between '>
+        <div className='hero-image opacity-100 dark:opacity-90'></div>
         <div className='hero-title-wrapper'>
           <h1 className='title text-gradient text-center md:text-6xl xl:text-8xl'>
             Aquaman Bali
@@ -25,8 +25,10 @@ const Hero = () => {
             setArrowIsClicked(true)
             router.push('#school-carousel')
           }}
-          className={`arrow text-primary absolute bottom-0 left-0 right-0 cursor-pointer text-5xl lg:text-6xl xl:left-1/2 ${
-            arrowIsClicked ? 'animate-none' : ''
+          className={` ${
+            arrowIsClicked
+              ? 'hidden animate-none'
+              : 'arrow text-primary absolute bottom-0 left-1/2 -translate-x-96 cursor-pointer text-5xl lg:text-6xl'
           }`}
         >
           <FontAwesomeIcon icon={faCircleDown} />
