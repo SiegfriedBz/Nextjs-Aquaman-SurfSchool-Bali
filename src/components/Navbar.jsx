@@ -16,7 +16,7 @@ const Navbar = () => {
         {/* mobile & desktop */}
         <Link
           id='brand-link'
-          className='base-link absolute left-16 top-1/2 w-1/3 -translate-y-1/2 sm:left-24 sm:w-1/4'
+          className='base-link absolute left-16 top-1/2 inline-block w-1/2 -translate-y-1/2 sm:left-24 sm:w-1/3 md:w-1/4'
           href='/'
         >
           <h5 className='text-gradient mb-0 font-extrabold italic'>
