@@ -89,13 +89,16 @@ const Footer = () => {
               {/* icons */}
               <div className='my-auto flex flex-col items-center md:gap-6'>
                 <div className='flex items-center justify-between md:gap-6'>
-                  <WhatsappIconLink className='px-2 py-1' navBarIcons={false} />
-                  <IgIconLink className='px-2 py-1' navBarIcons={false} />
+                  <TiktokIconLink className='px-1 py-1' navBarIcon={false} />
+                  <WhatsappIconLink className='px-2 py-1' navBarIcon={false} />
                 </div>
 
                 <div className='flex items-center justify-between md:gap-6'>
-                  <TiktokIconLink className='md:h-16 md:w-16' />
-                  <CoffeeIconLink className='px-2 py-1' navBarIcons={false} />
+                  <IgIconLink className='px-2 pt-1' navBarIcon={false} />
+                  <CoffeeIconLink
+                    className='py-2 pe-2 ps-3'
+                    navBarIcon={false}
+                  />
                 </div>
               </div>
             </div>

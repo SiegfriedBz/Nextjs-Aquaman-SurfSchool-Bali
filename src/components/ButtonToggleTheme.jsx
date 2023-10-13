@@ -8,8 +8,6 @@ const ButtonToggleTheme = () => {
   const [colorMode, setColorMode] = useColorMode()
   const orientation = useScreenOrientation()
 
-  console.log('orientation', orientation)
-
   useEffect(() => {
     setIsClient(true)
   }, [])

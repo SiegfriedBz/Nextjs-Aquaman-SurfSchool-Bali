@@ -3,6 +3,7 @@ import {
   CoffeeIconLink,
   IgIconLink,
   StreetViewIconLink,
+  TiktokIconLink,
   WhatsappIconLink,
 } from './Icons'
 
@@ -39,14 +40,17 @@ const NavLinks = ({ className = 'justify-end' }) => {
       <li>
         <StreetViewIconLink />
       </li>
-      <li>
-        <WhatsappIconLink />
-      </li>
-      <li className='hidden 2xl:inline-block'>
-        <IgIconLink />
-      </li>
       <li className='hidden 2xl:inline-block'>
         <CoffeeIconLink />
+      </li>
+      <li className='hidden 2xl:inline-block'>
+        <TiktokIconLink />
+      </li>
+      <li className='hidden xl:inline-block'>
+        <IgIconLink />
+      </li>
+      <li>
+        <WhatsappIconLink />
       </li>
     </ul>
   )
