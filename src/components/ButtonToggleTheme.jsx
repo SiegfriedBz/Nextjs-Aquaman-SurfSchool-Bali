@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useColorMode } from '../hooks/useColorMode'
 import { MoonIcon, SunIcon } from './Icons'
+import useScreenOrientation from '@/hooks/useScreenOrientation'
 
 const ButtonToggleTheme = () => {
   const [isClient, setIsClient] = useState(false)
   const [colorMode, setColorMode] = useColorMode()
+  const orientation = useScreenOrientation()
+
+  console.log('orientation', orientation)
 
   useEffect(() => {
     setIsClient(true)
