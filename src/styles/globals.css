@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  /* navbar & brand logo sizes */
   --nav-small-height: 6rem;
   --nav-mid-height: 7rem;
   --nav-big-height: 8rem;
@@ -10,7 +11,7 @@
   --logo-mid-size: calc(var(--nav-mid-height) / 2);
   --logo-big-size: calc(var(--nav-big-height) / 2);
 
-  /* animations variables */
+  /* animations */
   --title-duration: 700ms;
   --sub-title-duration: 500ms;
   --sub-title-delay: calc(var(--title-duration) - 200ms);
@@ -142,7 +143,7 @@
       max-width: 100%;
 
       background-image: url('/images/surf.png');
-      background-position: 33% 0.75rem;
+      background-position: 35% 0.75rem;
 
       background-size: cover;
       background-repeat: no-repeat;
