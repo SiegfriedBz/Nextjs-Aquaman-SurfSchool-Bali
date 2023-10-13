@@ -3,25 +3,272 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --nav-small-height: 6rem;
+  --nav-mid-height: 7rem;
+  --nav-big-height: 8rem;
+  --logo-small-size: calc(var(--nav-small-height) / 2);
+  --logo-mid-size: calc(var(--nav-mid-height) / 2);
+  --logo-big-size: calc(var(--nav-big-height) / 2);
+
+  /* animations variables */
+  --title-duration: 700ms;
+  --sub-title-duration: 500ms;
+  --sub-title-delay: calc(var(--title-duration) - 200ms);
+  --after_titles_delay: calc(var(--title-duration) + var(--sub-title-duration));
+  --header-duration: 400ms;
+  --header-delay: var(--after_titles_delay);
+  --arrow-duration: 800ms;
+  --arrow-delay: var(--after_titles_delay);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+  body {
+    @apply bg-cf-white text-cf-dark dark:bg-cf-dark dark:text-cf-white;
+  }
+  h1 {
+    @apply mb-5 text-5xl font-extrabold sm:text-6xl md:text-7xl lg:text-9xl;
+  }
+  h2 {
+    @apply mb-4 text-3xl font-bold sm:text-4xl md:text-5xl lg:text-7xl;
+  }
+  h3 {
+    @apply mb-3 text-2xl font-semibold sm:text-3xl md:text-4xl lg:text-6xl;
+  }
+  h4 {
+    @apply mb-2 text-xl sm:text-2xl md:text-3xl lg:text-5xl;
+  }
+  h5 {
+    @apply mb-2 text-lg sm:text-xl md:text-2xl lg:text-3xl;
+  }
+  h6 {
+    @apply text-lg md:text-xl 2xl:text-2xl;
+  }
+  p {
+    @apply my-1 text-cf-dark dark:text-cf-white sm:text-lg md:text-xl;
+
+    &:nth-child(2n) {
+      @apply text-cf-dark/50 dark:text-cf-white/50;
+    }
+  }
+
+  button {
+    @apply sm:text-lg md:text-xl;
+  }
+
+  a:not(.base-link) {
+    @apply hover:after:bg-primary/75
+      focus:after:bg-primary/75
+      active:after:bg-primary/75
+
+      dark:hover:after:bg-secondaryDark/75 
+      dark:focus:after:bg-secondaryDark/75 
+      dark:active:after:bg-secondaryDark/75 
+
+      relative
+      transition-all
+      duration-300
+
+      ease-in-out
+      after:absolute
+      after:bottom-[-0.1em]
+      after:left-0
+
+      after:h-[0.1em] after:w-0 after:transition-all 
+      after:duration-500 after:ease-in-out after:content-[""] 
+
+      hover:text-cf-dark/50
+      hover:after:w-full focus:text-cf-dark/50 focus:after:w-full
+      active:text-cf-dark/50
+      active:after:w-full
+      dark:hover:text-cf-white/50
+      dark:focus:text-cf-white/50
+      dark:active:text-cf-white/50;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  #header {
+    z-index: 9999;
+
+    &.home-navTop {
+      animation: home-navTop-enter var(--header-duration) ease
+        var(--header-delay) backwards;
+    }
+  }
+
+  .navbar {
+    @apply h-[var(--nav-small-height)]
+      sm:h-[var(--nav-mid-height)]
+      md:h-[var(--nav-big-height)];
+  }
+
+  #brand-logo {
+    @apply from-primary to-secondary dark:to-secondaryDark ring-secondary
+      dark:ring-secondaryDark shadow-secondary
+      dark:shadow-secondaryDark
+       absolute
+      left-2
+      h-[var(--logo-small-size)]
+      w-[var(--logo-small-size)]
+      rounded-full
+      border-none
+      bg-gradient-to-r p-1  
+      shadow-sm
+      outline-none ring-2
+      transition-all
+      duration-300 
+      ease-in-out hover:scale-110
+      focus:scale-110 dark:shadow-sm sm:h-[var(--logo-mid-size)] 
+      sm:w-[var(--logo-mid-size)] md:h-[var(--logo-big-size)] 
+      md:w-[var(--logo-big-size)];
+  }
+
+  #hero {
+    z-index: -999;
+
+    .hero-image {
+      position: absolute;
+      z-index: -999;
+
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100vw;
+      min-height: 100vh;
+
+      background-image: url('/images/surf.png');
+      background-position: 33% 0.75rem;
+
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 0.25em;
+    }
+
+    .hero-title-wrapper {
+      width: 100%;
+      margin-top: var(--nav-small-height);
+      padding: 0.75rem;
+      border-radius: 0.5em;
+
+      background: transparent;
+
+      animation: hero-title-wrapper-enter calc(var(--title-duration) * 1.5)
+        ease-in forwards;
+
+      & .title,
+      & .sub-title {
+        text-shadow: 0.15rem 0.15rem 0 hsla(240, 5%, 96%, 0.15);
+      }
+    }
+  }
+
+  /* ================================================================= */
+  /* ================================================================= */
+  /* ================================================================= */
+  /* TODO  CREATE HOME PAGE TEXT-GRADIENT CLASS FOR TEXT OVER HERO IMG */
+  .title {
+    animation: title-enter var(--title-duration)
+      cubic-bezier(0.74, 0.01, 0.76, 1.3) both;
+  }
+
+  .sub-title {
+    animation: sub-title-enter var(--sub-title-duration)
+      cubic-bezier(0.74, 0.01, 0.76, 1.3) var(--sub-title-delay) both;
+  }
+
+  .arrow {
+    animation:
+      arrow_enter var(--arrow-duration) ease var(--arrow-delay) both,
+      arrow_bounce 1s var(--arrow-delay) infinite both;
+  }
+
+  .toggle-mobile-btn {
+    @apply [&>div::after]:translate-y-0 [&>div::after]:-rotate-45 [&>div::before]:translate-y-0 [&>div::before]:rotate-45 [&>div]:rotate-[720deg] [&>div]:bg-transparent;
+  }
+
+  .text-gradient {
+    @apply from-primary to-secondary dark:to-secondaryDark bg-gradient-to-r bg-clip-text text-transparent;
+  }
+
+  .border-gradient {
+    @apply from-primary to-secondary dark:to-secondaryDark border-none bg-gradient-to-r dark:text-cf-white;
+  }
+
+  .btn {
+    @apply rounded-[0.5em] border-none font-extrabold uppercase text-cf-white shadow-sm outline-none transition-all duration-300 ease-in-out;
+
+    &:hover {
+      @apply scale-110 rounded-[0.5em];
+    }
+
+    /* btn variants */
+    &.btn-gradient {
+      @apply from-primary
+        to-secondary dark:to-secondaryDark shadow-secondary/50 dark:shadow-secondaryDark/50 bg-gradient-to-r
+        [text-shadow:_0.05em_0.05em_0_#3b82f6];
+
+      &:hover {
+        @apply from-primary/95 to-secondary/95 dark:to-secondaryDark/95 dark:ring-secondaryDark/95 ring-secondary/95 bg-gradient-to-r ring-1;
+      }
+    }
+
+    &.btn-gradient-amber {
+      @apply from-ternary to-ternary-light shadow-ternary/50 bg-gradient-to-r [text-shadow:_0.05em_0.05em_0_#52525b];
+
+      &:hover {
+        @apply from-ternary/95 to-ternary-light/95 ring-ternary-light/95 bg-gradient-to-r ring-1;
+      }
+    }
+  }
+}
+
+@keyframes home-navTop-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-10vh);
+  }
+}
+
+@keyframes title-enter {
+  from {
+    transform: translateX(-100vw);
+  }
+}
+
+@keyframes sub-title-enter {
+  from {
+    transform: translateX(100vw);
+  }
+}
+@keyframes hero-title-wrapper-enter {
+  to {
+    background: hsla(240, 5%, 96%, 0.15);
+  }
+}
+
+@keyframes arrow_enter {
+  from {
+    transform: rotateZ(180deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateZ(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes arrow_bounce {
+  0%,
+  100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
 }
