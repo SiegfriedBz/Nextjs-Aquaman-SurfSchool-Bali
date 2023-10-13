@@ -5,9 +5,9 @@ const Logo = () => {
   return (
     <Link href='/' id='brand-logo'>
       <Image
-        src='/images/logo-text-white-circle.png'
+        src='/logo.png'
         alt='brand logo'
-        objectFit='cover'
+        style={{ objectSize: 'cover' }}
         width={96}
         height={96}
       />
