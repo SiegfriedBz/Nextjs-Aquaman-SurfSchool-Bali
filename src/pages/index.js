@@ -5,7 +5,7 @@ import HomePageLayout from '@/components/layouts/HomePageLayout'
 export default function Home() {
   return (
     <HomePageLayout>
-      <section id='hero'>
+      <section>
         <Hero />
       </section>
 

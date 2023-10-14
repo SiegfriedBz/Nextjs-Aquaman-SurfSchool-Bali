@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  /* navbar & brand logo sizes */
+  /* navbar, & brand logo sizes */
   --nav-small-height: 6rem;
   --nav-mid-height: 7rem;
   --nav-big-height: 8rem;
@@ -138,8 +138,7 @@
       top: 0;
       left: 0;
       right: 0;
-      width: 100vw;
-      min-height: 100vh;
+      height: 100%;
       max-width: 100%;
 
       background-image: url('/images/surf.png');
