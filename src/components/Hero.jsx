@@ -1,4 +1,10 @@
-import { useState, useRef, useLayoutEffect, useEffect } from 'react'
+import {
+  useState,
+  useRef,
+  useLayoutEffect,
+  useEffect,
+  useCallback,
+} from 'react'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleDown } from '@fortawesome/free-regular-svg-icons'
@@ -10,17 +16,21 @@ const Hero = () => {
   const [viewportOffset, setViewportOffset] = useState(0)
 
   // dynamic set hero height to viewport height
-  useLayoutEffect(() => {
+
+  const setHeroHeight = useCallback(() => {
     if (window == undefined || heroRef?.current == null) return
 
-    const setHeroHeight = () => {
-      const adjustedHeroHeight = window.outerHeight - viewportOffset
-      heroRef.current.style.height = `${adjustedHeroHeight}px`
-    }
-
     setViewportOffset(window.outerHeight - window.innerHeight)
-    setHeroHeight()
 
+    const adjustedHeroHeight = window.outerHeight - viewportOffset
+    heroRef.current.style.height = `${adjustedHeroHeight}px`
+  }, [viewportOffset])
+
+  useLayoutEffect(() => {
+    setHeroHeight()
+  }, [setHeroHeight])
+
+  useEffect(() => {
     const handleResize = () => {
       setHeroHeight()
     }
@@ -30,7 +40,7 @@ const Hero = () => {
     return () => {
       window.removeEventListener('resize', handleResize)
     }
-  }, [viewportOffset])
+  }, [setHeroHeight])
 
   return (
     <div
