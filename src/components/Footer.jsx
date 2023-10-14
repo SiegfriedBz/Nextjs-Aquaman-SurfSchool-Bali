@@ -93,42 +93,53 @@ const Footer = () => {
           </div>
 
           {/* desktop links */}
-          <ul
+
+          <div
             id='footer-links'
-            className='relative top-2 hidden flex-col items-center space-y-2 sm:flex md:top-[0.75rem] lg:absolute lg:left-1/2 lg:-translate-x-1/2'
+            className='hidden items-center space-x-24 sm:flex md:top-10 lg:absolute lg:left-1/2 lg:-translate-x-1/2'
           >
-            <li>
-              <Link href='#'>
-                <span className='text-gradient sm:text-lg md:text-xl'>
-                  Surf Lessons
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link href='#'>
-                <span className='text-gradient sm:text-lg md:text-xl'>
-                  Surf Trips
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link href='#'>
-                <span className='text-gradient sm:text-lg md:text-xl'>
-                  Photo & Video
-                </span>
-              </Link>
-            </li>
-            <li className='hidden md:inline-block'>
-              <Link href='#'>
-                <span className='text-gradient text-xl'>Gallery</span>
-              </Link>
-            </li>
-            <li className='mb-0 hidden pb-0 md:inline-block'>
-              <Link href='#'>
-                <span className='text-gradient text-xl'>About me</span>
-              </Link>
-            </li>
-          </ul>
+            <ul className='relative top-2 flex flex-col items-center justify-center space-y-2 lg:items-start lg:space-y-3'>
+              <li>
+                <Link href='/surf-lessons'>
+                  <span className='text-gradient sm:text-lg md:text-xl'>
+                    Surf Lessons
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href='/surf-trips'>
+                  <span className='text-gradient sm:text-lg md:text-xl'>
+                    Surf Trips
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href='/photo-video'>
+                  <span className='text-gradient sm:text-lg md:text-xl'>
+                    Photo & Video
+                  </span>
+                </Link>
+              </li>
+            </ul>
+
+            <ul className='relative top-2 hidden flex-col justify-center space-y-3 lg:flex'>
+              <li className='hidden md:inline-block'>
+                <Link href='/gallery'>
+                  <span className='text-gradient text-xl'>Gallery</span>
+                </Link>
+              </li>
+              <li className='mb-0 hidden pb-0 md:inline-block'>
+                <Link href='/about-me'>
+                  <span className='text-gradient text-xl'>About me</span>
+                </Link>
+              </li>
+              <li className='mb-0 hidden pb-0 md:inline-block'>
+                <Link href='/#testiminials'>
+                  <span className='text-gradient text-xl'>Testimonials</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
 
           {/* icons */}
           <div
