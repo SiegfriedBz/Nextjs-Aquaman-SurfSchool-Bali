@@ -93,31 +93,37 @@ const Footer = () => {
           {/* desktop links */}
           <ul
             id='footer-desktop-links'
-            className='relative top-[0.85rem] hidden flex-col items-center space-y-2 md:flex lg:absolute lg:left-1/2 lg:-translate-x-1/2'
+            className='relative top-2 hidden flex-col items-center space-y-2 sm:flex md:top-[0.75rem] lg:absolute lg:left-1/2 lg:-translate-x-1/2'
           >
             <li>
               <Link href='#'>
-                <span className='text-gradient md:text-xl'>Surf Lessons</span>
+                <span className='text-gradient sm:text-lg md:text-xl'>
+                  Surf Lessons
+                </span>
               </Link>
             </li>
             <li>
               <Link href='#'>
-                <span className='text-gradient md:text-xl'>Surf Trips</span>
+                <span className='text-gradient sm:text-lg md:text-xl'>
+                  Surf Trips
+                </span>
               </Link>
             </li>
             <li>
               <Link href='#'>
-                <span className='text-gradient md:text-xl'>Photo & Video</span>
+                <span className='text-gradient sm:text-lg md:text-xl'>
+                  Photo & Video
+                </span>
               </Link>
             </li>
-            <li>
+            <li className='hidden md:inline-block'>
               <Link href='#'>
-                <span className='text-gradient md:text-xl'>Gallery</span>
+                <span className='text-gradient text-xl'>Gallery</span>
               </Link>
             </li>
-            <li>
+            <li className='mb-0 hidden pb-0 md:inline-block'>
               <Link href='#'>
-                <span className='text-gradient md:text-xl'>About me</span>
+                <span className='text-gradient text-xl'>About me</span>
               </Link>
             </li>
           </ul>
