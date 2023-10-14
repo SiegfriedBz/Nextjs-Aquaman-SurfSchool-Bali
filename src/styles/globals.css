@@ -20,6 +20,9 @@
   --header-delay: var(--after_titles_delay);
   --arrow-duration: 800ms;
   --arrow-delay: var(--after_titles_delay);
+
+  --sub-hero-duration: 400ms;
+  --sub-hero-delay: var(--after_titles_delay);
 }
 
 @layer base {
@@ -71,92 +74,80 @@
   }
 
   a:not(.base-link) {
-    @apply hover:after:bg-primary/75
-      focus:after:bg-primary/75
-      active:after:bg-primary/75
-
-      dark:hover:after:bg-secondaryDark/75 
-      dark:focus:after:bg-secondaryDark/75 
-      dark:active:after:bg-secondaryDark/75 
-
-      relative
+    @apply relative
       transition-all
       duration-300
 
-      ease-in-out
-      after:absolute
-      after:bottom-[-0.1em]
+      ease-in-out 
+      after:absolute 
+      after:bottom-[-0.1em] 
+
       after:left-0
+      after:h-[0.1em]
+      after:w-0
 
-      after:h-[0.1em] after:w-0 after:transition-all 
-      after:duration-500 after:ease-in-out after:content-[""] 
+      after:transition-all
+      after:duration-500
+      after:ease-in-out
+      after:content-[""]
 
-      hover:text-cf-dark/50
-      hover:after:w-full focus:text-cf-dark/50 focus:after:w-full
+      hover:text-cf-dark/50 hover:after:w-full hover:after:bg-primary/75 
+      focus:text-cf-dark/50 focus:after:w-full focus:after:bg-primary/75 
+
       active:text-cf-dark/50
-      active:after:w-full
-      dark:hover:text-cf-white/50
+      active:after:w-full active:after:bg-primary/75 dark:hover:text-cf-white/50
+      dark:hover:after:bg-secondaryDark/75
       dark:focus:text-cf-white/50
-      dark:active:text-cf-white/50;
+      dark:focus:after:bg-secondaryDark/75
+      dark:active:text-cf-white/50
+      dark:active:after:bg-secondaryDark/75;
   }
 
   hr {
-    @apply bg-primary h-[0.1rem];
+    @apply h-[0.1rem] bg-primary;
   }
 }
 
 @layer components {
-  .gradient-section {
-    background: linear-gradient(
-      to right,
-      hsla(240, 5%, 96%, 0.15) 0%,
-      hsla(240, 5%, 96%, 0.15) 100%
-    );
-  }
-
   #header {
-    z-index: 9999;
+    z-index: 999;
 
     &.home-navTop {
       animation: home-navTop-enter var(--header-duration) ease
         var(--header-delay) backwards;
     }
-  }
 
-  .navbar {
-    @apply h-[var(--nav-small-height)]
+    .navbar {
+      @apply h-[var(--nav-small-height)]
       sm:h-[var(--nav-mid-height)]
       md:h-[var(--nav-big-height)];
-  }
 
-  #brand-logo {
-    @apply from-primary to-secondary dark:to-secondaryDark ring-secondary
-      dark:ring-secondaryDark shadow-secondary
-      dark:shadow-secondaryDark
-       absolute
-      left-2
-      h-[var(--logo-small-size)]
-      w-[var(--logo-small-size)]
-      rounded-full
-      border-none
-      bg-gradient-to-r p-1  
-      shadow-sm
-      outline-none ring-2
-      transition-all
-      duration-300 
-      ease-in-out hover:scale-110
-      focus:scale-110 dark:shadow-sm sm:h-[var(--logo-mid-size)] 
-      sm:w-[var(--logo-mid-size)] md:h-[var(--logo-big-size)] 
-      md:w-[var(--logo-big-size)];
+      & #brand-logo {
+        @apply absolute left-2 h-[var(--logo-small-size)] w-[var(--logo-small-size)]
+          rounded-full border-none
+          bg-gradient-to-r
+        from-primary
+        to-secondary
+          p-1
+          shadow-sm
+        shadow-secondary
+          outline-none
+          ring-2 ring-secondary  
+          transition-all
+          duration-300 ease-in-out
+          hover:scale-110
+          focus:scale-110 
+        dark:to-secondaryDark dark:shadow-sm
+        dark:shadow-secondaryDark dark:ring-secondaryDark sm:h-[var(--logo-mid-size)] 
+          sm:w-[var(--logo-mid-size)] md:h-[var(--logo-big-size)] 
+          md:w-[var(--logo-big-size)];
+      }
+    }
   }
 
   #hero {
-    z-index: -999;
-
     .hero-image {
       position: absolute;
-      z-index: -999;
-
       top: 0;
       left: 0;
       right: 0;
@@ -189,6 +180,12 @@
     }
   }
 
+  /* to prevent flash before hero image is painted */
+  #sub-hero {
+    animation: sub-hero-enter var(--sub-hero-duration) ease
+      var(--sub-hero-delay) backwards;
+  }
+
   /* ================================================================= */
   /* ================================================================= */
   /* ================================================================= */
@@ -214,11 +211,11 @@
   }
 
   .text-gradient {
-    @apply from-primary to-secondary dark:to-secondaryDark bg-gradient-to-r bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent dark:to-secondaryDark;
   }
 
   .border-gradient {
-    @apply from-primary to-secondary dark:to-secondaryDark border-none bg-gradient-to-r dark:text-cf-white;
+    @apply border-none bg-gradient-to-r from-primary to-secondary dark:to-secondaryDark dark:text-cf-white;
   }
 
   .btn {
@@ -230,20 +227,20 @@
 
     /* btn variants */
     &.btn-gradient {
-      @apply from-primary
-        to-secondary dark:to-secondaryDark shadow-secondary/50 dark:shadow-secondaryDark/50 bg-gradient-to-r
-        [text-shadow:_0.05em_0.05em_0_#3b82f6];
+      @apply bg-gradient-to-r
+        from-primary to-secondary shadow-secondary/50 [text-shadow:_0.05em_0.05em_0_#3b82f6] dark:to-secondaryDark
+        dark:shadow-secondaryDark/50;
 
       &:hover {
-        @apply from-primary/95 to-secondary/95 dark:to-secondaryDark/95 dark:ring-secondaryDark/95 ring-secondary/95 bg-gradient-to-r ring-1;
+        @apply bg-gradient-to-r from-primary/95 to-secondary/95 ring-1 ring-secondary/95 dark:to-secondaryDark/95 dark:ring-secondaryDark/95;
       }
     }
 
     &.btn-gradient-amber {
-      @apply from-ternary to-ternary-light shadow-ternary/50 bg-gradient-to-r [text-shadow:_0.05em_0.05em_0_#52525b];
+      @apply bg-gradient-to-r from-ternary to-ternary-light shadow-ternary/50 [text-shadow:_0.05em_0.05em_0_#52525b];
 
       &:hover {
-        @apply from-ternary/95 to-ternary-light/95 ring-ternary-light/95 bg-gradient-to-r ring-1;
+        @apply bg-gradient-to-r from-ternary/95 to-ternary-light/95 ring-1 ring-ternary-light/95;
       }
     }
   }
@@ -293,5 +290,11 @@
   50% {
     transform: translateY(0);
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes sub-hero-enter {
+  from {
+    opacity: 0;
   }
 }
