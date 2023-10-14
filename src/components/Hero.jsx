@@ -8,6 +8,7 @@ import {
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleDown } from '@fortawesome/free-regular-svg-icons'
+import useScreenOrientation from '@/hooks/useScreenOrientation'
 
 const Hero = () => {
   const heroRef = useRef(null)
@@ -16,30 +17,16 @@ const Hero = () => {
   const [viewportOffset, setViewportOffset] = useState(0)
 
   // dynamic set hero height to viewport height
-
   const setHeroHeight = useCallback(() => {
-    if (window == undefined || heroRef?.current == null) return
-
-    setViewportOffset(window.outerHeight - window.innerHeight)
-
     const adjustedHeroHeight = window.outerHeight - viewportOffset
     heroRef.current.style.height = `${adjustedHeroHeight}px`
   }, [viewportOffset])
 
   useLayoutEffect(() => {
+    if (window == undefined || heroRef?.current == null) return
+
+    setViewportOffset(window.outerHeight - window.innerHeight)
     setHeroHeight()
-  }, [setHeroHeight])
-
-  useEffect(() => {
-    const handleResize = () => {
-      setHeroHeight()
-    }
-
-    window.addEventListener('resize', handleResize)
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
   }, [setHeroHeight])
 
   return (
