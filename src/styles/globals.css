@@ -13,11 +13,15 @@
 
   /* animations */
   --title-duration: 700ms;
+
   --sub-title-duration: 500ms;
   --sub-title-delay: calc(var(--title-duration) - 200ms);
+
   --after_titles_delay: calc(var(--title-duration) + var(--sub-title-duration));
+
   --header-duration: 400ms;
   --header-delay: var(--after_titles_delay);
+
   --arrow-duration: 800ms;
   --arrow-delay: var(--after_titles_delay);
 

@@ -16,10 +16,10 @@ const Navbar = () => {
         {/* mobile & desktop */}
         <Link
           id='brand-link'
-          className='base-link absolute left-16 top-1/2 inline-block  -translate-y-1/2 sm:left-24'
+          className='base-link absolute left-16 top-1/2 inline-block w-1/2 -translate-y-1/2 xs:w-1/3 sm:left-24 sm:w-1/4 xl:w-1/6'
           href='/'
         >
-          <h5 className='text-gradient mb-0 max-w-max whitespace-nowrap font-extrabold italic'>
+          <h5 className='text-gradient mb-0 w-full whitespace-nowrap font-bold italic'>
             Aquaman Bali
           </h5>
         </Link>
