@@ -5,7 +5,6 @@ import { BorderTopGradient } from './BorderGradient'
 import {
   CoffeeIconLink,
   IgIconLink,
-  StreetViewIconLink,
   TiktokIconLink,
   WhatsappIconLink,
 } from './Icons'
@@ -134,13 +133,13 @@ const Footer = () => {
             className='my-auto flex flex-col items-center md:gap-6'
           >
             <div className='flex items-center justify-between md:gap-6'>
-              <TiktokIconLink className='px-1 py-1' navBarIcon={false} />
-              <WhatsappIconLink className='px-2 py-1' navBarIcon={false} />
+              <TiktokIconLink className='px-1 py-1' />
+              <WhatsappIconLink className='px-2 py-1' />
             </div>
 
             <div className='flex items-center justify-between md:gap-6'>
-              <IgIconLink className='px-2 pt-1' navBarIcon={false} />
-              <CoffeeIconLink className='py-2 pe-2 ps-3' navBarIcon={false} />
+              <IgIconLink className='px-2 pt-1' />
+              <CoffeeIconLink className='py-2 pe-2 ps-3' />
             </div>
           </div>
         </div>
