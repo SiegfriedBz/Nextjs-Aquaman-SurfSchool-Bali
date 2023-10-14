@@ -168,7 +168,7 @@ const Footer = () => {
               href={process.env.NEXT_PUBLIC_AUTHOR_WHATSAPP_LINK || '/'}
               target='_blank'
             >
-              <span className='text-gradient sm:text-lg md:text-xl'>
+              <span className='text-gradient font-bold sm:text-lg md:text-xl'>
                 SiegfriedB
               </span>
             </a>
