@@ -1,5 +1,5 @@
 import { BorderFullGradient } from '@/components/BorderGradient'
-import ButtonGradient from '@/components/ButtonGradient'
+import { ButtonGradient } from '@/components/ButtonGradient'
 import PageLayout from '@/components/layouts/PageLayout'
 
 export default function About() {
