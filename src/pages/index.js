@@ -5,13 +5,11 @@ import HomePageLayout from '@/components/layouts/HomePageLayout'
 export default function Home() {
   return (
     <HomePageLayout>
-      <section>
+      <section id='hero'>
         <Hero />
       </section>
 
-      <hr className='my-8 h-[0.1rem] bg-blue-500' />
-
-      <section id='school-carousel' className=''>
+      <section id='school-carousel'>
         school-carouselIm baby copper mug PBR&B craft beer lo-fi cornhole pork
         belly vaporware blog hot chicken lyft tattooed. Hammock bruh tote bag,
         cupping fingerstache flannel affogato enamel pin echo park pabst
@@ -22,8 +20,9 @@ export default function Home() {
         hot chicken cliche DSA. Tote bag celiac 90s, fanny pack banh mi migas
       </section>
 
-      <hr className='my-8 h-[0.1rem] bg-blue-500' />
-      <section id='about-me' className=''>
+      <hr />
+
+      <section id='about-me'>
         about-me Im baby copper mug PBR&B craft beer lo-fi cornhole pork belly
         vaporware blog hot chicken lyft tattooed. Hammock bruh tote bag, cupping
         fingerstache flannel affogato enamel pin echo park pabst typewriter
@@ -34,7 +33,7 @@ export default function Home() {
         chicken cliche DSA. Tote bag celiac 90s, fanny pack banh mi migas
       </section>
 
-      <hr className='my-8 h-[0.1rem] bg-blue-500' />
+      <hr />
 
       <section id='testimonials'>
         testimonials about-me Im baby copper mug PBR&B craft beer lo-fi cornhole
@@ -47,7 +46,7 @@ export default function Home() {
         hot chicken cliche DSA. Tote bag celiac 90s, fanny pack banh mi migas
       </section>
 
-      <hr className='my-8 h-[0.1rem] bg-blue-500' />
+      <hr />
 
       <section id='home-map'>
         home-map about-me Im baby copper mug PBR&B craft beer lo-fi cornhole

@@ -27,9 +27,19 @@
   body {
     overflow-x: hidden;
   }
-  body {
+
+  .layout-gradient {
+    @apply bg-gradient-to-r from-stone-100 to-stone-50 text-cf-dark dark:from-cf-dark dark:to-cf-dark dark:text-cf-white;
+  }
+
+  section:not(#hero) {
+    @apply py-8;
+  }
+
+  section:not(#hero):nth-of-type(2n) {
     @apply bg-cf-white text-cf-dark dark:bg-cf-dark dark:text-cf-white;
   }
+
   h1 {
     @apply mb-5 text-5xl font-extrabold sm:text-6xl md:text-7xl lg:text-9xl;
   }
@@ -89,9 +99,21 @@
       dark:focus:text-cf-white/50
       dark:active:text-cf-white/50;
   }
+
+  hr {
+    @apply bg-primary h-[0.1rem];
+  }
 }
 
 @layer components {
+  .gradient-section {
+    background: linear-gradient(
+      to right,
+      hsla(240, 5%, 96%, 0.15) 0%,
+      hsla(240, 5%, 96%, 0.15) 100%
+    );
+  }
+
   #header {
     z-index: 9999;
 

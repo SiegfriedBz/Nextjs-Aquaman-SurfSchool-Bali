@@ -37,7 +37,10 @@ const Footer = () => {
 
   return (
     <footer id='footer' className='container'>
-      <BorderTopGradient childrenWrapperExtraClasses='flex min-w-full flex-col px-2 py-6'>
+      <BorderTopGradient
+        childrenWrapperColor='layout-gradient'
+        childrenWrapperExtraClasses='flex min-w-full flex-col px-2 py-6'
+      >
         {/* operating hours */}
         <motion.div
           id='footer-hours'

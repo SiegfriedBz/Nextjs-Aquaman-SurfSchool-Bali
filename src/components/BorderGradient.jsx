@@ -36,6 +36,7 @@ export const BorderBottomGradient = ({
 export const BorderTopGradient = ({
   padding = 'p-0 pt-[0.1em] ',
   className = '',
+  childrenWrapperColor = '',
   childrenWrapperExtraClasses = '',
   children,
 }) => {
@@ -43,6 +44,7 @@ export const BorderTopGradient = ({
     <BorderBaseGradient
       padding={padding}
       className={className}
+      childrenWrapperColor={childrenWrapperColor}
       childrenWrapperExtraClasses={childrenWrapperExtraClasses}
     >
       {children}

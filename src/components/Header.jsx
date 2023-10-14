@@ -14,9 +14,8 @@ const Header = () => {
   return (
     <header
       id='header'
-      className={`fixed left-0 right-0 top-0 bg-cf-white dark:bg-cf-dark ${
-        isHomePage ? 'home-navTop' : ''
-      }`}
+      className={`fixed left-0 right-0 top-0
+       ${isHomePage ? 'home-navTop' : ''}`}
     >
       <BorderBottomGradient>
         <Navbar />

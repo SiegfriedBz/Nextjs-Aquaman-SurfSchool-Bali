@@ -9,7 +9,7 @@ const Navbar = () => {
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false)
 
   return (
-    <div className='navbar relative'>
+    <div className='navbar layout-gradient relative'>
       <div className='container flex h-full flex-col justify-center'>
         <Logo />
 
