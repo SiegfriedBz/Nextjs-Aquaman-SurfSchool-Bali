@@ -114,7 +114,7 @@
 
 @layer components {
   #header {
-    z-index: 999;
+    @apply z-[999];
 
     &.home-navTop {
       animation: home-navTop-enter var(--header-duration) ease
@@ -122,8 +122,7 @@
     }
 
     .navbar {
-      z-index: 999;
-      @apply h-[var(--nav-small-height)]
+      @apply z-[999] h-[var(--nav-small-height)]
       sm:h-[var(--nav-mid-height)]
       md:h-[var(--nav-big-height)];
 
@@ -152,28 +151,11 @@
 
   #hero {
     .hero-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 100%;
-      max-width: 100%;
-
-      background-image: url('/images/surf.png');
-      background-position: 35% 0.75rem;
-
-      background-size: cover;
-      background-repeat: no-repeat;
-      border-radius: 0.25em;
+      @apply absolute left-0 right-0 top-0 h-full max-w-full rounded-[0.25em] bg-[url('/images/surf.png')] bg-cover bg-[35%] bg-no-repeat sm:bg-[25%] md:bg-[15%];
     }
 
     .hero-title-wrapper {
-      width: 100%;
-      margin-top: var(--nav-small-height);
-      padding: 0.75rem;
-      border-radius: 0.5em;
-
-      background: transparent;
+      @apply mt-[var(--nav-small-height)] w-full rounded-[0.5em] bg-transparent p-[0.75rem] sm:mt-[var(--nav-mid-height)] md:mt-[var(--nav-big-height)];
 
       animation: hero-title-wrapper-enter calc(var(--title-duration) * 1.5)
         ease-in forwards;
