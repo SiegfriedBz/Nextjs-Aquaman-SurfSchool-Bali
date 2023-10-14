@@ -92,7 +92,7 @@ const Footer = () => {
 
           {/* desktop links */}
           <ul
-            id='footer-desktop-links'
+            id='footer-links'
             className='relative top-2 hidden flex-col items-center space-y-2 sm:flex md:top-[0.75rem] lg:absolute lg:left-1/2 lg:-translate-x-1/2'
           >
             <li>
@@ -127,6 +127,7 @@ const Footer = () => {
               </Link>
             </li>
           </ul>
+
           {/* icons */}
           <div
             id='footer-icons'
@@ -144,6 +145,7 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* credits */}
         <div id='footer-credits'>
           <h2 className='mt-5 text-center text-sm text-cf-dark dark:text-cf-white'>
             <span>
@@ -151,25 +153,24 @@ const Footer = () => {
             </span>
           </h2>
 
-          <h2 className='mb-0 flex w-full flex-row items-center justify-center'>
+          <div className='mb-0 flex w-full flex-row items-center justify-center'>
+            <Image
+              src={swissFlag}
+              alt='Swiss Flag'
+              width={16}
+              height={16}
+              className='rounded-full'
+            />
+            <span className='mx-2'>Swiss-made by</span>
             <a
-              href='https://api.whatsapp.com/send/?phone=41767294354&text&type=phone_number&app_absent=0'
+              href={process.env.NEXT_PUBLIC_AUTHOR_WHATSAPP_LINK || '/'}
               target='_blank'
-              className='base-link 
-                inline-flex flex-row items-center
-                        justify-center text-sm hover:text-cf-dark/95 dark:hover:text-cf-white/90'
             >
-              <Image
-                src={swissFlag}
-                alt='Swiss Flag'
-                width={16}
-                height={16}
-                className='me-2 rounded-full'
-              />
-              Swiss-made by{' '}
-              <span className='underline underline-offset-2'>SiegfriedB</span>
+              <span className='text-gradient sm:text-lg md:text-xl'>
+                SiegfriedB
+              </span>
             </a>
-          </h2>
+          </div>
         </div>
       </BorderTopGradient>
     </footer>
