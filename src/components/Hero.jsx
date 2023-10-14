@@ -1,33 +1,11 @@
-import {
-  useState,
-  useRef,
-  useLayoutEffect,
-  useEffect,
-  useCallback,
-} from 'react'
+import { useState, forwardRef } from 'react'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleDown } from '@fortawesome/free-regular-svg-icons'
-import useScreenOrientation from '@/hooks/useScreenOrientation'
 
-const Hero = () => {
-  const heroRef = useRef(null)
+const Hero = (props, heroRef) => {
   const router = useRouter()
   const [arrowIsClicked, setArrowIsClicked] = useState(false)
-  const [viewportOffset, setViewportOffset] = useState(0)
-
-  // dynamic set hero height to viewport height
-  const setHeroHeight = useCallback(() => {
-    const adjustedHeroHeight = window.outerHeight - viewportOffset
-    heroRef.current.style.height = `${adjustedHeroHeight}px`
-  }, [viewportOffset])
-
-  useLayoutEffect(() => {
-    if (window == undefined || heroRef?.current == null) return
-
-    setViewportOffset(window.outerHeight - window.innerHeight)
-    setHeroHeight()
-  }, [setHeroHeight])
 
   return (
     <div
@@ -60,4 +38,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default forwardRef(Hero)

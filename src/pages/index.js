@@ -1,12 +1,28 @@
-import { BorderBottomGradient } from '@/components/BorderGradient'
+import { useState, useRef, useLayoutEffect, useCallback } from 'react'
 import Hero from '@/components/Hero'
 import HomePageLayout from '@/components/layouts/HomePageLayout'
 
 export default function Home() {
+  const heroRef = useRef(null)
+  const [viewportOffset, setViewportOffset] = useState(0)
+
+  // dynamic set hero height to viewport height before painting component to the screen
+  const setHeroHeight = useCallback(() => {
+    const adjustedHeroHeight = window.outerHeight - viewportOffset
+    heroRef.current.style.height = `${adjustedHeroHeight}px`
+  }, [viewportOffset])
+
+  useLayoutEffect(() => {
+    if (window == undefined || heroRef?.current == null) return
+
+    setViewportOffset(window.outerHeight - window.innerHeight)
+    setHeroHeight()
+  }, [setHeroHeight])
+
   return (
     <HomePageLayout>
       <section id='hero'>
-        <Hero />
+        <Hero ref={heroRef} />
       </section>
 
       <section id='school-carousel'>
