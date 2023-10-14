@@ -205,7 +205,8 @@
     @apply border-none bg-gradient-to-r from-primary to-secondary dark:to-secondaryDark dark:text-cf-white;
   }
 
-  .btn {
+  .btn,
+  .btn-link {
     @apply rounded-[0.5em] border-none font-extrabold uppercase text-cf-white shadow-sm outline-none transition-all duration-300 ease-in-out;
 
     &:hover {
@@ -213,7 +214,8 @@
     }
 
     /* btn variants */
-    &.btn-gradient {
+    &.btn-gradient,
+    &.btn-gradient-link {
       @apply bg-gradient-to-r
         from-primary to-secondary shadow-secondary/50 [text-shadow:_0.05em_0.05em_0_#3b82f6] dark:to-secondaryDark
         dark:shadow-secondaryDark/50;
@@ -223,7 +225,8 @@
       }
     }
 
-    &.btn-gradient-amber {
+    &.btn-gradient-amber,
+    &.btn-gradient-link-amber {
       @apply bg-gradient-to-r from-ternary to-ternary-light shadow-ternary/50 [text-shadow:_0.05em_0.05em_0_#52525b];
 
       &:hover {
