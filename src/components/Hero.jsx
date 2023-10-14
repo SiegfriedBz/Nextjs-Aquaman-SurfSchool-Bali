@@ -1,12 +1,12 @@
-import { useState, useRef, useLayoutEffect } from 'react'
+import { useState, useRef, useLayoutEffect, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleDown } from '@fortawesome/free-regular-svg-icons'
 
 const Hero = () => {
+  const heroRef = useRef(null)
   const router = useRouter()
   const [arrowIsClicked, setArrowIsClicked] = useState(false)
-  const heroRef = useRef(null)
   const [viewportOffset, setViewportOffset] = useState(0)
 
   // dynamic set hero height to viewport height
@@ -37,7 +37,7 @@ const Hero = () => {
       id='hero'
       ref={heroRef}
       // className='grid items-center justify-between sm:grid-cols-4 md:grid-cols-6 md:grid-rows-4 '
-      className='flex flex-col items-center justify-between'
+      className='flex min-h-screen flex-col items-center justify-between'
     >
       <div className='hero-image opacity-100 dark:opacity-90'></div>
       <div className='hero-title-wrapper'>
