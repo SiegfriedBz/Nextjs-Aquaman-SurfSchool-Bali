@@ -36,10 +36,15 @@ export const BorderBottomGradient = ({
 export const BorderTopGradient = ({
   padding = 'p-0 pt-[0.1em] ',
   className = '',
+  childrenWrapperExtraClasses = '',
   children,
 }) => {
   return (
-    <BorderBaseGradient padding={padding} className={className}>
+    <BorderBaseGradient
+      padding={padding}
+      className={className}
+      childrenWrapperExtraClasses={childrenWrapperExtraClasses}
+    >
       {children}
     </BorderBaseGradient>
   )
