@@ -63,7 +63,7 @@
     @apply mb-2 text-lg sm:text-xl md:text-2xl lg:text-3xl;
   }
   h6 {
-    @apply text-lg md:text-xl 2xl:text-2xl;
+    @apply text-lg md:text-xl 2xl:text-[1.35rem];
   }
   p {
     @apply my-1 text-cf-dark dark:text-cf-white sm:text-lg md:text-xl;
@@ -122,6 +122,7 @@
     }
 
     .navbar {
+      z-index: 999;
       @apply h-[var(--nav-small-height)]
       sm:h-[var(--nav-mid-height)]
       md:h-[var(--nav-big-height)];

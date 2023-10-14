@@ -24,6 +24,7 @@ export default function Home() {
       <section id='hero'>
         <Hero ref={heroRef} />
       </section>
+
       <div id='sub-hero'>
         <section id='school-carousel'>
           school-carouselIm baby copper mug PBR&B craft beer lo-fi cornhole pork
