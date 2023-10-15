@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion'
 
-const Modal = ({ mobileMenuIsOpen, setMobileMenuIsOpen, children }) => {
+const Modal = ({
+  mobileMenuIsOpen,
+  setMobileMenuIsOpen,
+  className,
+  children,
+}) => {
   return (
     <motion.div
       id='backdrop'
-      className={`${
-        mobileMenuIsOpen ? 'z-20' : '-z-50'
-      } fixed left-0 top-1/2 flex h-screen w-full -translate-y-1/2 items-center justify-center backdrop-blur-md lg:hidden`}
+      className={`${className} fixed left-0 top-1/2 flex h-screen w-full -translate-y-1/2 items-center justify-center backdrop-blur-md lg:hidden`}
       initial={{ opacity: 0 }}
       animate={mobileMenuIsOpen ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.3 }}
@@ -49,13 +52,15 @@ const ModalMenu = ({ mobileMenuIsOpen, children }) => {
       exit='exit'
       className='mx-4 flex w-full flex-col
         items-center justify-center
-        rounded-lg 
-        border border-stone-100
-        bg-slate-900/50
-
-        p-4 opacity-50
-        shadow-2xl
-        dark:border-slate-900 dark:bg-stone-100/50
+        rounded-lg
+        border 
+        border-slate-900
+        bg-stone-100/50
+        p-4
+        opacity-50 
+        shadow-sm shadow-slate-900
+        dark:border-stone-100 dark:bg-slate-900/50
+        dark:shadow-sm dark:shadow-stone-100
         sm:mx-12 md:mx-24 lg:hidden'
       onClick={(e) => e.stopPropagation()}
     >
