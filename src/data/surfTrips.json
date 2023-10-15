@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "alt": "Medewi",
+    "image": "v1694946301/rendy/spots/medewi"
+  },
+  {
+    "id": 2,
+    "alt": "Lombok",
+    "image": "v1694946278/rendy/spots/lombok"
+  },
+  {
+    "id": 3,
+    "alt": "Nuasa Lumboga",
+    "image": "v1694946265/rendy/spots/nusa_lumboga"
+  },
+  {
+    "id": 4,
+    "alt": "Serangan",
+    "image": "v1694946263/rendy/spots/serangan"
+  },
+  {
+    "id": 5,
+    "alt": "Uluwatu",
+    "image": "v1694946262/rendy/spots/uluwatu"
+  },
+  {
+    "id": 6,
+    "alt": "Balangan",
+    "image": "v1694946261/rendy/spots/balangan"
+  }
+]

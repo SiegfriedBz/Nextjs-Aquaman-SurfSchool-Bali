@@ -1,0 +1,57 @@
+import rendyTeach from '@/data/rendyTeach.json'
+import rendySurf from '@/data/rendySurf.json'
+const [
+  rendyTeach01,
+  rendyTeach02,
+  rendyTeach03,
+  rendyTeach04,
+  rendyTeach05,
+  rendyTeach06,
+  rendyTeach07,
+] = rendyTeach
+
+const [
+  rendySurf01,
+  ,
+  rendySurf02,
+  ,
+  rendySurf03,
+  ,
+  rendySurf04,
+  ,
+  rendySurf05,
+  rendySurf06,
+  rendySurf07,
+  rendySurf08,
+  rendySurf09,
+  rendySurf10,
+  ,
+  rendySurf11,
+  rendySurf12,
+  rendySurf13,
+  rendySurf14,
+] = rendySurf
+
+export const galleryImages = [
+  rendySurf01,
+  rendyTeach04,
+  rendySurf05,
+  rendyTeach07,
+  rendySurf11,
+  rendyTeach03,
+  rendySurf02,
+  rendyTeach01,
+  rendySurf03,
+  rendyTeach02,
+  rendySurf04,
+  rendyTeach05,
+  rendySurf06,
+  rendyTeach06,
+  rendySurf07,
+  rendySurf08,
+  rendySurf09,
+  rendySurf10,
+  rendySurf12,
+  rendySurf13,
+  rendySurf14,
+]
