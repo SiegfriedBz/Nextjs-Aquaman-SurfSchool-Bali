@@ -77,6 +77,14 @@
     @apply sm:text-lg md:text-xl;
   }
 
+  a.base-link {
+    @apply text-cf-dark
+      transition-all duration-300 ease-in-out
+    hover:text-cf-dark/90 
+    dark:text-cf-white 
+    dark:hover:text-cf-white/90;
+  }
+
   a:not(.base-link) {
     @apply relative
       transition-all
@@ -205,17 +213,15 @@
     @apply border-none bg-gradient-to-r from-primary to-secondary dark:to-secondaryDark dark:text-cf-white;
   }
 
-  .btn,
-  .btn-link {
+  .btn {
     @apply rounded-[0.5em] border-none font-extrabold uppercase text-cf-white shadow-sm outline-none transition-all duration-300 ease-in-out;
 
     &:hover {
       @apply scale-110 rounded-[0.5em];
     }
 
-    /* btn variants */
-    &.btn-gradient,
-    &.btn-gradient-link {
+    /* variants */
+    &.btn-gradient {
       @apply bg-gradient-to-r
         from-primary to-secondary shadow-secondary/50 [text-shadow:_0.05em_0.05em_0_#3b82f6] dark:to-secondaryDark
         dark:shadow-secondaryDark/50;
@@ -225,8 +231,7 @@
       }
     }
 
-    &.btn-gradient-amber,
-    &.btn-gradient-link-amber {
+    &.btn-gradient-amber {
       @apply bg-gradient-to-r from-ternary to-ternary-light shadow-ternary/50 [text-shadow:_0.05em_0.05em_0_#52525b];
 
       &:hover {
