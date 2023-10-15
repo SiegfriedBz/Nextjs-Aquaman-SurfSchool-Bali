@@ -3,7 +3,7 @@ import Hero from '@/components/Hero'
 import HomePageLayout from '@/components/layouts/HomePageLayout'
 import MapView from '@/components/MapView'
 import { Testimonials, TestimonialsLinks } from '@/components/Testimonials'
-import { LinkGradient } from '@/components/ButtonGradient'
+import { ButtonAsGradient } from '@/components/ButtonAsGradient'
 import { CustomCarousel } from '@/components/Carousel'
 import {
   homeSurfLessonsImages,
@@ -59,14 +59,15 @@ export default function Home({
             vaporware blog hot chicken lyft tattooed. Hammock bruh tote bag,
             cupping fingerstache flannel affogato enamel pin echo park pabst
           </p>
-          <LinkGradient
+          <ButtonAsGradient
+            As='Link'
             href='/surf-lessons'
             target='_self'
-            variant='btn-gradient-link-amber'
+            variant='btn-gradient-amber'
             extraClasses='mx-auto my-4'
           >
             Surf Lessons
-          </LinkGradient>
+          </ButtonAsGradient>
         </section>
 
         <hr />
@@ -87,14 +88,14 @@ export default function Home({
             surfing at the age of 8 and came to Bali in 2019 to work as a Surf
             Instructor at Batu Bolong Beach in Canggu.
           </p>
-          <LinkGradient
+          <ButtonAsGradient
             href='/about-me'
             target='_self'
-            variant='btn-gradient-link-amber'
+            variant='btn-gradient-amber'
             extraClasses='mx-auto my-4'
           >
             About me
-          </LinkGradient>
+          </ButtonAsGradient>
         </section>
 
         <hr />
@@ -113,14 +114,14 @@ export default function Home({
             vaporware blog hot chicken lyft tattooed. Hammock bruh tote bag,
             cupping fingerstache flannel affogato enamel pin echo park pabst
           </p>
-          <LinkGradient
+          <ButtonAsGradient
             href='/surf-trips'
             target='_self'
-            variant='btn-gradient-link-amber'
+            variant='btn-gradient-amber'
             extraClasses='mx-auto my-4'
           >
             Surf Trips
-          </LinkGradient>
+          </ButtonAsGradient>
         </section>
 
         <hr />
@@ -129,7 +130,9 @@ export default function Home({
           <h2 className='mx-auto'>Testimonials</h2>
           <Testimonials />
           <TestimonialsLinks />
-          <LinkGradient extraClasses='mx-auto my-4'>Surf Now</LinkGradient>
+          <ButtonAsGradient extraClasses='mx-auto my-4'>
+            Surf Now
+          </ButtonAsGradient>
         </section>
 
         <hr />
