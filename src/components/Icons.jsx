@@ -94,8 +94,8 @@ export const TiktokIconLink = ({ className = '' }) => {
     >
       <Image
         src={tikTokLogo}
-        width={45}
-        height={45}
+        width={42}
+        height={42}
         alt='tiktok-logo'
         className={`
         } ${className} transition duration-300 hover:scale-125`}

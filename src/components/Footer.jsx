@@ -158,7 +158,7 @@ const Footer = () => {
             </div>
 
             <div className='flex w-full items-center justify-between gap-4 md:gap-6'>
-              <IgIconLink />
+              <IgIconLink className='ms-1' />
               <CoffeeIconLink />
             </div>
           </div>
