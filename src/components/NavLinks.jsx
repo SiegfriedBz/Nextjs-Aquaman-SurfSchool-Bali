@@ -38,24 +38,24 @@ const NavLinks = ({ className = 'justify-end' }) => {
         </Link>
       </li>
       <li className='hidden md:inline-block'>
-        <Link href='/#testimonials'>
+        <Link href='/#home-testimonials'>
           <h6 className='text-gradient'>Testimonials</h6>
         </Link>
       </li>
       <li>
-        <StreetViewIconLink navbaricon={true} />
+        <StreetViewIconLink />
       </li>
       <li className='hidden 2xl:inline-block'>
-        <CoffeeIconLink navbaricon={true} />
+        <CoffeeIconLink />
       </li>
       <li className='hidden 2xl:inline-block'>
         <TiktokIconLink />
       </li>
       <li className='hidden xl:inline-block'>
-        <IgIconLink navbaricon={true} />
+        <IgIconLink />
       </li>
       <li>
-        <WhatsappIconLink navbaricon={true} />
+        <WhatsappIconLink />
       </li>
     </ul>
   )
