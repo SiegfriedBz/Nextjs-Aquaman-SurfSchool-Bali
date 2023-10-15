@@ -41,8 +41,8 @@ export const WhatsappIconLink = ({ className = '' }) => {
       href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
       icon={faWhatsapp}
       className={className}
-      color='text-teal-700'
-      hoverColor='hover:text-teal-500'
+      color='text-teal-700 dark:text-teal-500'
+      hoverColor='hover:text-teal-500 dark:hover:text-teal-300'
     />
   )
 }

@@ -86,19 +86,19 @@ const NavLinks = ({ className = '', modal = false }) => {
         } inline-flex items-center justify-end space-x-4 lg:space-x-6`}
       >
         <li>
-          <StreetViewIconLink className={modal ? 'text-[3rem] ' : ''} />
+          <StreetViewIconLink className={modal ? 'text-[3rem]' : ''} />
         </li>
         <li className={modal ? '' : 'hidden 2xl:inline-block'}>
-          <CoffeeIconLink className={modal ? 'text-[3rem] ' : ''} />
+          <CoffeeIconLink className={modal ? 'text-[3rem]' : ''} />
         </li>
         <li className={modal ? '' : 'hidden 2xl:inline-block'}>
           <TiktokIconLink className={modal ? 'h-12 w-12' : ''} />
         </li>
         <li className={modal ? '' : 'hidden xl:inline-block'}>
-          <IgIconLink className={modal ? 'text-[3rem] ' : ''} />
+          <IgIconLink className={modal ? 'text-[3rem]' : ''} />
         </li>
         <li>
-          <WhatsappIconLink className={modal ? 'text-[3rem] ' : ''} />
+          <WhatsappIconLink className={modal ? 'text-[3rem]' : ''} />
         </li>
       </span>
     </ul>
