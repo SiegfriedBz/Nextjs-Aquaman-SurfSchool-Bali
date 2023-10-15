@@ -16,7 +16,6 @@ export default Carousel
 
 export const CustomCarousel = ({
   images,
-  carouselId = '',
   carouselKey = '',
   carouselClasses = '',
   imageClasses = '',
@@ -27,7 +26,7 @@ export const CustomCarousel = ({
       {images.map((image) => {
         return (
           <div
-            key={`${carouselId}-${carouselKey}-${image.src}`}
+            key={`${carouselKey}-${image.src}`}
             className={`${styles.embla__slide} ${carouselClasses}`}
           >
             <Image
