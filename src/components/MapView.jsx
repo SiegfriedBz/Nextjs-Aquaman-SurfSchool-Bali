@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import Map, { Marker, Popup } from 'react-map-gl'
 import { useRouter } from 'next/router'
 import { useAppContext } from '@/context/appContext'
@@ -13,6 +13,15 @@ export default function MapView({ mapMarkers }) {
   const router = useRouter()
   const mapRef = useRef(null)
   const { showPopup, setShowPopup, popup, setPopup } = useAppContext()
+  const [mapHeight, setMapHeight] = useState(450)
+
+  // dynamic set map height = f (viewport width) before painting component to the screen
+  useLayoutEffect(() => {
+    if (window == undefined) return
+
+    const width = window.innerWidth
+    setMapHeight(width > 768 ? 500 : 450)
+  }, [])
 
   useEffect(() => {
     if (mapRef?.current == null || !showPopup) return
@@ -36,20 +45,15 @@ export default function MapView({ mapMarkers }) {
     <Map
       ref={mapRef}
       mapboxAccessToken={MAPBOX_TOKEN}
-      //   initialViewState={{
-      //     latitude: mapMarkers.canggu.latitude,
-      //     longitude: mapMarkers.canggu.longitude,
-      //     zoom: isSurfTripsRoute ? 6 : 10,
-      //   }}
       initialViewState={{
-        latitude: -8.66,
-        longitude: 115.13,
+        latitude: mapMarkers.canggu.latitude,
+        longitude: mapMarkers.canggu.longitude,
         zoom: isSurfTripsRoute ? 6 : 10,
       }}
-      style={{ width: 'auto', height: 450 }}
+      style={{ width: 'auto', height: mapHeight }}
       mapStyle='mapbox://styles/mapbox/streets-v9'
     >
-      {/* {showPopup && (
+      {showPopup && (
         <Popup
           latitude={popup.latitude}
           longitude={popup.longitude}
@@ -62,9 +66,9 @@ export default function MapView({ mapMarkers }) {
         >
           <MapPopup popup={popup} isSurfTripsRoute={isSurfTripsRoute} />
         </Popup>
-      )} */}
+      )}
 
-      {/* {Object.entries(mapMarkers).map(([spot, values]) => {
+      {Object.entries(mapMarkers).map(([spot, values]) => {
         return (
           <div key={spot} id={spot} onMouseEnter={() => handleSetPopup(spot)}>
             <Marker
@@ -83,7 +87,7 @@ export default function MapView({ mapMarkers }) {
             </Marker>
           </div>
         )
-      })} */}
+      })}
     </Map>
   )
 }
