@@ -107,7 +107,7 @@ export const SunIcon = ({ className, ...rest }) => (
     height='24'
     viewBox='0 0 24 24'
     {...rest}
-    className={`h-auto w-full ${className}`}
+    className={`z-[9999] h-auto w-full ${className}`}
   >
     <g
       fill='none'

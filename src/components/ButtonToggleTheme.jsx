@@ -18,9 +18,9 @@ const ButtonToggleTheme = () => {
     <>
       {isClient ? (
         colorMode === 'light' ? (
-          <MoonIcon className='w-[33px] fill-cf-dark dark:fill-cf-white' />
+          <MoonIcon className='w-[34px] md:w-[35px] lg:w-[37px]' />
         ) : (
-          <SunIcon className='w-[33px] fill-cf-dark dark:fill-cf-white' />
+          <SunIcon className='w-[34px] md:w-[35px] lg:w-[37px]' />
         )
       ) : (
         ''
@@ -32,7 +32,7 @@ const ButtonToggleTheme = () => {
     <button
       id='button-toggle-theme'
       onClick={toggleColorMode}
-      className='text-2xl dark:text-cf-white'
+      className='text-2xl text-amber-500 dark:text-cf-white'
     >
       {toggleIcon}
     </button>
