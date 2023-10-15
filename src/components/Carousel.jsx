@@ -37,7 +37,11 @@ export const CustomCarousel = ({
               placeholder='blur'
               blurDataURL={image.blurDataUrl}
               sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-              className={imageClasses}
+              className={`
+                h-full w-full 
+                border-none
+                object-cover 
+                shadow-2xl md:shadow-none ${imageClasses}`}
               {...rest}
             />
           </div>

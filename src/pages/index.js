@@ -52,13 +52,7 @@ export default function Home({
             images={homeSurfLessonsImg}
             carouselClasses='h-60 md:h-[32rem]'
             priority={true}
-            imageClasses='
-              w-full h-full 
-              md:w-11/12 
-              rounded-md
-              border-none
-              object-cover 
-              shadow-2xl md:shadow-none'
+            imageClasses='md:w-11/12 rounded-md'
           />
           <p>
             Im baby copper mug PBR&B craft beer lo-fi cornhole pork belly
@@ -77,6 +71,34 @@ export default function Home({
 
         <hr />
 
+        <section id='home-about-me' className='flex flex-col'>
+          <h2 className='mx-auto'>About me</h2>
+          <div className='mx-auto h-60 w-60 rounded-full'>
+            <CustomCarousel
+              carouselKey={homeAboutMeId}
+              images={homeAboutMeImg}
+              carouselClasses='h-60 w-60 rounded-full'
+              priority={true}
+              imageClasses='rounded-full'
+            />
+          </div>
+          <p>
+            My name is Rendy and I am from Krui, South Sumatra. I started
+            surfing at the age of 8 and came to Bali in 2019 to work as a Surf
+            Instructor at Batu Bolong Beach in Canggu.
+          </p>
+          <LinkGradient
+            href='/about-me'
+            target='_self'
+            variant='btn-gradient-link-amber'
+            extraClasses='mx-auto my-4'
+          >
+            About me
+          </LinkGradient>
+        </section>
+
+        <hr />
+
         <section id='home-surf-trips' className='flex flex-col'>
           <h2 className='mx-auto'>Surf Trips</h2>
           <CustomCarousel
@@ -84,13 +106,7 @@ export default function Home({
             images={homeSurfTripsImg}
             carouselClasses='h-60 md:h-[32rem]'
             priority={true}
-            imageClasses='
-              w-full h-full 
-              md:w-11/12 
-              rounded-md
-              border-none
-              object-cover 
-              shadow-2xl md:shadow-none'
+            imageClasses='rounded-md'
           />
           <p>
             Im baby copper mug PBR&B craft beer lo-fi cornhole pork belly
@@ -109,38 +125,6 @@ export default function Home({
 
         <hr />
 
-        <section id='home-about-me' className='flex flex-col'>
-          <h2 className='mx-auto'>About me</h2>
-          <CustomCarousel
-            carouselKey={homeAboutMeId}
-            images={homeAboutMeImg}
-            carouselClasses='h-60 md:h-[32rem]'
-            priority={true}
-            imageClasses='
-              w-full h-full 
-              md:w-11/12 
-              rounded-md
-              border-none
-              object-cover 
-              shadow-2xl md:shadow-none'
-          />
-          <p>
-            My name is Rendy and I am from Krui, South Sumatra. I started
-            surfing at the age of 8 and came to Bali in 2019 to work as a Surf
-            Instructor at Batu Bolong Beach in Canggu.
-          </p>
-          <LinkGradient
-            href='/about-me'
-            target='_self'
-            variant='btn-gradient-link-amber'
-            extraClasses='mx-auto my-4'
-          >
-            More about me
-          </LinkGradient>
-        </section>
-
-        <hr />
-
         <section id='home-testimonials' className='flex scroll-mt-24 flex-col'>
           <h2 className='mx-auto'>Testimonials</h2>
           <Testimonials />
@@ -152,7 +136,7 @@ export default function Home({
 
         <section id='home-map-view' className='flex scroll-mt-24 flex-col'>
           <h2 className='mx-auto'>Visit Us</h2>
-          <MapView />
+          <MapView mapMarkers={mapMarkers} />
         </section>
       </div>
     </HomePageLayout>
