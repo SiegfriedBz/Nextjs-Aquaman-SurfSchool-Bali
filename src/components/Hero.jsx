@@ -25,13 +25,16 @@ const Hero = (props, heroRef) => {
       <button
         onClick={() => {
           setArrowIsClicked((prev) => !prev)
-          router.push('#school-carousel')
+          router.push('#home-surf-lessons')
         }}
-        className={`relative bottom-0 cursor-pointer text-5xl text-primary lg:text-6xl ${
-          arrowIsClicked ? ' animate-none' : 'arrow'
+        className={`relative bottom-1 cursor-pointer text-primary ${
+          arrowIsClicked ? 'animate-none' : 'arrow'
         }`}
       >
-        <FontAwesomeIcon icon={faCircleDown} />
+        <FontAwesomeIcon
+          icon={faCircleDown}
+          className='h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16'
+        />
       </button>
     </div>
   )
