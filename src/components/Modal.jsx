@@ -9,7 +9,14 @@ const Modal = ({
   return (
     <motion.div
       id='backdrop'
-      className={`${className} fixed left-0 top-1/2 flex h-screen w-full -translate-y-1/2 items-center justify-center backdrop-blur-md lg:hidden`}
+      className={`${className} fixed 
+        bottom-0 left-0
+        right-0 top-1/2
+        flex h-screen w-full
+        -translate-y-1/2
+        items-center justify-center
+        backdrop-blur-md
+        2xl:hidden`}
       initial={{ opacity: 0 }}
       animate={mobileMenuIsOpen ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.3 }}
