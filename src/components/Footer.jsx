@@ -68,10 +68,7 @@ const Footer = () => {
               <h5 className='text-gradient font-bold'>Aquaman Bali</h5>
               <Link
                 href={process.env.NEXT_PUBLIC_STREETVIEW_LINK || '/'}
-                className='base-link inline-block pt-1
-                      hover:text-cf-dark/95
-                      dark:hover:text-cf-white/90
-                       md:text-xl'
+                className='base-link inline-block pt-1 md:text-xl'
               >
                 Batu Bolong, Canggu
               </Link>
@@ -79,10 +76,7 @@ const Footer = () => {
               <a
                 href='mailto:rendy280720@gmail.com?subject=Inquiry About Surf Lessons and Surf Trips 🏄‍♂️🌊'
                 target='_blank'
-                className='base-link inline-block py-1
-                      hover:text-cf-dark/95
-                      dark:hover:text-cf-white/90
-                        md:py-4 md:text-xl'
+                className='base-link inline-block py-1 md:py-4 md:text-xl'
               >
                 rendy280720@gmail.com
               </a>
@@ -90,10 +84,7 @@ const Footer = () => {
               <a
                 href='tel:+6282289427321'
                 target='_blank'
-                className='base-link inline-block
-                      hover:text-cf-dark/95
-                      dark:hover:text-cf-white/90
-                        md:text-xl'
+                className='base-link md:text-xl'
               >
                 (+62) 822-8942-7321
               </a>
