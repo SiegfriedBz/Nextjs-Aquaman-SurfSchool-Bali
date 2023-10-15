@@ -7,6 +7,22 @@ import {
   WhatsappIconLink,
 } from './Icons'
 
+const Li = ({ className = '', href = '', modal = false, children }) => {
+  return (
+    <li className={className}>
+      <Link href={href} className='underline-gradient-link'>
+        <span
+          className={`text-gradient my-2 inline-block ${
+            modal ? 'text-3xl font-extrabold' : 'span-link'
+          }`}
+        >
+          {children}
+        </span>
+      </Link>
+    </li>
+  )
+}
+
 const NavLinks = ({ className = '', modal = false }) => {
   return (
     <ul
@@ -14,83 +30,57 @@ const NavLinks = ({ className = '', modal = false }) => {
         modal ? 'flex-col' : 'justify-end space-x-4 lg:space-x-6'
       } flex h-full w-full items-center ${className}`}
     >
-      <li className={modal ? '' : 'hidden md:inline-block'}>
-        <Link href='/surf-lessons' className='underline-gradient-link'>
-          <span
-            className={`text-gradient my-2 inline-block ${
-              modal ? 'text-3xl font-extrabold' : 'span-link'
-            }`}
-          >
-            Surf Lessons
-          </span>
-        </Link>
-      </li>
-      <li className={modal ? '' : 'hidden lg:inline-block'}>
-        <Link href='/surf-trips' className='underline-gradient-link'>
-          <span
-            className={`text-gradient my-2 inline-block ${
-              modal ? 'text-3xl font-extrabold' : 'span-link'
-            }`}
-          >
-            Surf Trips
-          </span>
-        </Link>
-      </li>
-      <li className={modal ? '' : 'hidden xl:inline-block'}>
-        <Link href='/photo-video' className='underline-gradient-link'>
-          <span
-            className={`text-gradient my-2 inline-block ${
-              modal ? 'text-3xl font-extrabold' : 'span-link'
-            }`}
-          >
-            Photo & Video
-          </span>
-        </Link>
-      </li>
-      <li className={modal ? '' : 'hidden xl:inline-block'}>
-        <Link href='/gallery' className='underline-gradient-link'>
-          <span
-            className={`text-gradient my-2 inline-block ${
-              modal ? 'text-3xl font-extrabold' : 'span-link'
-            }`}
-          >
-            Gallery
-          </span>
-        </Link>
-      </li>
-      <li className={modal ? '' : 'hidden 2xl:inline-block'}>
-        <Link href='/about-me' className='underline-gradient-link'>
-          <span
-            className={`text-gradient my-2 inline-block ${
-              modal ? 'text-3xl font-extrabold' : 'span-link'
-            }`}
-          >
-            About me
-          </span>
-        </Link>
-      </li>
-      <li className={modal ? '' : 'hidden'}>
-        <Link href='/#home-visit-us' className='underline-gradient-link'>
-          <span
-            className={`text-gradient my-2 inline-block ${
-              modal ? 'text-3xl font-extrabold' : 'span-link'
-            }`}
-          >
-            Visit us
-          </span>
-        </Link>
-      </li>
-      <li className={modal ? '' : 'hidden md:inline-block'}>
-        <Link href='/#home-testimonials' className='underline-gradient-link'>
-          <span
-            className={`text-gradient my-2 inline-block ${
-              modal ? 'text-3xl font-extrabold' : 'span-link'
-            }`}
-          >
-            Testimonials
-          </span>
-        </Link>
-      </li>
+      <Li
+        className={modal ? '' : 'hidden md:inline-block'}
+        modal={modal}
+        href='/surf-lessons'
+      >
+        Surf Lessons
+      </Li>
+      <Li
+        className={modal ? '' : 'hidden lg:inline-block'}
+        modal={modal}
+        href='/surf-trips'
+      >
+        Surf Trips
+      </Li>
+      <Li
+        className={modal ? '' : 'hidden xl:inline-block'}
+        modal={modal}
+        href='/photo-video'
+      >
+        Photo & Video
+      </Li>
+      <Li
+        className={modal ? '' : 'hidden xl:inline-block'}
+        modal={modal}
+        href='/gallery'
+      >
+        Gallery
+      </Li>
+      <Li
+        className={modal ? '' : 'hidden 2xl:inline-block'}
+        modal={modal}
+        href='/about-me'
+      >
+        About me
+      </Li>
+      <Li
+        className={modal ? '' : 'hidden'}
+        modal={modal}
+        href='/#home-visit-us'
+      >
+        Visit us
+      </Li>
+      <Li
+        className={modal ? '' : 'hidden md:inline-block'}
+        modal={modal}
+        href='/#home-testimonials'
+      >
+        Testimonials
+      </Li>
+
+      {/* social links */}
       <span
         className={`${
           modal ? 'mb-4 mt-6 inline-flex w-[19rem] justify-between' : ''
