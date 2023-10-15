@@ -12,7 +12,7 @@ const ICON_BASE_CLASSNAME = (bigIcon = false) => {
 
 const IconLink = ({
   href,
-  target = '_self',
+  target = '_blank',
   icon,
   bigIcon = false,
   color,
@@ -39,7 +39,6 @@ export const WhatsappIconLink = ({ className = '' }) => {
   return (
     <IconLink
       href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
-      target='_blank'
       icon={faWhatsapp}
       className={className}
       color='text-teal-700'
@@ -51,7 +50,7 @@ export const WhatsappIconLink = ({ className = '' }) => {
 export const StreetViewIconLink = ({ className = '' }) => {
   return (
     <IconLink
-      href={process.env.NEXT_PUBLIC_STREET_VIEW_LINK || '/'}
+      href={process.env.NEXT_PUBLIC_STREETVIEW_LINK || '/'}
       icon={faStreetView}
       bigIcon={true}
       className={`${className}`}
@@ -65,7 +64,6 @@ export const IgIconLink = ({ className = '' }) => {
   return (
     <IconLink
       href={process.env.NEXT_PUBLIC_IG_LINK || '/'}
-      target='_blank'
       icon={faInstagram}
       className={className}
       color='text-purple-600'
@@ -78,7 +76,6 @@ export const CoffeeIconLink = ({ className = '' }) => {
   return (
     <IconLink
       href={process.env.NEXT_PUBLIC_BMCOFFEE_LINK || '/'}
-      target='_blank'
       icon={faMugHot}
       bigIcon={true}
       className={`${className}`}
