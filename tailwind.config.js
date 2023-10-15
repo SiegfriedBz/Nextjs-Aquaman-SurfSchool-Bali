@@ -29,9 +29,9 @@ module.exports = {
         'ternary-light': '#fcd34d', // amber-300
         'cf-dark': '#0f172a', // slate-900
         'cf-white': '#f4f4f5', // zinc-100
-        'cf-gray-light': '##a1a1aa', // zinc-400
-        'cf-gray': '#52525b', // zinc-600
-        'cf-gray-dark': '#3f3f46', // zinc-700
+        'cf-gray-light': '#e5e7eb', // gray-200
+        'cf-gray': '#d1d5db', // gray-300
+        'cf-gray-dark': '#9ca3af', // gray-400
       },
     },
   },
