@@ -82,7 +82,7 @@ const NavLinks = ({ className = '', modal = false }) => {
       </li>
       <span
         className={`${
-          modal ? 'mt-6 inline-flex w-[19rem] justify-between' : ''
+          modal ? 'mb-4 mt-6 inline-flex w-[19rem] justify-between' : ''
         } inline-flex items-center justify-end space-x-4 lg:space-x-6`}
       >
         <li>
