@@ -15,8 +15,6 @@ const Modal = ({
         flex h-screen w-full
         -translate-y-1/2
         items-center justify-center backdrop-blur-md
-        transition-all duration-300
-        ease-in-out
         2xl:hidden`}
       initial={{ opacity: 0 }}
       animate={mobileMenuIsOpen ? { opacity: 1 } : { opacity: 0 }}
