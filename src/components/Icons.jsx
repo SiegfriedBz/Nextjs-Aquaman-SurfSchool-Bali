@@ -4,19 +4,10 @@ import { faWhatsapp, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { faStreetView, faMugHot } from '@fortawesome/free-solid-svg-icons'
 import tikTokLogo from '../../public/logos/tiktok-logo.png'
 
-const NAVBAR_ICON_SIZE = (isBigIcon) => {
-  return isBigIcon ? 'md:text-3xl 2xl:text-4xl' : 'md:text-4xl 2xl:text-5xl'
-}
-const FOOTER_ICON_SIZE = (isBigIcon) => {
-  return isBigIcon ? 'md:text-4xl' : 'md:text-5xl'
-}
-
 const ICON_BASE_CLASSNAME =
-  'text-3xl font-bold transition duration-300 hover:scale-125'
+  'h-10 w-10 md:h-12 md:w-12 font-bold transition duration-300 hover:scale-125'
 
 const IconLink = ({
-  navbaricon,
-  isBigIcon,
   href,
   target = '_self',
   icon,
@@ -24,10 +15,6 @@ const IconLink = ({
   hoverColor,
   className,
 }) => {
-  const sizeClassName = navbaricon
-    ? NAVBAR_ICON_SIZE(isBigIcon)
-    : FOOTER_ICON_SIZE(isBigIcon)
-
   return (
     <a
       href={href}
@@ -36,20 +23,18 @@ const IconLink = ({
     >
       <FontAwesomeIcon
         icon={icon}
-        className={`${sizeClassName} 
-         ${ICON_BASE_CLASSNAME} ${className} ${color} ${hoverColor} `}
+        className={`${ICON_BASE_CLASSNAME} ${className} ${color} ${hoverColor} `}
       />
     </a>
   )
 }
 
-export const WhatsappIconLink = ({ className = '', navbaricon }) => {
+export const WhatsappIconLink = ({ className = '' }) => {
   return (
     <IconLink
       href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
       target='_blank'
       icon={faWhatsapp}
-      navbaricon={navbaricon}
       className={className}
       color='text-teal-700'
       hoverColor='hover:text-teal-500'
@@ -57,27 +42,24 @@ export const WhatsappIconLink = ({ className = '', navbaricon }) => {
   )
 }
 
-export const StreetViewIconLink = ({ className = '', navbaricon }) => {
+export const StreetViewIconLink = ({ className = '' }) => {
   return (
     <IconLink
       href={process.env.NEXT_PUBLIC_STREET_VIEW_LINK || '/'}
       icon={faStreetView}
-      isBigIcon={true}
-      navbaricon={navbaricon}
-      className={className}
+      className={`${className} p-1`}
       color='text-amber-400'
       hoverColor='hover:text-amber-500'
     />
   )
 }
 
-export const IgIconLink = ({ className = '', navbaricon }) => {
+export const IgIconLink = ({ className = '' }) => {
   return (
     <IconLink
       href={process.env.NEXT_PUBLIC_IG_LINK || '/'}
       target='_blank'
       icon={faInstagram}
-      navbaricon={navbaricon}
       className={className}
       color='text-purple-600'
       hoverColor='hover:text-purple-500'
@@ -85,22 +67,20 @@ export const IgIconLink = ({ className = '', navbaricon }) => {
   )
 }
 
-export const CoffeeIconLink = ({ className = '', navbaricon }) => {
+export const CoffeeIconLink = ({ className = '' }) => {
   return (
     <IconLink
       href={process.env.NEXT_PUBLIC_BMCOFFEE_LINK || '/'}
       target='_blank'
       icon={faMugHot}
-      isBigIcon={true}
-      navbaricon={navbaricon}
-      className={className}
+      className={`${className} p-1`}
       color='text-amber-400'
       hoverColor='hover:text-amber-500'
     />
   )
 }
 
-export const TiktokIconLink = ({ className = '', navbaricon }) => {
+export const TiktokIconLink = ({ className = '' }) => {
   return (
     <a
       className='base-link'
@@ -112,9 +92,7 @@ export const TiktokIconLink = ({ className = '', navbaricon }) => {
         width={45}
         height={45}
         alt='tiktok-logo'
-        navbaricon={navbaricon}
-        className={`${
-          navbaricon ? 'md:h-12 md:w-12' : 'h-10 w-10 md:h-12 md:w-12'
+        className={`
         } ${className} transition duration-300 hover:scale-125`}
       />
     </a>
