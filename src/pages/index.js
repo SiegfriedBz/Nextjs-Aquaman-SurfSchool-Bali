@@ -63,7 +63,7 @@ export default function Home({
             As='Link'
             href='/surf-lessons'
             target='_self'
-            variant='btn-gradient-amber'
+            variant='btn-as-gradient-amber'
             extraClasses='mx-auto my-4'
           >
             Surf Lessons
@@ -89,9 +89,10 @@ export default function Home({
             Instructor at Batu Bolong Beach in Canggu.
           </p>
           <ButtonAsGradient
+            As='Link'
             href='/about-me'
             target='_self'
-            variant='btn-gradient-amber'
+            variant='btn-as-gradient-amber'
             extraClasses='mx-auto my-4'
           >
             About me
@@ -115,9 +116,10 @@ export default function Home({
             cupping fingerstache flannel affogato enamel pin echo park pabst
           </p>
           <ButtonAsGradient
+            As='Link'
             href='/surf-trips'
             target='_self'
-            variant='btn-gradient-amber'
+            variant='btn-as-gradient-amber'
             extraClasses='mx-auto my-4'
           >
             Surf Trips
@@ -130,14 +132,18 @@ export default function Home({
           <h2 className='mx-auto'>Testimonials</h2>
           <Testimonials />
           <TestimonialsLinks />
-          <ButtonAsGradient extraClasses='mx-auto my-4'>
+          <ButtonAsGradient
+            As='Link'
+            href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
+            extraClasses='mx-auto my-4'
+          >
             Surf Now
           </ButtonAsGradient>
         </section>
 
         <hr />
 
-        <section id='home-map-view' className='flex scroll-mt-24 flex-col'>
+        <section id='home-visit-us' className='flex scroll-mt-24 flex-col'>
           <h2 className='mx-auto'>Visit Us</h2>
           <MapView mapMarkers={mapMarkers} />
         </section>

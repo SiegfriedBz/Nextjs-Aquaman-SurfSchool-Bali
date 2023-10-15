@@ -26,29 +26,25 @@ export default function About() {
         <button className='btn'>BUTTON</button>
 
         <ButtonAsGradient
-          variant='btn-gradient-amber'
+          variant='btn-as-gradient-amber'
           padding='px-4 py-2'
           extraClasses='my-4'
         >
           about me
         </ButtonAsGradient>
 
-        <ButtonAsGradient variant='btn-gradient-amber' extraClasses='my-4'>
+        <ButtonAsGradient variant='btn-as-gradient-amber' extraClasses='my-4'>
           about me
         </ButtonAsGradient>
 
-        <ButtonAsGradient
-          As='button'
-          variant='btn-gradient-amber'
-          extraClasses='my-4'
-        >
+        <ButtonAsGradient variant='btn-as-gradient-amber' extraClasses='my-4'>
           about me BTN
         </ButtonAsGradient>
         <ButtonAsGradient
           As='Link'
           href='/'
           target='_self'
-          variant='btn-gradient-amber'
+          variant='btn-as-gradient-amber'
           extraClasses='my-4'
         >
           about me LINK

@@ -68,7 +68,7 @@ const Footer = () => {
               <h5 className='text-gradient font-bold'>Aquaman Bali</h5>
               <Link
                 href={process.env.NEXT_PUBLIC_STREETVIEW_LINK || '/'}
-                className='base-link inline-block pt-1 md:text-xl'
+                className='dark-white-link inline-block pt-1 md:text-xl'
               >
                 Batu Bolong, Canggu
               </Link>
@@ -76,7 +76,7 @@ const Footer = () => {
               <a
                 href='mailto:rendy280720@gmail.com?subject=Inquiry About Surf Lessons and Surf Trips 🏄‍♂️🌊'
                 target='_blank'
-                className='base-link inline-block py-1 md:py-4 md:text-xl'
+                className='dark-white-link inline-block py-1 md:py-4 md:text-xl'
               >
                 rendy280720@gmail.com
               </a>
@@ -84,7 +84,7 @@ const Footer = () => {
               <a
                 href='tel:+6282289427321'
                 target='_blank'
-                className='base-link md:text-xl'
+                className='dark-white-link md:text-xl'
               >
                 (+62) 822-8942-7321
               </a>
@@ -102,21 +102,21 @@ const Footer = () => {
               items-center justify-center space-y-2 md:space-y-4 lg:items-start'
             >
               <li>
-                <Link href='/surf-lessons'>
+                <Link href='/surf-lessons' className='underline-gradient-link'>
                   <span className='text-gradient sm:text-lg md:text-xl'>
                     Surf Lessons
                   </span>
                 </Link>
               </li>
               <li>
-                <Link href='/surf-trips'>
+                <Link href='/surf-trips' className='underline-gradient-link'>
                   <span className='text-gradient sm:text-lg md:text-xl'>
                     Surf Trips
                   </span>
                 </Link>
               </li>
               <li>
-                <Link href='/photo-video'>
+                <Link href='/photo-video' className='underline-gradient-link'>
                   <span className='text-gradient sm:text-lg md:text-xl'>
                     Photo & Video
                   </span>
@@ -130,17 +130,20 @@ const Footer = () => {
               justify-center space-y-4 lg:flex'
             >
               <li className='hidden md:inline-block'>
-                <Link href='/gallery'>
+                <Link href='/gallery' className='underline-gradient-link'>
                   <span className='text-gradient text-xl'>Gallery</span>
                 </Link>
               </li>
               <li className='mb-0 hidden pb-0 md:inline-block'>
-                <Link href='/about-me'>
+                <Link href='/about-me' className='underline-gradient-link'>
                   <span className='text-gradient text-xl'>About me</span>
                 </Link>
               </li>
               <li className='mb-0 hidden pb-0 md:inline-block'>
-                <Link href='/#home-testimonials'>
+                <Link
+                  href='/#home-testimonials'
+                  className='underline-gradient-link'
+                >
                   <span className='text-gradient text-xl'>Testimonials</span>
                 </Link>
               </li>
@@ -184,6 +187,7 @@ const Footer = () => {
             <a
               href={process.env.NEXT_PUBLIC_AUTHOR_WHATSAPP_LINK || '/'}
               target='_blank'
+              className='underline-gradient-link'
             >
               <span className='text-gradient font-bold sm:text-lg md:text-xl'>
                 SiegfriedB

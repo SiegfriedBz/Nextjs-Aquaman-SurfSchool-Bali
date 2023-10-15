@@ -20,11 +20,7 @@ const IconLink = ({
   className,
 }) => {
   return (
-    <a
-      href={href}
-      target={target}
-      className='base-link flex place-content-center'
-    >
+    <a href={href} target={target} className='btn-as flex place-content-center'>
       <FontAwesomeIcon
         icon={icon}
         className={`${ICON_BASE_CLASSNAME(
@@ -53,7 +49,7 @@ export const StreetViewIconLink = ({ className = '' }) => {
       href={process.env.NEXT_PUBLIC_STREETVIEW_LINK || '/'}
       icon={faStreetView}
       bigIcon={true}
-      className={`${className}`}
+      className={`${className} hover:scale-150`}
       color='text-amber-400'
       hoverColor='hover:text-amber-500'
     />
@@ -78,7 +74,7 @@ export const CoffeeIconLink = ({ className = '' }) => {
       href={process.env.NEXT_PUBLIC_BMCOFFEE_LINK || '/'}
       icon={faMugHot}
       bigIcon={true}
-      className={`${className}`}
+      className={`${className} hover:scale-150`}
       color='text-amber-400'
       hoverColor='hover:text-amber-500'
     />
@@ -88,7 +84,7 @@ export const CoffeeIconLink = ({ className = '' }) => {
 export const TiktokIconLink = ({ className = '' }) => {
   return (
     <a
-      className='base-link'
+      className='btn-as'
       href={process.env.NEXT_PUBLIC_TIKTOK_LINK || '/'}
       target='_blank'
     >
@@ -98,7 +94,7 @@ export const TiktokIconLink = ({ className = '' }) => {
         height={42}
         alt='tiktok-logo'
         className={`
-        } ${className} transition duration-300 hover:scale-125`}
+        } ${className} transition duration-300 hover:scale-150`}
       />
     </a>
   )

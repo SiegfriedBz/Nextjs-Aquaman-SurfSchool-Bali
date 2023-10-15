@@ -15,7 +15,7 @@ const NavLinks = ({ className = '', modal = false }) => {
       } flex h-full w-full items-center ${className}`}
     >
       <li className={modal ? '' : 'hidden md:inline-block'}>
-        <Link href='/surf-lessons'>
+        <Link href='/surf-lessons' className='underline-gradient-link'>
           <span
             className={`text-gradient my-2 inline-block ${
               modal ? 'text-3xl font-extrabold' : 'span-link'
@@ -26,7 +26,7 @@ const NavLinks = ({ className = '', modal = false }) => {
         </Link>
       </li>
       <li className={modal ? '' : 'hidden lg:inline-block'}>
-        <Link href='/surf-trips'>
+        <Link href='/surf-trips' className='underline-gradient-link'>
           <span
             className={`text-gradient my-2 inline-block ${
               modal ? 'text-3xl font-extrabold' : 'span-link'
@@ -37,7 +37,7 @@ const NavLinks = ({ className = '', modal = false }) => {
         </Link>
       </li>
       <li className={modal ? '' : 'hidden xl:inline-block'}>
-        <Link href='/photo-video'>
+        <Link href='/photo-video' className='underline-gradient-link'>
           <span
             className={`text-gradient my-2 inline-block ${
               modal ? 'text-3xl font-extrabold' : 'span-link'
@@ -48,7 +48,7 @@ const NavLinks = ({ className = '', modal = false }) => {
         </Link>
       </li>
       <li className={modal ? '' : 'hidden xl:inline-block'}>
-        <Link href='/gallery'>
+        <Link href='/gallery' className='underline-gradient-link'>
           <span
             className={`text-gradient my-2 inline-block ${
               modal ? 'text-3xl font-extrabold' : 'span-link'
@@ -59,7 +59,7 @@ const NavLinks = ({ className = '', modal = false }) => {
         </Link>
       </li>
       <li className={modal ? '' : 'hidden 2xl:inline-block'}>
-        <Link href='/about-me'>
+        <Link href='/about-me' className='underline-gradient-link'>
           <span
             className={`text-gradient my-2 inline-block ${
               modal ? 'text-3xl font-extrabold' : 'span-link'
@@ -69,8 +69,19 @@ const NavLinks = ({ className = '', modal = false }) => {
           </span>
         </Link>
       </li>
+      <li className={modal ? '' : 'hidden'}>
+        <Link href='/#home-visit-us' className='underline-gradient-link'>
+          <span
+            className={`text-gradient my-2 inline-block ${
+              modal ? 'text-3xl font-extrabold' : 'span-link'
+            }`}
+          >
+            Visit us
+          </span>
+        </Link>
+      </li>
       <li className={modal ? '' : 'hidden md:inline-block'}>
-        <Link href='/#home-testimonials'>
+        <Link href='/#home-testimonials' className='underline-gradient-link'>
           <span
             className={`text-gradient my-2 inline-block ${
               modal ? 'text-3xl font-extrabold' : 'span-link'

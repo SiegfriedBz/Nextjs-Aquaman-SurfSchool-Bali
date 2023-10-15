@@ -21,9 +21,10 @@ export default function Custom404() {
         <hr />
 
         <ButtonAsGradient
+          As='Link'
           href='/'
           target='_self'
-          variant='btn-gradient-amber'
+          variant='btn-as-gradient-amber'
           extraClasses='mx-auto mt-8'
         >
           Back to Home Page

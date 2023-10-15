@@ -55,7 +55,7 @@ export const Testimonials = () => {
                     <a
                       href='https://goo.gl/maps/iHPokm4Q943N2f2fA'
                       target='_blank'
-                      className='base-link ms-4 mt-2 flex items-center
+                      className='dark-white-link ms-4 mt-2 flex items-center
                         text-xl italic outline-none 
                         md:mt-8 md:text-xl'
                     >
@@ -92,7 +92,7 @@ export const TestimonialsLinks = () => {
       <a
         href={process.env.NEXT_PUBLIC_STREETVIEW_LINK || '/'}
         target='_blank'
-        className='base-link'
+        className='dark-white-link '
       >
         <h3 className='text-center'>Top-rated Surf School</h3>
         <div className='mt-1 flex items-center'>
