@@ -56,7 +56,7 @@ const Footer = () => {
 
         <div
           id='footer-middle-row'
-          className='relative flex flex-row justify-between'
+          className='flex flex-row justify-between xl:relative'
         >
           {/* contact */}
           <div
@@ -66,7 +66,15 @@ const Footer = () => {
           >
             <address>
               <h5 className='text-gradient font-bold'>Aquaman Bali</h5>
-              Batu Bolong, Canggu
+              <Link
+                href={process.env.NEXT_PUBLIC_STREETVIEW_LINK || '/'}
+                className='base-link inline-block pt-1
+                      hover:text-cf-dark/95
+                      dark:hover:text-cf-white/90
+                       md:text-xl'
+              >
+                Batu Bolong, Canggu
+              </Link>
               <br />
               <a
                 href='mailto:rendy280720@gmail.com?subject=Inquiry About Surf Lessons and Surf Trips 🏄‍♂️🌊'
@@ -93,12 +101,15 @@ const Footer = () => {
           </div>
 
           {/* desktop links */}
-
           <div
             id='footer-links'
-            className='hidden items-center space-x-24 sm:flex md:top-10 lg:absolute lg:left-1/2 lg:-translate-x-1/2'
+            className='hidden space-x-24 sm:flex xl:absolute xl:left-1/2 xl:top-1/2 xl:-translate-x-1/2 xl:-translate-y-1/2'
           >
-            <ul className='relative top-2 flex flex-col items-center justify-center space-y-2 lg:items-start lg:space-y-3'>
+            <ul
+              className='
+              flex h-full flex-col
+              items-center justify-center space-y-2 md:space-y-4 lg:items-start'
+            >
               <li>
                 <Link href='/surf-lessons'>
                   <span className='text-gradient sm:text-lg md:text-xl'>
@@ -122,7 +133,11 @@ const Footer = () => {
               </li>
             </ul>
 
-            <ul className='relative top-2 hidden flex-col justify-center space-y-3 lg:flex'>
+            <ul
+              className='
+              hidden h-full flex-col items-start
+              justify-center space-y-4 lg:flex'
+            >
               <li className='hidden md:inline-block'>
                 <Link href='/gallery'>
                   <span className='text-gradient text-xl'>Gallery</span>
