@@ -25,13 +25,12 @@ const [medewiImg, lombokImg, nusaImg, seranganImg, uluwatuImg, balanganImg] =
   surfTrips
 
 const homeSurfLessonsImages = [
-  rendySurf01,
   rendyTeach04,
-  rendySurf05,
+  // rendySurf05,
   rendyTeach07,
-  rendySurf11,
+  // rendySurf11,
   rendyTeach03,
-  rendySurf02,
+  // rendySurf02,
 ]
 const homeAboutMeImages = [
   rendySurf01Small,
