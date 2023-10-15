@@ -101,27 +101,9 @@ const Footer = () => {
               flex h-full flex-col
               items-center justify-center space-y-2 md:space-y-4 lg:items-start'
             >
-              <li>
-                <Link href='/surf-lessons' className='underline-gradient-link'>
-                  <span className='text-gradient sm:text-lg md:text-xl'>
-                    Surf Lessons
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href='/surf-trips' className='underline-gradient-link'>
-                  <span className='text-gradient sm:text-lg md:text-xl'>
-                    Surf Trips
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href='/photo-video' className='underline-gradient-link'>
-                  <span className='text-gradient sm:text-lg md:text-xl'>
-                    Photo & Video
-                  </span>
-                </Link>
-              </li>
+              <Li href='/surf-lessons'>Surf Lessons</Li>
+              <Li href='/surf-trips'>Surf Trips</Li>
+              <Li href='/photo-video'>Photo & Video</Li>
             </ul>
 
             <ul
@@ -129,24 +111,9 @@ const Footer = () => {
               hidden h-full flex-col items-start
               justify-center space-y-4 lg:flex'
             >
-              <li className='hidden md:inline-block'>
-                <Link href='/gallery' className='underline-gradient-link'>
-                  <span className='text-gradient text-xl'>Gallery</span>
-                </Link>
-              </li>
-              <li className='mb-0 hidden pb-0 md:inline-block'>
-                <Link href='/about-me' className='underline-gradient-link'>
-                  <span className='text-gradient text-xl'>About me</span>
-                </Link>
-              </li>
-              <li className='mb-0 hidden pb-0 md:inline-block'>
-                <Link
-                  href='/#home-testimonials'
-                  className='underline-gradient-link'
-                >
-                  <span className='text-gradient text-xl'>Testimonials</span>
-                </Link>
-              </li>
+              <Li href='/gallery'>Gallery</Li>
+              <Li href='/about-me'>About me</Li>
+              <Li href='/#home-testimonials'>Testimonials</Li>
             </ul>
           </div>
 
@@ -201,3 +168,13 @@ const Footer = () => {
 }
 
 export default Footer
+
+const Li = ({ href = '', className = '', children }) => {
+  return (
+    <li className={className}>
+      <Link href={href} className='underline-gradient-link'>
+        <span className='text-gradient sm:text-lg md:text-xl'>{children}</span>
+      </Link>
+    </li>
+  )
+}
