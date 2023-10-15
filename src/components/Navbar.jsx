@@ -49,15 +49,17 @@ const Navbar = () => {
       </div>
 
       {/* mobile: backdrop & menu */}
-      <Modal
-        mobileMenuIsOpen={mobileMenuIsOpen}
-        setMobileMenuIsOpen={setMobileMenuIsOpen}
-        className='z-50'
-      >
-        <div className='w-full py-1'>
-          <NavLinks modal={true} />
-        </div>
-      </Modal>
+      {mobileMenuIsOpen && (
+        <Modal
+          mobileMenuIsOpen={mobileMenuIsOpen}
+          setMobileMenuIsOpen={setMobileMenuIsOpen}
+          className={mobileMenuIsOpen ? 'z-[999]' : 'z-0'}
+        >
+          <div className='w-full py-1'>
+            <NavLinks modal={true} />
+          </div>
+        </Modal>
+      )}
     </>
   )
 }
