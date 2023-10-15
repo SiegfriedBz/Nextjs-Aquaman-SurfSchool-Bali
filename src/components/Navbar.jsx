@@ -56,7 +56,7 @@ const Navbar = () => {
           className={mobileMenuIsOpen ? 'z-[999]' : 'z-0'}
         >
           <div className='w-full py-1'>
-            <NavLinks modal={true} />
+            <NavLinks modal={true} setMobileMenuIsOpen={setMobileMenuIsOpen} />
           </div>
         </Modal>
       )}
