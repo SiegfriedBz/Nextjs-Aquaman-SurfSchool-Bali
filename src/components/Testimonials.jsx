@@ -94,7 +94,9 @@ export const TestimonialsLinks = () => {
         target='_blank'
         className='dark-white-link '
       >
-        <h3 className='text-center'>Top-rated Surf School</h3>
+        <h3 className='text-center text-stone-900 dark:text-stone-50'>
+          Top-rated Surf School
+        </h3>
         <div className='mt-1 flex items-center'>
           <h3 className='m-auto text-ternary hover:text-ternary/90'>
             {renderStars}
