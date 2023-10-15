@@ -72,15 +72,20 @@
     @apply my-4 text-cf-dark dark:text-cf-white sm:text-lg md:text-xl;
 
     &:nth-child(2n) {
-      @apply text-cf-dark/50 dark:text-cf-white/50;
+      @apply text-cf-dark/80 dark:text-cf-white/80;
     }
   }
 
-  button {
-    @apply sm:text-lg md:text-xl;
+  button,
+  a.btn-as {
+    @apply rounded-[0.5em] border-none text-base font-extrabold uppercase text-cf-white shadow-sm outline-none transition-all duration-300 ease-in-out sm:text-lg md:text-xl;
+
+    &:hover {
+      @apply scale-110 rounded-[0.5em];
+    }
   }
 
-  a.base-link {
+  a.dark-white-link {
     @apply text-cf-dark
       transition-all duration-300 ease-in-out
     hover:text-cf-dark/90 
@@ -88,15 +93,14 @@
     dark:hover:text-cf-white/90;
   }
 
-  a:not(.base-link) {
+  a.underline-gradient-link {
     @apply relative
       transition-all
       duration-300
-
       ease-in-out 
+
       after:absolute 
       after:bottom-[-0.1em] 
-
       after:left-0
       after:h-[0.1em]
       after:w-0
@@ -104,18 +108,18 @@
       after:transition-all
       after:duration-500
       after:ease-in-out
+      
       after:content-[""]
 
-      hover:text-cf-dark/50 hover:after:w-full hover:after:bg-primary/75 
-      focus:text-cf-dark/50 focus:after:w-full focus:after:bg-primary/75 
-
-      active:text-cf-dark/50
-      active:after:w-full active:after:bg-primary/75 dark:hover:text-cf-white/50
-      dark:hover:after:bg-secondaryDark/75
-      dark:focus:text-cf-white/50
-      dark:focus:after:bg-secondaryDark/75
-      dark:active:text-cf-white/50
-      dark:active:after:bg-secondaryDark/75;
+      hover:after:w-full
+    hover:after:bg-primary/75 
+      focus:after:w-full 
+    focus:after:bg-primary/75 
+      active:after:w-full 
+    active:after:bg-primary/75
+    dark:hover:after:bg-secondaryDark/75
+    dark:focus:after:bg-secondaryDark/75
+    dark:active:after:bg-secondaryDark/75;
   }
 
   hr {
@@ -216,30 +220,22 @@
     @apply border-none bg-gradient-to-r from-primary to-secondary dark:to-secondaryDark dark:text-cf-white;
   }
 
-  .btn {
-    @apply rounded-[0.5em] border-none font-extrabold uppercase text-cf-white shadow-sm outline-none transition-all duration-300 ease-in-out;
+  /* button-as-gradient variants */
+  .btn-as-gradient {
+    @apply bg-gradient-to-r
+      from-primary to-secondary shadow-secondary/50 [text-shadow:_0.05em_0.05em_0_#3b82f6] dark:to-secondaryDark
+      dark:shadow-secondaryDark/50;
 
     &:hover {
-      @apply scale-110 rounded-[0.5em];
+      @apply bg-gradient-to-r from-primary/95 to-secondary/95 ring-1 ring-secondary/95 dark:to-secondaryDark/95 dark:ring-secondaryDark/95;
     }
+  }
 
-    /* variants */
-    &.btn-gradient {
-      @apply bg-gradient-to-r
-        from-primary to-secondary shadow-secondary/50 [text-shadow:_0.05em_0.05em_0_#3b82f6] dark:to-secondaryDark
-        dark:shadow-secondaryDark/50;
+  .btn-as-gradient-amber {
+    @apply bg-gradient-to-r from-ternary to-ternary-light shadow-ternary/50 [text-shadow:_0.05em_0.05em_0_#52525b];
 
-      &:hover {
-        @apply bg-gradient-to-r from-primary/95 to-secondary/95 ring-1 ring-secondary/95 dark:to-secondaryDark/95 dark:ring-secondaryDark/95;
-      }
-    }
-
-    &.btn-gradient-amber {
-      @apply bg-gradient-to-r from-ternary to-ternary-light shadow-ternary/50 [text-shadow:_0.05em_0.05em_0_#52525b];
-
-      &:hover {
-        @apply bg-gradient-to-r from-ternary/95 to-ternary-light/95 ring-1 ring-ternary-light/95;
-      }
+    &:hover {
+      @apply bg-gradient-to-r from-ternary/95 to-ternary-light/95 ring-1 ring-ternary-light/95;
     }
   }
 }

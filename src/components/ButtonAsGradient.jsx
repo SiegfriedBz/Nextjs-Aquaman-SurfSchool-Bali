@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const ButtonAsGradient = ({
   As = 'button',
-  variant = 'btn-gradient',
+  variant = 'btn-as-gradient',
   padding = 'px-8 py-4',
   extraClasses = '',
   children,
@@ -11,13 +11,11 @@ export const ButtonAsGradient = ({
   const RenderAs = As === 'button' ? 'button' : Link
 
   return (
-    <>
-      <RenderAs
-        {...rest}
-        className={`btn ${variant} ${padding} ${extraClasses}`}
-      >
-        {children}
-      </RenderAs>
-    </>
+    <RenderAs
+      {...rest}
+      className={`btn-as ${variant} ${padding} ${extraClasses}`}
+    >
+      {children}
+    </RenderAs>
   )
 }
