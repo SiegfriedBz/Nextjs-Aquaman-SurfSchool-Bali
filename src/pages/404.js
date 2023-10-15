@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import errorImage from '../../public/images/error.jpg'
-import { LinkGradient } from '@/components/ButtonGradient'
+import { ButtonAsGradient } from '@/components/ButtonAsGradient'
 import PageLayout from '@/components/layouts/PageLayout'
 
 export default function Custom404() {
@@ -20,14 +20,14 @@ export default function Custom404() {
 
         <hr />
 
-        <LinkGradient
+        <ButtonAsGradient
           href='/'
           target='_self'
-          variant='btn-gradient-link-amber'
+          variant='btn-gradient-amber'
           extraClasses='mx-auto mt-8'
         >
           Back to Home Page
-        </LinkGradient>
+        </ButtonAsGradient>
       </section>
     </PageLayout>
   )

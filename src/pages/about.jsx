@@ -1,5 +1,5 @@
 import { BorderFullGradient } from '@/components/BorderGradient'
-import { ButtonGradient } from '@/components/ButtonGradient'
+import { ButtonAsGradient } from '@/components/ButtonAsGradient'
 import PageLayout from '@/components/layouts/PageLayout'
 
 export default function About() {
@@ -22,20 +22,37 @@ export default function About() {
         <a href=''>LINK</a>
 
         <br />
-        <ButtonGradient extraClasses='my-4'>click me</ButtonGradient>
+        <ButtonAsGradient extraClasses='my-4'>click me</ButtonAsGradient>
         <button className='btn'>BUTTON</button>
 
-        <ButtonGradient
-          btnVariant='btn-gradient-amber'
+        <ButtonAsGradient
+          variant='btn-gradient-amber'
           padding='px-4 py-2'
           extraClasses='my-4'
         >
           about me
-        </ButtonGradient>
+        </ButtonAsGradient>
 
-        <ButtonGradient btnVariant='btn-gradient-amber' extraClasses='my-4'>
+        <ButtonAsGradient variant='btn-gradient-amber' extraClasses='my-4'>
           about me
-        </ButtonGradient>
+        </ButtonAsGradient>
+
+        <ButtonAsGradient
+          As='button'
+          variant='btn-gradient-amber'
+          extraClasses='my-4'
+        >
+          about me BTN
+        </ButtonAsGradient>
+        <ButtonAsGradient
+          As='Link'
+          href='/'
+          target='_self'
+          variant='btn-gradient-amber'
+          extraClasses='my-4'
+        >
+          about me LINK
+        </ButtonAsGradient>
 
         <br />
         <BorderFullGradient childrenWrapperExtraClasses='flex w-full flex-col md:flex-row'>
