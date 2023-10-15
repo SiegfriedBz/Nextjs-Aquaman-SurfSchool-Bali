@@ -31,10 +31,7 @@ const Hero = (props, heroRef) => {
           arrowIsClicked ? 'animate-none' : 'arrow'
         }`}
       >
-        <FontAwesomeIcon
-          icon={faCircleDown}
-          className='h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16'
-        />
+        <FontAwesomeIcon icon={faCircleDown} className='text-5xl md:text-6xl' />
       </button>
     </div>
   )
