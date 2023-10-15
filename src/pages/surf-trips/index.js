@@ -4,4 +4,4 @@ const SurfTrips = () => {
   return <div>SurfTrips</div>
 }
 
-export default index
+export default SurfTrips
