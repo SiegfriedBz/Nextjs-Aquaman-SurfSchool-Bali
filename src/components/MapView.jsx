@@ -13,14 +13,14 @@ export default function MapView({ mapMarkers }) {
   const router = useRouter()
   const mapRef = useRef(null)
   const { showPopup, setShowPopup, popup, setPopup } = useAppContext()
-  const [mapHeight, setMapHeight] = useState(450)
+  const [mapHeight, setMapHeight] = useState(400)
 
   // dynamic set map height = f (viewport width) before painting component to the screen
   useLayoutEffect(() => {
     if (window == undefined) return
 
     const width = window.innerWidth
-    setMapHeight(width > 768 ? 500 : 450)
+    setMapHeight(width > 768 ? 500 : 400)
   }, [])
 
   useEffect(() => {
