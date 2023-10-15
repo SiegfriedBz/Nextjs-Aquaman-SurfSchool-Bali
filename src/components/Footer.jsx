@@ -134,7 +134,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li className='mb-0 hidden pb-0 md:inline-block'>
-                <Link href='/#testiminials'>
+                <Link href='/#home-testimonials'>
                   <span className='text-gradient text-xl'>Testimonials</span>
                 </Link>
               </li>
@@ -144,16 +144,16 @@ const Footer = () => {
           {/* icons */}
           <div
             id='footer-icons'
-            className='my-auto flex flex-col items-center md:gap-6'
+            className='my-auto flex flex-col items-center gap-4 md:gap-6'
           >
-            <div className='flex items-center justify-between md:gap-6'>
-              <TiktokIconLink className='px-1 py-1' />
-              <WhatsappIconLink className='px-2 py-1' />
+            <div className='flex items-center justify-between gap-4 md:gap-6'>
+              <TiktokIconLink />
+              <WhatsappIconLink />
             </div>
 
-            <div className='flex items-center justify-between md:gap-6'>
-              <IgIconLink className='px-2 pt-1' />
-              <CoffeeIconLink className='py-2 pe-2 ps-3' />
+            <div className='flex items-center justify-between gap-4 md:gap-6'>
+              <IgIconLink />
+              <CoffeeIconLink />
             </div>
           </div>
         </div>
