@@ -4,13 +4,17 @@ import { faWhatsapp, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { faStreetView, faMugHot } from '@fortawesome/free-solid-svg-icons'
 import tikTokLogo from '../../public/logos/tiktok-logo.png'
 
-const ICON_BASE_CLASSNAME =
-  'h-10 w-10 md:h-12 md:w-12 font-bold transition duration-300 hover:scale-125'
+const ICON_BASE_CLASSNAME = (bigIcon = false) => {
+  return `${
+    bigIcon ? 'text-3xl md:text-4xl' : 'text-4xl md:text-5xl '
+  } font-bold transition duration-300 hover:scale-125`
+}
 
 const IconLink = ({
   href,
   target = '_self',
   icon,
+  bigIcon = false,
   color,
   hoverColor,
   className,
@@ -19,11 +23,13 @@ const IconLink = ({
     <a
       href={href}
       target={target}
-      className='base-link flex items-center justify-center'
+      className='base-link flex place-content-center'
     >
       <FontAwesomeIcon
         icon={icon}
-        className={`${ICON_BASE_CLASSNAME} ${className} ${color} ${hoverColor} `}
+        className={`${ICON_BASE_CLASSNAME(
+          bigIcon
+        )}  ${className} ${color} ${hoverColor} `}
       />
     </a>
   )
@@ -47,7 +53,8 @@ export const StreetViewIconLink = ({ className = '' }) => {
     <IconLink
       href={process.env.NEXT_PUBLIC_STREET_VIEW_LINK || '/'}
       icon={faStreetView}
-      className={`${className} p-1`}
+      bigIcon={true}
+      className={`${className}`}
       color='text-amber-400'
       hoverColor='hover:text-amber-500'
     />
@@ -73,7 +80,8 @@ export const CoffeeIconLink = ({ className = '' }) => {
       href={process.env.NEXT_PUBLIC_BMCOFFEE_LINK || '/'}
       target='_blank'
       icon={faMugHot}
-      className={`${className} p-1`}
+      bigIcon={true}
+      className={`${className}`}
       color='text-amber-400'
       hoverColor='hover:text-amber-500'
     />

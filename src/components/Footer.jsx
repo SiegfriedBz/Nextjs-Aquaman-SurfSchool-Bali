@@ -144,14 +144,14 @@ const Footer = () => {
           {/* icons */}
           <div
             id='footer-icons'
-            className='my-auto flex flex-col items-center gap-4 md:gap-6'
+            className='my-auto flex flex-col items-center justify-between gap-4 md:gap-6'
           >
-            <div className='flex items-center justify-between gap-4 md:gap-6'>
+            <div className='flex w-full items-center justify-between gap-4 md:gap-6'>
               <TiktokIconLink />
               <WhatsappIconLink />
             </div>
 
-            <div className='flex items-center justify-between gap-4 md:gap-6'>
+            <div className='flex w-full items-center justify-between gap-4 md:gap-6'>
               <IgIconLink />
               <CoffeeIconLink />
             </div>
