@@ -65,6 +65,9 @@
   h6 {
     @apply text-lg md:text-xl 2xl:text-[1.35rem];
   }
+  span.span-link {
+    @apply text-lg md:text-xl 2xl:text-[1.35rem];
+  }
   p {
     @apply my-4 text-cf-dark dark:text-cf-white sm:text-lg md:text-xl;
 

@@ -29,7 +29,7 @@ const IconLink = ({
         icon={icon}
         className={`${ICON_BASE_CLASSNAME(
           bigIcon
-        )}  ${className} ${color} ${hoverColor} `}
+        )}  ${className} ${color} ${hoverColor}`}
       />
     </a>
   )
