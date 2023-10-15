@@ -20,7 +20,7 @@ const ButtonToggleTheme = () => {
         colorMode === 'light' ? (
           <MoonIcon className='w-[34px] md:w-[35px] lg:w-[37px]' />
         ) : (
-          <SunIcon className='w-[34px] md:w-[35px] lg:w-[37px]' />
+          <SunIcon className='w-[35px] md:w-[36px] lg:w-[38px]' />
         )
       ) : (
         ''
