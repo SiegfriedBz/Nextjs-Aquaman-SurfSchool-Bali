@@ -1,11 +1,27 @@
-import { useState, useRef, useLayoutEffect, useCallback } from 'react'
+import { useState, useRef, useLayoutEffect, useCallback, useId } from 'react'
 import Hero from '@/components/Hero'
 import HomePageLayout from '@/components/layouts/HomePageLayout'
 import MapView from '@/components/MapView'
 import { Testimonials, TestimonialsLinks } from '@/components/Testimonials'
 import { LinkGradient } from '@/components/ButtonGradient'
+import { CustomCarousel } from '@/components/Carousel'
+import {
+  homeSurfLessonsImages,
+  homeSurfTripsImages,
+  homeAboutMeImages,
+} from '@/data/homePageImages'
+import { getImageUrl, getBase64ImageUrl } from '@/utils/cloudinaryUtils'
+import getMapMarkers from '@/utils/getMapMarkers'
 
-export default function Home() {
+export default function Home({
+  homeSurfLessonsImg,
+  homeSurfTripsImg,
+  homeAboutMeImg,
+  mapMarkers,
+}) {
+  const homeSurfLessonsId = useId()
+  const homeSurfTripsId = useId()
+  const homeAboutMeId = useId()
   const heroRef = useRef(null)
   const [viewportOffset, setViewportOffset] = useState(0)
 
@@ -29,24 +45,85 @@ export default function Home() {
       </section>
 
       <div id='sub-hero'>
-        <section id='school-carousel'>
-          <h2>Carousel</h2>
-          school-carouselIm baby copper mug PBR&B craft beer lo-fi cornhole pork
-          belly vaporware blog hot chicken lyft tattooed. Hammock bruh tote bag,
-          cupping fingerstache flannel affogato enamel pin echo park pabst
-          typewriter gochujang blog green juice. Man braid flexitarian tofu,
-          seitan mixtape crucifix pabst bitters gorpcore skateboard craft beer.
-          Mukbang flexitarian salvia, microdosing copper mug vinyl Brooklyn man
-          braid kombucha mlkshk blog scenester adaptogen snackwave. Ennui
-          cupping hot chicken cliche DSA. Tote bag celiac 90s, fanny pack banh
-          mi migas
+        <section id='home-surf-lessons' className='flex scroll-mt-24 flex-col'>
+          <h2 className='mx-auto'>Surf Lessons</h2>
+          <CustomCarousel
+            carouselKey={homeSurfLessonsId}
+            images={homeSurfLessonsImg}
+            carouselClasses='h-60 md:h-[32rem]'
+            priority={true}
+            imageClasses='
+              w-full h-full 
+              md:w-11/12 
+              rounded-md
+              border-none
+              object-cover 
+              shadow-2xl md:shadow-none'
+          />
+          <p>
+            Im baby copper mug PBR&B craft beer lo-fi cornhole pork belly
+            vaporware blog hot chicken lyft tattooed. Hammock bruh tote bag,
+            cupping fingerstache flannel affogato enamel pin echo park pabst
+          </p>
+          <LinkGradient
+            href='/surf-lessons'
+            target='_self'
+            variant='btn-gradient-link-amber'
+            extraClasses='mx-auto my-4'
+          >
+            Surf Lessons
+          </LinkGradient>
         </section>
 
         <hr />
 
-        <section id='about-me' className='flex flex-col'>
-          <h2>About me</h2>
-          Carousel
+        <section id='home-surf-trips' className='flex flex-col'>
+          <h2 className='mx-auto'>Surf Trips</h2>
+          <CustomCarousel
+            carouselKey={homeSurfTripsId}
+            images={homeSurfTripsImg}
+            carouselClasses='h-60 md:h-[32rem]'
+            priority={true}
+            imageClasses='
+              w-full h-full 
+              md:w-11/12 
+              rounded-md
+              border-none
+              object-cover 
+              shadow-2xl md:shadow-none'
+          />
+          <p>
+            Im baby copper mug PBR&B craft beer lo-fi cornhole pork belly
+            vaporware blog hot chicken lyft tattooed. Hammock bruh tote bag,
+            cupping fingerstache flannel affogato enamel pin echo park pabst
+          </p>
+          <LinkGradient
+            href='/surf-trips'
+            target='_self'
+            variant='btn-gradient-link-amber'
+            extraClasses='mx-auto my-4'
+          >
+            Surf Trips
+          </LinkGradient>
+        </section>
+
+        <hr />
+
+        <section id='home-about-me' className='flex flex-col'>
+          <h2 className='mx-auto'>About me</h2>
+          <CustomCarousel
+            carouselKey={homeAboutMeId}
+            images={homeAboutMeImg}
+            carouselClasses='h-60 md:h-[32rem]'
+            priority={true}
+            imageClasses='
+              w-full h-full 
+              md:w-11/12 
+              rounded-md
+              border-none
+              object-cover 
+              shadow-2xl md:shadow-none'
+          />
           <p>
             My name is Rendy and I am from Krui, South Sumatra. I started
             surfing at the age of 8 and came to Bali in 2019 to work as a Surf
@@ -64,7 +141,7 @@ export default function Home() {
 
         <hr />
 
-        <section id='testimonials' className='flex flex-col'>
+        <section id='home-testimonials' className='flex scroll-mt-24 flex-col'>
           <h2 className='mx-auto'>Testimonials</h2>
           <Testimonials />
           <TestimonialsLinks />
@@ -73,11 +150,63 @@ export default function Home() {
 
         <hr />
 
-        <section id='home-map-view'>
-          <h2>Visit Us</h2>
+        <section id='home-map-view' className='flex scroll-mt-24 flex-col'>
+          <h2 className='mx-auto'>Visit Us</h2>
           <MapView />
         </section>
       </div>
     </HomePageLayout>
   )
+}
+
+export async function getStaticProps() {
+  const homeSurfLessonsImgPromises = homeSurfLessonsImages.map(
+    async (image) => {
+      const src = getImageUrl(image.image)
+      const blurDataUrl = await getBase64ImageUrl(image.image)
+      return {
+        src,
+        blurDataUrl,
+        id: image.id,
+        alt: image.alt,
+      }
+    }
+  )
+
+  const homeSurfTripsImgPromises = homeSurfTripsImages.map(async (image) => {
+    const src = getImageUrl(image.image)
+    const blurDataUrl = await getBase64ImageUrl(image.image)
+    return {
+      src,
+      blurDataUrl,
+      id: image.id,
+      alt: image.alt,
+    }
+  })
+
+  const homeAboutMeImgPromises = homeAboutMeImages.map(async (image) => {
+    const src = getImageUrl(image.image)
+    const blurDataUrl = await getBase64ImageUrl(image.image)
+    return {
+      src,
+      blurDataUrl,
+      id: image.id,
+      alt: image.alt,
+    }
+  })
+
+  const homeSurfLessonsImg = await Promise.all(homeSurfLessonsImgPromises)
+  const homeSurfTripsImg = await Promise.all(homeSurfTripsImgPromises)
+  const homeAboutMeImg = await Promise.all(homeAboutMeImgPromises)
+
+  const mapMarkers = getMapMarkers(homeSurfTripsImg)
+
+  return {
+    props: {
+      homeSurfLessonsImg,
+      homeSurfTripsImg,
+      homeAboutMeImg,
+      mapMarkers,
+    },
+  }
 }
