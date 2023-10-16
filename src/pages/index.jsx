@@ -183,7 +183,7 @@ export default function Home({
           onClick={() =>
             subHeroRef.current.scrollIntoView({ behavior: 'smooth' })
           }
-          className='absolute -bottom-[0.3rem] right-0 cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
+          className='absolute -bottom-[4.25rem] right-0 cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
         />
       </div>
     </HomePageLayout>

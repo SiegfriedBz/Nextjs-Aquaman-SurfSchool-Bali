@@ -11,7 +11,7 @@ const PageLayout = ({ children }) => {
       <FontAwesomeIcon
         icon={faCircleArrowUp}
         onClick={() => ref.current.scrollIntoView({ behavior: 'smooth' })}
-        className='absolute bottom-[0.35rem] right-0 cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
+        className='absolute -bottom-[3.25rem] right-0 cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
       />
     </div>
   )
