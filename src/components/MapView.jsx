@@ -46,8 +46,8 @@ export default function MapView({ mapMarkers }) {
       ref={mapRef}
       mapboxAccessToken={MAPBOX_TOKEN}
       initialViewState={{
-        latitude: mapMarkers.canggu.latitude,
-        longitude: mapMarkers.canggu.longitude,
+        latitude: mapMarkers?.canggu?.latitude || -8.6478,
+        longitude: mapMarkers?.canggu?.longitude || 115.1385,
         zoom: isSurfTripsRoute ? 6 : 10,
       }}
       style={{ width: 'auto', height: mapHeight }}
@@ -68,26 +68,27 @@ export default function MapView({ mapMarkers }) {
         </Popup>
       )}
 
-      {Object.entries(mapMarkers).map(([spot, values]) => {
-        return (
-          <div key={spot} id={spot} onMouseEnter={() => handleSetPopup(spot)}>
-            <Marker
-              latitude={values.latitude}
-              longitude={values.longitude}
-              anchor='bottom'
-            >
-              <FontAwesomeIcon
-                icon={faUmbrellaBeach}
-                className={`me-3 ${
-                  values.location === 'Canggu'
-                    ? 'text-4xl text-sky-500'
-                    : 'text-3xl text-amber-400'
-                }`}
-              />
-            </Marker>
-          </div>
-        )
-      })}
+      {mapMarkers &&
+        Object.entries(mapMarkers).map(([spot, values]) => {
+          return (
+            <div key={spot} id={spot} onMouseEnter={() => handleSetPopup(spot)}>
+              <Marker
+                latitude={values.latitude}
+                longitude={values.longitude}
+                anchor='bottom'
+              >
+                <FontAwesomeIcon
+                  icon={faUmbrellaBeach}
+                  className={`me-3 ${
+                    values.location === 'Canggu'
+                      ? 'text-4xl text-sky-500'
+                      : 'text-3xl text-amber-400'
+                  }`}
+                />
+              </Marker>
+            </div>
+          )
+        })}
     </Map>
   )
 }
