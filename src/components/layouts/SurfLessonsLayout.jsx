@@ -56,7 +56,7 @@ function Header() {
           target='_self'
           variant='btn-as-gradient-amber'
           padding='px-2 py-1'
-          extraClasses='my-2 w-1/2 text-center'
+          extraClasses='btn-hover-small-scale my-2 w-1/2 text-center'
         >
           Private
         </ButtonAsGradient>
@@ -66,7 +66,7 @@ function Header() {
           target='_self'
           variant='btn-as-gradient-amber'
           padding='px-2 py-1'
-          extraClasses='my-2 w-1/2 text-center'
+          extraClasses='btn-hover-small-scale my-2 w-1/2 text-center'
         >
           Group
         </ButtonAsGradient>
