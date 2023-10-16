@@ -6,11 +6,17 @@ import { surfTripsPageImages } from '@/data/surfTripsPageImages'
 import { getBase64ImageUrl, getImageUrl } from '@/utils/cloudinaryUtils'
 import getMapMarkers from '@/utils/getMapMarkers'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye } from '@fortawesome/free-solid-svg-icons'
+import {
+  faEye,
+  faMapLocationDot,
+  faBed,
+  faCircleArrowUp,
+} from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image'
 import { useAppContext } from '@/context/appContext'
 
 const SurfTrips = ({ surfTripImg, mapMarkers }) => {
+  const topRef = useRef(null)
   const mapContainerRef = useRef(null)
   const { setShowPopup, setPopup } = useAppContext()
 
@@ -20,27 +26,35 @@ const SurfTrips = ({ surfTripImg, mapMarkers }) => {
     mapContainerRef?.current?.scrollIntoView()
   }
 
+  const scrollToTop = () => {
+    topRef.current.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <PageLayout>
-      <section className={`flex h-full w-full flex-col content-center`}>
+      <section
+        ref={topRef}
+        className={`flex h-full w-full scroll-mt-[24rem] flex-col content-center`}
+      >
         <h1 className='title text-center'>Surf Trips</h1>
         <h3 className='sub-title mb-4 text-center'>From Lombok to Sumatra</h3>
         <h3 className='text-center text-cf-dark/80 underline underline-offset-4 dark:text-cf-white/80'>
           Starting at 500K IDR
         </h3>
 
-        <section
+        <div
           ref={mapContainerRef}
           className='scroll-mt-[8rem] scroll-smooth px-1'
         >
           <MapView mapMarkers={mapMarkers} />
-        </section>
+        </div>
 
         <hr />
 
         <DestinationList
           surfTripImg={surfTripImg}
           handleSelectTrip={handleSelectTrip}
+          scrollToTop={scrollToTop}
         />
 
         <hr />
@@ -56,7 +70,7 @@ export default SurfTrips
 SurfTrips.DestinationList = DestinationList
 SurfTrips.BottomContent = BottomContent
 
-function DestinationList({ surfTripImg, handleSelectTrip }) {
+function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
   const [
     cangguImg,
     medewiImg,
@@ -74,6 +88,7 @@ function DestinationList({ surfTripImg, handleSelectTrip }) {
         name='Canggu, Bali'
         image={cangguImg}
         handleSelectTrip={handleSelectTrip}
+        scrollToTop={scrollToTop}
       >
         <>
           <p>
@@ -137,6 +152,7 @@ function DestinationList({ surfTripImg, handleSelectTrip }) {
         name='Medewi, Bali'
         image={medewiImg}
         handleSelectTrip={handleSelectTrip}
+        scrollToTop={scrollToTop}
       >
         <>
           <p>
@@ -179,6 +195,7 @@ function DestinationList({ surfTripImg, handleSelectTrip }) {
         name='Balangan Beach, Bali'
         image={balanganImg}
         handleSelectTrip={handleSelectTrip}
+        scrollToTop={scrollToTop}
       >
         <>
           <p>
@@ -218,6 +235,7 @@ function DestinationList({ surfTripImg, handleSelectTrip }) {
         name='Uluwatu, Bali'
         image={uluwatuImg}
         handleSelectTrip={handleSelectTrip}
+        scrollToTop={scrollToTop}
       >
         <>
           <p>
@@ -276,6 +294,7 @@ function DestinationList({ surfTripImg, handleSelectTrip }) {
         name='Serangan, Bali'
         image={seranganImg}
         handleSelectTrip={handleSelectTrip}
+        scrollToTop={scrollToTop}
       >
         <>
           <p>
@@ -318,6 +337,7 @@ function DestinationList({ surfTripImg, handleSelectTrip }) {
         name='Nusa Lembongan'
         image={nusaImg}
         handleSelectTrip={handleSelectTrip}
+        scrollToTop={scrollToTop}
       >
         <>
           <ul>
@@ -369,6 +389,7 @@ function DestinationList({ surfTripImg, handleSelectTrip }) {
         name='Lombok Island'
         image={lombokImg}
         handleSelectTrip={handleSelectTrip}
+        scrollToTop={scrollToTop}
       >
         <>
           <ul>
@@ -422,10 +443,15 @@ const DestinationDetails = ({
   name,
   image,
   handleSelectTrip,
+  scrollToTop,
   children,
 }) => {
   return (
-    <section id={id} className='scroll-mt-[6rem] scroll-smooth'>
+    /**
+     * scroll-mt-[x] used when user comes from Home page MapView marker click
+     * relative / absolute used to position the scroll-to-top button
+     * */
+    <section id={id} className='relative scroll-mt-[6rem] scroll-smooth'>
       <h2>{name}</h2>
       <div
         className='flex cursor-pointer items-center'
@@ -473,6 +499,11 @@ const DestinationDetails = ({
           Surf Now
         </ButtonAsGradient>
       </div>
+      <FontAwesomeIcon
+        icon={faCircleArrowUp}
+        onClick={scrollToTop}
+        className='absolute bottom-[0.35rem] right-0 cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
+      />
     </section>
   )
 }
@@ -480,18 +511,36 @@ const DestinationDetails = ({
 function BottomContent() {
   return (
     <div className='mt-8'>
-      <p className='mb-0 text-center font-bold'>🏄‍♀️ Your Board or Ours</p>
+      <h5 className='text-center font-bold'>
+        <span className='me-2 text-xl text-cf-white'>🏄‍♀️</span>Your Board or Ours
+      </h5>
       <p className='text-center'>
         Bring your own board or use one of our top-quality boards.
       </p>
 
-      <p className='mb-0 text-center font-bold'>🏄‍♂️ Flexible Departures</p>
+      <h5 className='text-center font-bold'>
+        <span>
+          <FontAwesomeIcon
+            icon={faMapLocationDot}
+            className='me-2 text-ternary dark:text-ternary/95'
+          />
+        </span>
+        Flexible Departures
+      </h5>
       <p className='text-center'>
         Start your surf adventure right from Canggu or meet us at your chosen
         destination.
       </p>
 
-      <p className='mb-0 text-center font-bold'>🏨 Stay Your Way</p>
+      <h5 className='text-center font-bold'>
+        <span>
+          <FontAwesomeIcon
+            icon={faBed}
+            className='me-2 text-ternary dark:text-ternary/95'
+          />
+        </span>
+        Stay Your Way
+      </h5>
       <p className='text-center'>
         Book your own hotel or let us assist you in finding the perfect spot.
       </p>
