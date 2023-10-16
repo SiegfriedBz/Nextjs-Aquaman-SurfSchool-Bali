@@ -5,9 +5,15 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 config.autoAddCss = false
 
 export default function App({ Component, pageProps }) {
+  const Layout = Component.Layout || EmptyLayout
+
   return (
     <RootLayout>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </RootLayout>
   )
 }
+
+const EmptyLayout = ({ children }) => <>{children}</>
