@@ -18,14 +18,14 @@ const SurfLessons = () => {
           </Link>
         </h2>
 
-        <div className='flex w-full justify-center space-x-8'>
+        <div className='flex w-full justify-evenly space-x-4'>
           <ButtonAsGradient
             As='Link'
             href='/surf-lessons'
             target='_self'
             variant='btn-as-gradient-amber'
-            padding='px-4 py-2'
-            extraClasses='my-2 w-1/3 text-center'
+            padding='px-2 py-1'
+            extraClasses='my-2 w-1/2 text-center'
           >
             Private
           </ButtonAsGradient>
@@ -34,8 +34,8 @@ const SurfLessons = () => {
             href='/surf-lessons/#group'
             target='_self'
             variant='btn-as-gradient-amber'
-            padding='px-4 py-2'
-            extraClasses='my-2 w-1/3 text-center'
+            padding='px-2 py-1'
+            extraClasses='my-2 w-1/2 text-center'
           >
             Group
           </ButtonAsGradient>
