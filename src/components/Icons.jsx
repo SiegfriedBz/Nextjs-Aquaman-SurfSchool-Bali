@@ -75,8 +75,8 @@ export const CoffeeIconLink = ({ className = '' }) => {
       icon={faMugHot}
       bigIcon={true}
       className={`${className} hover:scale-150`}
-      color='text-amber-400'
-      hoverColor='hover:text-amber-500'
+      color='text-ternary-light'
+      hoverColor='hover:text-ternary'
     />
   )
 }
