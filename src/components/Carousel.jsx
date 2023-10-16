@@ -23,7 +23,7 @@ export const CustomCarousel = ({
 }) => {
   return (
     <Carousel>
-      {images.map((image) => {
+      {images?.map((image) => {
         return (
           <div
             key={`${carouselKey}-${image.src}`}
