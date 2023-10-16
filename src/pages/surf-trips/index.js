@@ -29,14 +29,21 @@ const SurfTrips = ({ surfTripImg, mapMarkers }) => {
           Starting at 500K IDR
         </h3>
 
-        <section ref={mapContainerRef} className='scroll-mt-[8rem] px-1'>
+        <section
+          ref={mapContainerRef}
+          className='scroll-mt-[8rem] scroll-smooth px-1'
+        >
           <MapView mapMarkers={mapMarkers} />
         </section>
+
+        <hr />
 
         <DestinationList
           surfTripImg={surfTripImg}
           handleSelectTrip={handleSelectTrip}
         />
+
+        <hr />
 
         <BottomContent />
 
@@ -429,7 +436,7 @@ const DestinationDetails = ({
   children,
 }) => {
   return (
-    <section id={id} className='scroll-mt-[8rem]'>
+    <section id={id} className='scroll-mt-[6rem] scroll-smooth'>
       <h2>{name}</h2>
       <div
         className='flex cursor-pointer items-center'
@@ -483,26 +490,23 @@ const DestinationDetails = ({
 
 function BottomContent() {
   return (
-    <>
-      <hr />
-      <div className='mt-8'>
-        <p className='mb-0 text-center font-bold'>🏄‍♀️ Your Board or Ours</p>
-        <p className='text-center'>
-          Bring your own board or use one of our top-quality boards.
-        </p>
+    <div className='mt-8'>
+      <p className='mb-0 text-center font-bold'>🏄‍♀️ Your Board or Ours</p>
+      <p className='text-center'>
+        Bring your own board or use one of our top-quality boards.
+      </p>
 
-        <p className='mb-0 text-center font-bold'>🏄‍♂️ Flexible Departures</p>
-        <p className='text-center'>
-          Start your surf adventure right from Canggu or meet us at your chosen
-          destination.
-        </p>
+      <p className='mb-0 text-center font-bold'>🏄‍♂️ Flexible Departures</p>
+      <p className='text-center'>
+        Start your surf adventure right from Canggu or meet us at your chosen
+        destination.
+      </p>
 
-        <p className='mb-0 text-center font-bold'>🏨 Stay Your Way</p>
-        <p className='text-center'>
-          Book your own hotel or let us assist you in finding the perfect spot.
-        </p>
-      </div>
-    </>
+      <p className='mb-0 text-center font-bold'>🏨 Stay Your Way</p>
+      <p className='text-center'>
+        Book your own hotel or let us assist you in finding the perfect spot.
+      </p>
+    </div>
   )
 }
 
