@@ -33,6 +33,7 @@ const AboutMe = ({ aboutMeImg }) => {
         <ButtonAsGradient
           As='Link'
           href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
+          target='_blank'
           extraClasses='mx-auto my-4'
         >
           Surf Now
