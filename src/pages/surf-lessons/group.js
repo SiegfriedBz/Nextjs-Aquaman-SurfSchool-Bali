@@ -2,14 +2,14 @@ import { BorderFullGradient } from '@/components/BorderGradient'
 import { ButtonAsGradient } from '@/components/ButtonAsGradient'
 import { CustomCarousel } from '@/components/Carousel'
 import SurfLessonsLayout from '@/components/layouts/SurfLessonsLayout'
-import { privateLessonsImages } from '@/data/surfLessonsPageImages'
+import { groupLessonsImages } from '@/data/surfLessonsPageImages'
 import { getImageUrl, getBase64ImageUrl } from '@/utils/cloudinaryUtils'
 
-const SurfLessonsPrivate = ({ images }) => {
+const SurfLessonsGroup = ({ images }) => {
   return (
     <>
-      <h2 className='mb-0 text-center'>Private</h2>
-      <h3 className='mb-0 text-center'>1 Coach & 1 Guest</h3>
+      <h2 className='mb-0 text-center'>Group</h2>
+      <h3 className='mb-0 text-center'>1 Coach & 2 Guests</h3>
 
       <BorderFullGradient className='my-4'>
         <CustomCarousel
@@ -25,11 +25,13 @@ const SurfLessonsPrivate = ({ images }) => {
               <h3 className='m-0'>1 Surf Lesson</h3>
               <span className='text-3xl'>🏄‍♀️</span>
             </div>
-
+            <h5 className='text-cf-dark dark:text-cf-white'>
+              Total for 2 Guests
+            </h5>
             <div className='flex items-center space-x-4'>
               <h4>2 hours:</h4>
               <h5 className='text-cf-dark dark:text-cf-white'>
-                350K IDR (USD 22)
+                650K IDR (USD 42)
               </h5>
             </div>
           </div>
@@ -39,11 +41,13 @@ const SurfLessonsPrivate = ({ images }) => {
               <h3 className='m-0'>3 Surf Lessons</h3>
               <span className='text-3xl'>🏄‍♀️🏄‍♀️🏄‍♀️</span>
             </div>
-
+            <h5 className='text-cf-dark dark:text-cf-white'>
+              Total for 2 Guests
+            </h5>
             <div className='mb-0 flex items-center space-x-4'>
               <h4>3 * 2 hours:</h4>
               <h5 className='mb-0 text-cf-dark dark:text-cf-white '>
-                1M IDR (USD 64)
+                1.9M IDR (USD 123)
               </h5>
             </div>
           </div>
@@ -64,12 +68,12 @@ const SurfLessonsPrivate = ({ images }) => {
   )
 }
 
-export default SurfLessonsPrivate
+export default SurfLessonsGroup
 
-SurfLessonsPrivate.Layout = SurfLessonsLayout
+SurfLessonsGroup.Layout = SurfLessonsLayout
 
 export async function getStaticProps() {
-  const privateLessonsImgPromises = privateLessonsImages.map(async (image) => {
+  const groupLessonsImgPromises = groupLessonsImages.map(async (image) => {
     const src = getImageUrl(image.image)
     const blurDataUrl = await getBase64ImageUrl(image.image)
     return {
@@ -80,11 +84,11 @@ export async function getStaticProps() {
     }
   })
 
-  const privateLessonsImg = await Promise.all(privateLessonsImgPromises)
+  const groupLessonsImg = await Promise.all(groupLessonsImgPromises)
 
   return {
     props: {
-      images: privateLessonsImg,
+      images: groupLessonsImg,
     },
   }
 }
