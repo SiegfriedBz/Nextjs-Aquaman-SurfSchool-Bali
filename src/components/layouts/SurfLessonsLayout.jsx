@@ -93,7 +93,7 @@ function BodyContent({ images, children }) {
           flex flex-col items-center justify-center
           rounded-xl border border-solid 
           border-cf-dark
-          p-3
+          p-2
         hover:border-blue-400 
         dark:border-cf-white 
         dark:hover:border-blue-400'
@@ -128,39 +128,41 @@ function Footer({ scrollToTop }) {
         <div id='surf-lessons-footer-what-to-bring' className='relative mb-8'>
           <h3 className='self-start'>What is included?</h3>
           <h4 className='self-start'>All equipment needed !</h4>
-          <ul className='ms-4 w-full'>
-            <li className='list-disc'>
-              <p>Premium custom made beginner soft boards with soft fins</p>
-            </li>
-            <li className='list-disc'>
-              <p>Intermediate surf boards options</p>
-            </li>
-            <li className='list-disc'>
-              <p>Leash</p>
-            </li>
-            <li className='list-disc'>
-              <p>Rash guard</p>
-            </li>
-            <li className='list-disc'>
-              <p>Surf facial sunscreen / zink</p>
-            </li>
-            <li className='list-disc'>
-              <p>Recovery water</p>
-            </li>
-            <li className='list-disc'>
-              <p>Shower</p>
-            </li>
-          </ul>
+          <div className='px-2'>
+            <ul className='ms-4 w-full'>
+              <li className='list-disc'>
+                <p>Premium custom made beginner soft boards with soft fins</p>
+              </li>
+              <li className='list-disc'>
+                <p>Intermediate surf boards options</p>
+              </li>
+              <li className='list-disc'>
+                <p>Leash</p>
+              </li>
+              <li className='list-disc'>
+                <p>Rash guard</p>
+              </li>
+              <li className='list-disc'>
+                <p>Surf facial sunscreen / zink</p>
+              </li>
+              <li className='list-disc'>
+                <p>Recovery water</p>
+              </li>
+              <li className='list-disc'>
+                <p>Shower</p>
+              </li>
+            </ul>
 
-          <h4 className='self-start'>Options</h4>
-          <ul className='ms-4 w-full'>
-            <li className='list-disc'>
-              <p>Photos & Videos of your session</p>
-            </li>
-            <li className='list-disc'>
-              <p>Video analysis</p>
-            </li>
-          </ul>
+            <h4 className='self-start'>Options</h4>
+            <ul className='ms-4 w-full'>
+              <li className='list-disc'>
+                <p>Photos & Videos of your session</p>
+              </li>
+              <li className='list-disc'>
+                <p>Video analysis</p>
+              </li>
+            </ul>
+          </div>
           <FontAwesomeIcon
             icon={faCircleArrowUp}
             onClick={scrollToTop}
@@ -170,44 +172,44 @@ function Footer({ scrollToTop }) {
 
         <hr />
 
-        <div id='surf-lessons-footer-surfer-levels' className='mt-8'>
+        <div id='surf-lessons-footer-surfer-levels' className='my-8'>
           <h3>Surfer Levels</h3>
-          <div>
+          <div className='px-2'>
             <h4>Beginner</h4>
-            <p>
+            <p className='text-justify'>
               On your very first lesson you will be given an introduction on the
               beach about the surfboard, safety in the water, how to paddle,
               balance, stand up and surf the wave.
             </p>
-            <p>
+            <p className='text-justify'>
               Surfing lessonss with a professional instructor including 30
               minutes of detailed surf basics, theory and safety on the beach
               before jumping into the water to catch and surf your first waves.
             </p>
           </div>
 
-          <div>
+          <div className='px-2'>
             <h4>Intermediate</h4>
-            <p>
+            <p className='text-justify'>
               You have already taken one or more surf lessons before and need
               help to improve your surfing? If you don&apos;t need the basic and
               theory part, we can jump straight into the water to surf and enjoy
               more time in the water.
             </p>
-            <p>
+            <p className='text-justify'>
               Surfing lessonss in the water with a professional instructor. You
               will get help with wave selection and catching waves and tips on
               your body position.
             </p>
           </div>
 
-          <div>
+          <div className='px-2'>
             <h4>Advanced</h4>
-            <p>
+            <p className='text-justify'>
               You are able to catch stone-100 water or green waves already and
               want to improve your surfing?
             </p>
-            <p>
+            <p className='text-justify'>
               Surfing lessonss in the water with a professional instructor. You
               will get help with wave selection, catching green waves and tips
               on your body position and surf maneuvers. It is highly recommended
@@ -217,17 +219,7 @@ function Footer({ scrollToTop }) {
             </p>
           </div>
         </div>
-
-        <div className='flex justify-center'>
-          <ButtonAsGradient
-            As='Link'
-            href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
-            target='_blank'
-            extraClasses='my-4'
-          >
-            Surf Now
-          </ButtonAsGradient>
-        </div>
+        <hr />
       </section>
 
       <CldVideoPlayer
