@@ -1,16 +1,28 @@
+import { useRef } from 'react'
 import Link from 'next/link'
 import { ButtonAsGradient } from '../ButtonAsGradient'
 import PageLayout from './PageLayout'
 import { CldVideoPlayer } from 'next-cloudinary'
 import { CustomCarousel } from '../Carousel'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleArrowUp } from '@fortawesome/free-solid-svg-icons'
 
-const SurfLessonsLayout = ({ children, images }) => {
+const SurfLessonsLayout = ({ children }) => {
+  const ref = useRef(null)
+
+  const scrollToTop = () => {
+    ref.current.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <PageLayout>
-      <section className={`flex h-full w-full flex-col items-center`}>
+      <section
+        ref={ref}
+        className={`flex h-full w-full scroll-mt-32 flex-col items-center`}
+      >
         <Header />
         <Body>{children}</Body>
-        <Footer />
+        <Footer scrollToTop={scrollToTop} />
       </section>
     </PageLayout>
   )
@@ -109,11 +121,11 @@ function BodyContent({ images, children }) {
   )
 }
 
-function Footer() {
+function Footer({ scrollToTop }) {
   return (
     <>
       <section id='surf-lessons-footer'>
-        <div id='surf-lessons-footer-what-to-bring' className='mb-8'>
+        <div id='surf-lessons-footer-what-to-bring' className='relative mb-8'>
           <h3 className='self-start'>What is included?</h3>
           <h4 className='self-start'>All equipment needed !</h4>
           <ul className='ms-4 w-full'>
@@ -149,6 +161,11 @@ function Footer() {
               <p>Video analysis</p>
             </li>
           </ul>
+          <FontAwesomeIcon
+            icon={faCircleArrowUp}
+            onClick={scrollToTop}
+            className='absolute -bottom-[1.5rem] right-0 cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
+          />
         </div>
 
         <hr />
