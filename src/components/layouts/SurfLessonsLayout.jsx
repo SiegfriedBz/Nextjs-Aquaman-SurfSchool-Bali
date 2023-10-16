@@ -172,7 +172,7 @@ function Footer({ scrollToTop }) {
 
         <hr />
 
-        <div id='surf-lessons-footer-surfer-levels' className='my-8'>
+        <div id='surf-lessons-footer-surfer-levels' className='mb-4 mt-8'>
           <h3>Surfer Levels</h3>
           <div className='px-2'>
             <h4>Beginner</h4>
@@ -219,7 +219,6 @@ function Footer({ scrollToTop }) {
             </p>
           </div>
         </div>
-        <hr />
       </section>
 
       <CldVideoPlayer
