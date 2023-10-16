@@ -21,12 +21,12 @@ const SurfLessonsPrivate = ({ images }) => {
         />
         <div className='space-y-8 px-2 py-4'>
           <div>
-            <div className='flex items-center space-x-4 '>
-              <h3 className='m-0'>1 Surf Lesson</h3>
+            <div className='flex items-baseline space-x-4 '>
+              <h3>1 Surf Lesson</h3>
               <span className='text-3xl'>🏄‍♀️</span>
             </div>
 
-            <div className='flex items-center space-x-4'>
+            <div className='flex items-baseline space-x-4'>
               <h4>2 hours:</h4>
               <h5 className='text-cf-dark dark:text-cf-white'>
                 350K IDR (USD 22)
@@ -35,14 +35,14 @@ const SurfLessonsPrivate = ({ images }) => {
           </div>
 
           <div>
-            <div className='flex items-center space-x-4'>
-              <h3 className='m-0'>3 Surf Lessons</h3>
+            <div className='flex items-baseline space-x-4'>
+              <h3>3 Surf Lessons</h3>
               <span className='text-3xl'>🏄‍♀️🏄‍♀️🏄‍♀️</span>
             </div>
 
-            <div className='mb-0 flex items-center space-x-4'>
+            <div className='flex items-baseline space-x-4'>
               <h4>3 * 2 hours:</h4>
-              <h5 className='mb-0 text-cf-dark dark:text-cf-white '>
+              <h5 className='text-cf-dark dark:text-cf-white'>
                 1M IDR (USD 64)
               </h5>
             </div>
