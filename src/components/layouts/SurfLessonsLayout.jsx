@@ -2,8 +2,9 @@ import Link from 'next/link'
 import { ButtonAsGradient } from '../ButtonAsGradient'
 import PageLayout from './PageLayout'
 import { CldVideoPlayer } from 'next-cloudinary'
+import { CustomCarousel } from '../Carousel'
 
-const SurfLessonsLayout = ({ children }) => {
+const SurfLessonsLayout = ({ children, images }) => {
   return (
     <PageLayout>
       <section className={`flex h-full w-full flex-col items-center`}>
@@ -64,6 +65,48 @@ function Header() {
 
 function Body({ children }) {
   return <div className='pt-4'>{children}</div>
+}
+
+Body.Header = BodyHeader
+Body.Content = BodyContent
+
+function BodyHeader({ children }) {
+  return <>{children}</>
+}
+
+function BodyContent({ images, children }) {
+  return (
+    <div
+      className='mb-3 
+          flex flex-col items-center justify-center
+          rounded-xl border border-solid 
+          border-cf-dark
+          p-3
+        hover:border-blue-400 
+        dark:border-cf-white 
+        dark:hover:border-blue-400'
+    >
+      <CustomCarousel
+        images={images}
+        carouselKey='private-lessons'
+        carouselClasses='mb-5 h-72 md:h-[30rem]'
+        imageClasses='h-full rounded-lg w-full md:w-11/12 object-cover shadow-2xl mx-auto'
+        priority={true}
+      />
+      <div className='w-full space-y-8 py-4'>{children}</div>
+
+      <div className='flex justify-center'>
+        <ButtonAsGradient
+          As='Link'
+          href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
+          target='_blank'
+          extraClasses='mx-auto my-4'
+        >
+          Surf Now
+        </ButtonAsGradient>
+      </div>
+    </div>
+  )
 }
 
 function Footer() {
