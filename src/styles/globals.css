@@ -99,8 +99,11 @@
   a.btn-as {
     @apply rounded-[0.5em] border-none text-base font-extrabold uppercase text-cf-white shadow-sm outline-none transition-all duration-300 ease-in-out sm:text-lg md:text-xl;
 
-    &:hover {
+    &:not(.btn-hover-small-scale):hover {
       @apply scale-110 rounded-[0.5em];
+    }
+    &.btn-hover-small-scale:hover {
+      @apply scale-105 rounded-[0.5em];
     }
   }
 
