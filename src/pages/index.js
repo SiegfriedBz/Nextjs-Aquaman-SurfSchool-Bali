@@ -12,6 +12,8 @@ import {
 } from '@/data/homePageImages'
 import { getImageUrl, getBase64ImageUrl } from '@/utils/cloudinaryUtils'
 import getMapMarkers from '@/utils/getMapMarkers'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleArrowUp } from '@fortawesome/free-solid-svg-icons'
 
 export default function Home({
   homeSurfLessonsImg,
@@ -23,6 +25,7 @@ export default function Home({
   const homeSurfTripsId = useId()
   const homeAboutMeId = useId()
   const heroRef = useRef(null)
+  const subHeroRef = useRef(null)
   const [viewportOffset, setViewportOffset] = useState(0)
 
   // dynamic set hero height to viewport height before painting component to the screen
@@ -44,7 +47,7 @@ export default function Home({
         <Hero ref={heroRef} />
       </section>
 
-      <div id='sub-hero'>
+      <div ref={subHeroRef} id='sub-hero' className='relative scroll-mt-[6rem]'>
         <section id='home-surf-lessons' className='flex scroll-mt-24 flex-col'>
           <h2 className='mx-auto'>Surf Lessons</h2>
           <CustomCarousel
@@ -72,7 +75,7 @@ export default function Home({
 
         <hr />
 
-        <section id='home-about-me' className='flex flex-col'>
+        <section id='home-about-me' className='relative flex flex-col'>
           <h2 className='mx-auto'>About me</h2>
           <div className='mx-auto h-60 w-60 rounded-full'>
             <CustomCarousel
@@ -97,11 +100,19 @@ export default function Home({
           >
             About me
           </ButtonAsGradient>
+
+          <FontAwesomeIcon
+            icon={faCircleArrowUp}
+            onClick={() =>
+              subHeroRef.current.scrollIntoView({ behavior: 'smooth' })
+            }
+            className='absolute bottom-[0.35rem] right-0 cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
+          />
         </section>
 
         <hr />
 
-        <section id='home-surf-trips' className='flex flex-col'>
+        <section id='home-surf-trips' className='relative flex flex-col'>
           <h2 className='mx-auto'>Surf Trips</h2>
           <CustomCarousel
             carouselKey={homeSurfTripsId}
@@ -124,11 +135,22 @@ export default function Home({
           >
             Surf Trips
           </ButtonAsGradient>
+
+          <FontAwesomeIcon
+            icon={faCircleArrowUp}
+            onClick={() =>
+              subHeroRef.current.scrollIntoView({ behavior: 'smooth' })
+            }
+            className='absolute bottom-[0.35rem] right-0 cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
+          />
         </section>
 
         <hr />
 
-        <section id='home-testimonials' className='flex scroll-mt-24 flex-col'>
+        <section
+          id='home-testimonials'
+          className='relative flex scroll-mt-24 flex-col'
+        >
           <h2 className='mx-auto'>Testimonials</h2>
           <Testimonials />
           <TestimonialsLinks />
@@ -140,6 +162,13 @@ export default function Home({
           >
             Surf Now
           </ButtonAsGradient>
+          <FontAwesomeIcon
+            icon={faCircleArrowUp}
+            onClick={() =>
+              subHeroRef.current.scrollIntoView({ behavior: 'smooth' })
+            }
+            className='absolute bottom-[0.35rem] right-0 cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
+          />
         </section>
 
         <hr />
@@ -148,6 +177,14 @@ export default function Home({
           <h2 className='mx-auto'>Visit Us</h2>
           <MapView mapMarkers={mapMarkers} />
         </section>
+
+        <FontAwesomeIcon
+          icon={faCircleArrowUp}
+          onClick={() =>
+            subHeroRef.current.scrollIntoView({ behavior: 'smooth' })
+          }
+          className='absolute -bottom-[0.3rem] right-0 cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
+        />
       </div>
     </HomePageLayout>
   )
