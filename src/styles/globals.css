@@ -92,10 +92,6 @@
   }
   p {
     @apply my-4 text-cf-dark dark:text-cf-white sm:text-lg md:text-xl;
-
-    &:nth-child(2n + 1) {
-      @apply text-cf-dark/90 dark:text-cf-white/90;
-    }
   }
 
   /* button, links */
