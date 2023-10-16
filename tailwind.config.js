@@ -26,7 +26,7 @@ module.exports = {
         secondary: '#0ea5e9', // sky-500
         // 'secondaryDark-light': '#', // cyan-
         ternary: '#f59e0b', // amber-500
-        'ternary-light': '#fcd34d', // amber-300
+        'ternary-light': '#fbbf24', // amber-400
         'cf-dark': '#0f172a', // slate-900
         'cf-white': '#f4f4f5', // zinc-100
         'cf-gray-light': '#e5e7eb', // gray-200
