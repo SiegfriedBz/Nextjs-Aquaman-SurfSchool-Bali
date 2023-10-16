@@ -35,47 +35,49 @@ function Header() {
   return (
     <>
       <h1 className='title'>Photo & Video</h1>
-      <h2 className='sub-title text-center'>Get an amazing souvenir</h2>
-      <h3 className='sub-title'>from your Surf Session</h3>
+      <h3 className='sub-title mb-1 text-center'>Get an amazing souvenir</h3>
+      <h4 className='sub-title'>from your Surf Session</h4>
 
-      <div className='flex w-full justify-evenly space-x-4'>
+      <div className='mt-2 flex w-full flex-col items-center'>
         <ButtonAsGradient
           As='Link'
           href='/photo-video'
           target='_self'
           variant='btn-as-gradient-amber'
           padding='px-2 py-1'
-          extraClasses='btn-hover-small-scale my-2 w-[30%] xs:w-1/3 text-center flex flex-col sm:flex-row sm:justify-center'
+          extraClasses='btn-hover-small-scale my-2 w-1/2 text-center'
         >
-          Photo <span className='inline-block sm:ms-1'>& Video</span>
+          Photo & Video
         </ButtonAsGradient>
-        <ButtonAsGradient
-          As='Link'
-          href='/photo-video/water-drone'
-          target='_self'
-          variant='btn-as-gradient-amber'
-          padding='px-2 py-1'
-          extraClasses='btn-hover-small-scale my-2 w-[30%] xs:w-1/3 text-center flex flex-col sm:flex-row sm:justify-center'
-        >
-          Water<span className='inline-block sm:ms-1'>& Drone</span>
-        </ButtonAsGradient>
-        <ButtonAsGradient
-          As='Link'
-          href='/photo-video/video-analysis'
-          target='_self'
-          variant='btn-as-gradient-amber'
-          padding='px-2 py-1'
-          extraClasses='btn-hover-small-scale my-2 w-[30%] xs:w-1/3 text-center flex flex-col sm:flex-row sm:justify-center'
-        >
-          Video<span className='inline-block sm:ms-1'>Analysis</span>
-        </ButtonAsGradient>
+        <div className='flex w-full justify-evenly space-x-4'>
+          <ButtonAsGradient
+            As='Link'
+            href='/photo-video/water-drone'
+            target='_self'
+            variant='btn-as-gradient-amber'
+            padding='px-2 py-1'
+            extraClasses='btn-hover-small-scale my-2 w-1/2 text-center'
+          >
+            Water & Drone
+          </ButtonAsGradient>
+          <ButtonAsGradient
+            As='Link'
+            href='/photo-video/video-analysis'
+            target='_self'
+            variant='btn-as-gradient-amber'
+            padding='px-2 py-1'
+            extraClasses='btn-hover-small-scale my-2 w-1/2 text-center'
+          >
+            Video Analysis
+          </ButtonAsGradient>
+        </div>
       </div>
     </>
   )
 }
 
 function Body({ children }) {
-  return <div className='pt-4'>{children}</div>
+  return <div className='my-8'>{children}</div>
 }
 
 Body.Header = BodyHeader
@@ -88,11 +90,11 @@ function BodyHeader({ children }) {
 function BodyContent({ image, children }) {
   return (
     <div
-      className='mb-3 
+      className='mb-3
         flex flex-col items-center justify-center
         rounded-xl border border-solid 
       border-cf-dark
-        p-3
+        p-2
       hover:border-blue-400 
       dark:border-cf-white 
       dark:hover:border-blue-400'
@@ -114,7 +116,7 @@ function BodyContent({ image, children }) {
         />
       </div>
 
-      <div className='w-full space-y-8 py-4'>{children}</div>
+      <div className='w-full py-4'>{children}</div>
 
       <div className='flex justify-center'>
         <ButtonAsGradient
@@ -143,7 +145,6 @@ function Footer() {
         loop={true}
         className='rounded-md border-0 shadow-2xl'
       />
-      <hr />
     </>
   )
 }
