@@ -35,8 +35,26 @@
     overflow-x: hidden;
   }
 
-  .layout-gradient {
-    @apply bg-gradient-to-r from-stone-100 to-stone-50 text-cf-dark dark:from-cf-dark dark:to-cf-dark dark:text-cf-white;
+  /*  */
+  .home-page-layout {
+    @apply pb-4 
+      xs:pb-8 
+      sm:pb-16
+      md:pb-24
+      lg:pb-32;
+  }
+
+  /* non-home page layout */
+  .page-layout {
+    /* mt-[Xrem] to push the content below the navbar on non-home pages */
+    @apply mt-[var(--nav-small-height)] 
+      py-4
+      xs:py-8 
+      sm:mt-[var(--nav-mid-height)] 
+      sm:py-16
+      md:mt-[var(--nav-big-height)]
+      md:py-24
+      lg:py-32;
   }
 
   section:not(#hero) {
@@ -45,6 +63,10 @@
 
   section:not(#hero):nth-of-type(2n) {
     @apply bg-cf-white text-cf-dark dark:bg-cf-dark dark:text-cf-white;
+  }
+
+  .layout-gradient {
+    @apply bg-gradient-to-r from-stone-100 to-stone-50 text-cf-dark dark:from-cf-dark dark:to-cf-dark dark:text-cf-white;
   }
 
   h1 {
@@ -71,11 +93,12 @@
   p {
     @apply my-4 text-cf-dark dark:text-cf-white sm:text-lg md:text-xl;
 
-    &:nth-child(2n) {
-      @apply text-cf-dark/80 dark:text-cf-white/80;
+    &:nth-child(2n + 1) {
+      @apply text-cf-dark/90 dark:text-cf-white/90;
     }
   }
 
+  /* button, links */
   button,
   a.btn-as {
     @apply rounded-[0.5em] border-none text-base font-extrabold uppercase text-cf-white shadow-sm outline-none transition-all duration-300 ease-in-out sm:text-lg md:text-xl;
@@ -122,12 +145,14 @@
     dark:active:after:bg-secondaryDark/75;
   }
 
+  /*  */
   hr {
     @apply h-[0.1rem] bg-primary;
   }
 }
 
 @layer components {
+  /* header, navbar */
   #header {
     @apply z-[999];
 
@@ -164,6 +189,7 @@
     }
   }
 
+  /* hero */
   #hero {
     .hero-image {
       @apply absolute left-0 right-0 top-0 h-full max-w-full rounded-[0.25em] bg-[url('/images/surf.png')] bg-cover bg-[35%] bg-no-repeat sm:bg-[25%] md:bg-[15%];
