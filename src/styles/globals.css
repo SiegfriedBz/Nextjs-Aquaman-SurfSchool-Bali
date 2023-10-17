@@ -96,7 +96,7 @@
   }
 
   p {
-    @apply my-4 text-cf-dark dark:text-cf-white sm:text-lg md:text-xl;
+    @apply mb-2 mt-8 text-cf-dark dark:text-cf-white sm:my-8 sm:text-lg md:text-xl;
   }
 
   /* button, links */
