@@ -9,7 +9,7 @@ const Gallery = ({ images }) => {
 
   return (
     <GalleryLayout.Body>
-      <div className='my-4 grid grid-cols-1 gap-4 md:scroll-mt-[15rem] md:grid-cols-4'>
+      <div className='mt-4 grid grid-cols-1 gap-4 md:scroll-mt-[15rem] md:grid-cols-4'>
         {images?.map((image, index) => {
           return (
             <div key={`${imageId}-${image.src}`} className='h-72'>

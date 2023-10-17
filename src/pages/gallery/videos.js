@@ -38,7 +38,7 @@ const GalleryVideos = () => {
         colors={{ accent: '#38bdf8', base: '#fbbf24', text: '#fbbf24' }}
         autoPlay='false'
         loop={true}
-        className='my-4 rounded-md border-0 shadow-2xl'
+        className='mt-4 rounded-md border-0 shadow-2xl'
       />
     </GalleryLayout.Body>
   )
