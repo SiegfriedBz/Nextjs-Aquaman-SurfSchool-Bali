@@ -10,9 +10,10 @@ const RootLayout = (props) => {
   const router = useRouter()
 
   const meta = {
-    canonicalUrl: router?.asPath
-      ? `${process.env.NEXT_PUBLIC_URL}${router.asPath}`
-      : `${process.env.NEXT_PUBLIC_URL}`,
+    canonicalUrl:
+      router?.asPath != undefined
+        ? `${process.env.NEXT_PUBLIC_URL}${router.asPath}`
+        : `${process.env.NEXT_PUBLIC_URL}`,
     ...customMeta,
   }
 
