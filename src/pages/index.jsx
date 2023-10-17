@@ -112,9 +112,9 @@ const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
         imageClasses='rounded-md mx-auto object-cover'
       />
       <p className='text-justify'>
-        Im baby copper mug PBR&B craft beer lo-fi cornhole pork belly vaporware
-        blog hot chicken lyft tattooed. Hammock bruh tote bag, cupping
-        fingerstache flannel affogato enamel pin echo park pabst
+        LINK TO TESTIMONIALS Im baby copper mug PBR&B craft beer lo-fi cornhole
+        pork belly vaporware blog hot chicken lyft tattooed. Hammock bruh tote
+        bag, cupping fingerstache flannel affogato enamel pin echo park pabst
       </p>
       <ButtonAsGradient
         As='Link'
