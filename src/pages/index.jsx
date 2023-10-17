@@ -1,4 +1,4 @@
-import { useState, useRef, useLayoutEffect, useCallback, useId } from 'react'
+import { useState, useRef, useEffect, useCallback, useId } from 'react'
 import Hero from '@/components/Hero'
 import HomePageLayout from '@/components/layouts/HomePageLayout'
 import MapView from '@/components/MapView'
@@ -28,18 +28,22 @@ export default function Home({
   const subHeroRef = useRef(null)
   const [viewportOffset, setViewportOffset] = useState(0)
 
-  // dynamic set hero height to viewport height before painting component to the screen
+  // set hero height to viewport height
   const setHeroHeight = useCallback(() => {
     const adjustedHeroHeight = window.outerHeight - viewportOffset
     heroRef.current.style.height = `${adjustedHeroHeight}px`
   }, [viewportOffset])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (window == undefined || heroRef?.current == null) return
 
     setViewportOffset(window.outerHeight - window.innerHeight)
     setHeroHeight()
   }, [setHeroHeight])
+
+  const scrollToTop = () => {
+    subHeroRef.current.scrollIntoView({ behavior: 'smooth' })
+  }
 
   return (
     <HomePageLayout>
@@ -49,99 +53,29 @@ export default function Home({
 
       <div ref={subHeroRef} id='sub-hero' className='relative scroll-mt-[6rem]'>
         <section id='home-surf-lessons' className='flex scroll-mt-24 flex-col'>
-          <h2 className='mx-auto'>Surf Lessons</h2>
-          <CustomCarousel
-            carouselKey={homeSurfLessonsId}
-            images={homeSurfLessonsImg}
-            carouselClasses='h-60 md:h-[32rem]'
-            priority={true}
-            imageClasses='md:w-11/12 rounded-md'
+          <HomeSurfLessons
+            homeSurfLessonsId={homeSurfLessonsId}
+            homeSurfLessonsImg={homeSurfLessonsImg}
           />
-          <p>
-            Im baby copper mug PBR&B craft beer lo-fi cornhole pork belly
-            vaporware blog hot chicken lyft tattooed. Hammock bruh tote bag,
-            cupping fingerstache flannel affogato enamel pin echo park pabst
-          </p>
-          <ButtonAsGradient
-            As='Link'
-            href='/surf-lessons'
-            target='_self'
-            variant='btn-as-gradient-amber'
-            extraClasses='mx-auto my-4'
-          >
-            Surf Lessons
-          </ButtonAsGradient>
         </section>
 
         <hr />
 
         <section id='home-about-me' className='relative flex flex-col'>
-          <h2 className='mx-auto'>About me</h2>
-          <div className='mx-auto h-60 w-60 rounded-full'>
-            <CustomCarousel
-              carouselKey={homeAboutMeId}
-              images={homeAboutMeImg}
-              carouselClasses='h-60 w-60 rounded-full'
-              priority={true}
-              imageClasses='rounded-full'
-            />
-          </div>
-          <p>
-            My name is Rendy and I am from Krui, South Sumatra. I started
-            surfing at the age of 8 and came to Bali in 2019 to work as a Surf
-            Instructor at Batu Bolong Beach in Canggu.
-          </p>
-          <ButtonAsGradient
-            As='Link'
-            href='/about-me'
-            target='_self'
-            variant='btn-as-gradient-amber'
-            extraClasses='mx-auto my-4'
-          >
-            About me
-          </ButtonAsGradient>
-
-          <FontAwesomeIcon
-            icon={faCircleArrowUp}
-            onClick={() =>
-              subHeroRef.current.scrollIntoView({ behavior: 'smooth' })
-            }
-            className='absolute bottom-[0.35rem] right-0 cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
+          <HomeAboutMe
+            homeAboutMeId={homeAboutMeId}
+            homeAboutMeImg={homeAboutMeImg}
+            scrollToTop={scrollToTop}
           />
         </section>
 
         <hr />
 
         <section id='home-surf-trips' className='relative flex flex-col'>
-          <h2 className='mx-auto'>Surf Trips</h2>
-          <CustomCarousel
-            carouselKey={homeSurfTripsId}
-            images={homeSurfTripsImg}
-            carouselClasses='h-60 md:h-[32rem]'
-            priority={true}
-            imageClasses='rounded-md'
-          />
-          <p>
-            Im baby copper mug PBR&B craft beer lo-fi cornhole pork belly
-            vaporware blog hot chicken lyft tattooed. Hammock bruh tote bag,
-            cupping fingerstache flannel affogato enamel pin echo park pabst
-          </p>
-          <ButtonAsGradient
-            As='Link'
-            href='/surf-trips'
-            target='_self'
-            variant='btn-as-gradient-amber'
-            extraClasses='mx-auto my-4'
-          >
-            Surf Trips
-          </ButtonAsGradient>
-
-          <FontAwesomeIcon
-            icon={faCircleArrowUp}
-            onClick={() =>
-              subHeroRef.current.scrollIntoView({ behavior: 'smooth' })
-            }
-            className='absolute bottom-[0.35rem] right-0 cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
+          <HomeSurfTrips
+            homeSurfTripsId={homeSurfTripsId}
+            homeSurfTripsImg={homeSurfTripsImg}
+            scrollToTop={scrollToTop}
           />
         </section>
 
@@ -151,24 +85,7 @@ export default function Home({
           id='home-testimonials'
           className='relative flex scroll-mt-24 flex-col'
         >
-          <h2 className='mx-auto'>Testimonials</h2>
-          <Testimonials />
-          <TestimonialsLinks />
-          <ButtonAsGradient
-            As='Link'
-            href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
-            target='_blank'
-            extraClasses='mx-auto my-4'
-          >
-            Surf Now
-          </ButtonAsGradient>
-          <FontAwesomeIcon
-            icon={faCircleArrowUp}
-            onClick={() =>
-              subHeroRef.current.scrollIntoView({ behavior: 'smooth' })
-            }
-            className='absolute bottom-[0.35rem] right-0 cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
-          />
+          <HomeTestimonials scrollToTop={scrollToTop} />
         </section>
 
         <hr />
@@ -180,16 +97,138 @@ export default function Home({
 
         <FontAwesomeIcon
           icon={faCircleArrowUp}
-          onClick={() =>
-            subHeroRef.current.scrollIntoView({ behavior: 'smooth' })
-          }
-          className='absolute -bottom-[4.25rem] right-0 cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
+          onClick={scrollToTop}
+          className='absolute -bottom-[4.25rem] right-[0.3rem] cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
         />
       </div>
     </HomePageLayout>
   )
 }
 
+const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
+  return (
+    <>
+      <h2 className='mx-auto'>Surf Lessons</h2>
+      <CustomCarousel
+        carouselKey={homeSurfLessonsId}
+        images={homeSurfLessonsImg}
+        carouselClasses='h-60 md:h-[32rem]'
+        priority={true}
+        imageClasses='md:w-11/12 rounded-md'
+      />
+      <p>
+        Im baby copper mug PBR&B craft beer lo-fi cornhole pork belly vaporware
+        blog hot chicken lyft tattooed. Hammock bruh tote bag, cupping
+        fingerstache flannel affogato enamel pin echo park pabst
+      </p>
+      <ButtonAsGradient
+        As='Link'
+        href='/surf-lessons'
+        target='_self'
+        variant='btn-as-gradient-amber'
+        extraClasses='mx-auto my-4'
+      >
+        Surf Lessons
+      </ButtonAsGradient>
+    </>
+  )
+}
+
+const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
+  return (
+    <>
+      <h2 className='mx-auto'>About me</h2>
+      <div className='mx-auto h-60 w-60 rounded-full'>
+        <CustomCarousel
+          carouselKey={homeAboutMeId}
+          images={homeAboutMeImg}
+          carouselClasses='h-60 w-60 rounded-full'
+          priority={true}
+          imageClasses='rounded-full'
+        />
+      </div>
+      <p>
+        My name is Rendy and I am from Krui, South Sumatra. I started surfing at
+        the age of 8 and came to Bali in 2019 to work as a Surf Instructor at
+        Batu Bolong Beach in Canggu.
+      </p>
+      <ButtonAsGradient
+        As='Link'
+        href='/about-me'
+        target='_self'
+        variant='btn-as-gradient-amber'
+        extraClasses='mx-auto my-4'
+      >
+        About me
+      </ButtonAsGradient>
+
+      <HomeSectionFooter scrollToTop={scrollToTop} />
+    </>
+  )
+}
+
+const HomeSurfTrips = ({ homeSurfTripsId, homeSurfTripsImg, scrollToTop }) => {
+  return (
+    <>
+      <h2 className='mx-auto'>Surf Trips</h2>
+      <CustomCarousel
+        carouselKey={homeSurfTripsId}
+        images={homeSurfTripsImg}
+        carouselClasses='h-60 md:h-[32rem]'
+        priority={true}
+        imageClasses='rounded-md'
+      />
+      <p>
+        Im baby copper mug PBR&B craft beer lo-fi cornhole pork belly vaporware
+        blog hot chicken lyft tattooed. Hammock bruh tote bag, cupping
+        fingerstache flannel affogato enamel pin echo park pabst
+      </p>
+      <ButtonAsGradient
+        As='Link'
+        href='/surf-trips'
+        target='_self'
+        variant='btn-as-gradient-amber'
+        extraClasses='mx-auto my-4'
+      >
+        Surf Trips
+      </ButtonAsGradient>
+
+      <HomeSectionFooter scrollToTop={scrollToTop} />
+    </>
+  )
+}
+
+const HomeTestimonials = ({ scrollToTop }) => {
+  return (
+    <>
+      <h2 className='mx-auto'>Testimonials</h2>
+      <Testimonials />
+      <TestimonialsLinks />
+      <ButtonAsGradient
+        As='Link'
+        href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
+        target='_blank'
+        extraClasses='mx-auto my-4'
+      >
+        Surf Now
+      </ButtonAsGradient>
+
+      <HomeSectionFooter scrollToTop={scrollToTop} />
+    </>
+  )
+}
+
+function HomeSectionFooter({ scrollToTop }) {
+  return (
+    <FontAwesomeIcon
+      icon={faCircleArrowUp}
+      onClick={scrollToTop}
+      className='absolute bottom-[0.35rem] right-0 cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
+    />
+  )
+}
+
+// getStaticProps
 export async function getStaticProps() {
   const homeSurfLessonsImgPromises = homeSurfLessonsImages.map(
     async (image) => {

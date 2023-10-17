@@ -7,8 +7,8 @@ export default function Custom404() {
   return (
     <PageLayout>
       <section className={`flex h-full w-full flex-col items-center`}>
-        <h1 className='text-gradient title'>404</h1>
-        <h2 className='text-gradient sub-title'>Page not found</h2>
+        <h1 className='title'>404</h1>
+        <h2 className='sub-title'>Page not found</h2>
 
         <hr />
 

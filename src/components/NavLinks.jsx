@@ -138,8 +138,10 @@ const Li = ({
     >
       <Link href={href} className='underline-gradient-link'>
         <span
-          className={`text-gradient my-2 inline-block ${
-            modal ? 'text-3xl font-extrabold' : 'span-link'
+          className={`my-2 inline-block ${
+            modal
+              ? 'text-gradient text-3xl font-extrabold'
+              : 'text-gradient-always-colored text-lg md:text-xl 2xl:text-[1.35rem]'
           }`}
         >
           {children}

@@ -38,12 +38,13 @@ function Header() {
   return (
     <>
       <h1 className='title'>Surf Lessons</h1>
-      <h2 className='sub-title'>
-        In Canggu &{' '}
+      <h2 className='sub-title mb-1'>In Canggu</h2>
+      <h2 className='sub-title-bis text-center'>
+        & during your
         <Link
           href='/surf-trips'
           target='_self'
-          className='text-gradient underline-gradient-link'
+          className='text-gradient underline-gradient-link ms-2'
         >
           Surf Trips
         </Link>
@@ -102,21 +103,10 @@ function BodyContent({ images, children }) {
         images={images}
         carouselKey='private-lessons'
         carouselClasses='mb-5 h-72 md:h-[30rem]'
-        imageClasses='h-full rounded-lg w-full md:w-11/12 object-cover shadow-2xl mx-auto'
+        imageClasses='mx-auto h-full w-full rounded-t-xl rounded-b-lg object-cover md:w-11/12'
         priority={true}
       />
       <div className='w-full space-y-8 py-4'>{children}</div>
-
-      <div className='flex justify-center'>
-        <ButtonAsGradient
-          As='Link'
-          href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
-          target='_blank'
-          extraClasses='mx-auto my-4'
-        >
-          Surf Now
-        </ButtonAsGradient>
-      </div>
     </div>
   )
 }
@@ -175,7 +165,9 @@ function Footer({ scrollToTop }) {
         <div id='surf-lessons-footer-surfer-levels' className='mb-4 mt-8'>
           <h3>Surfer Levels</h3>
           <div className='px-2'>
-            <h4>Beginner</h4>
+            <h4>
+              Beginner<span className='ms-2 text-cf-white'>🏄‍♂️</span>
+            </h4>
             <p className='text-justify'>
               On your very first lesson you will be given an introduction on the
               beach about the surfboard, safety in the water, how to paddle,
@@ -189,7 +181,9 @@ function Footer({ scrollToTop }) {
           </div>
 
           <div className='px-2'>
-            <h4>Intermediate</h4>
+            <h4>
+              Intermediate<span className='ms-2 text-cf-white'>🏄‍♀️🏄‍♂️</span>
+            </h4>
             <p className='text-justify'>
               You have already taken one or more surf lessons before and need
               help to improve your surfing? If you don&apos;t need the basic and
@@ -204,7 +198,9 @@ function Footer({ scrollToTop }) {
           </div>
 
           <div className='px-2'>
-            <h4>Advanced</h4>
+            <h4>
+              Advanced<span className='ms-2 text-cf-white'>🏄‍♀️🏄‍♂️🏄‍♀️</span>
+            </h4>
             <p className='text-justify'>
               You are able to catch stone-100 water or green waves already and
               want to improve your surfing?

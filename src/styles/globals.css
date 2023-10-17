@@ -16,6 +16,7 @@
 
   --sub-title-duration: 500ms;
   --sub-title-delay: calc(var(--title-duration) - 200ms);
+  --sub-title-bis-delay: calc(var(--sub-title-delay) + 200ms);
 
   --after_titles_delay: calc(var(--title-duration) + var(--sub-title-duration));
 
@@ -70,26 +71,26 @@
   }
 
   h1 {
-    @apply text-gradient mb-5 text-5xl font-extrabold sm:text-6xl md:text-7xl lg:text-9xl;
+    @apply text-gradient mb-5 text-4xl font-extrabold sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl;
   }
+
   h2 {
-    @apply text-gradient mb-4 text-3xl font-bold sm:text-4xl md:text-5xl lg:text-7xl;
+    @apply text-gradient mb-4 text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl;
   }
   h3 {
-    @apply text-gradient mb-3 text-2xl font-semibold sm:text-3xl md:text-4xl lg:text-6xl;
+    @apply text-gradient  mb-3 text-xl font-semibold sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl;
   }
   h4 {
-    @apply text-gradient mb-2 text-xl sm:text-2xl md:text-3xl lg:text-5xl;
+    @apply text-gradient  mb-2 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl;
   }
   h5 {
-    @apply text-gradient mb-2 text-lg sm:text-xl md:text-2xl lg:text-3xl;
+    @apply text-gradient  mb-2 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl;
   }
   h6 {
-    @apply text-gradient text-lg md:text-xl 2xl:text-[1.35rem];
+    /* @apply text-gradient  text-sm md:text-base 2xl:text-[1.35rem]; */
+    @apply text-gradient  text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl;
   }
-  span.span-link {
-    @apply text-lg md:text-xl 2xl:text-[1.35rem];
-  }
+
   p {
     @apply my-4 text-cf-dark dark:text-cf-white sm:text-lg md:text-xl;
   }
@@ -161,28 +162,38 @@
     }
 
     .navbar {
-      @apply z-[999] h-[var(--nav-small-height)]
-      sm:h-[var(--nav-mid-height)]
-      md:h-[var(--nav-big-height)];
+      @apply z-[999] 
+        h-[var(--nav-small-height)]
+        sm:h-[var(--nav-mid-height)]
+        md:h-[var(--nav-big-height)];
 
       & #brand-logo {
-        @apply absolute left-2 h-[var(--logo-small-size)] w-[var(--logo-small-size)]
-          rounded-full border-none
-          bg-gradient-to-r
+        @apply absolute
+          left-2
+          h-[var(--logo-small-size)]
+          w-[var(--logo-small-size)]
+          rounded-full 
+          border-none
+          bg-gradient-to-r 
         from-primary
         to-secondary
           p-1
           shadow-sm
-        shadow-secondary
+        shadow-primary
           outline-none
-          ring-2 ring-secondary  
+          ring-2 
+        ring-primary
           transition-all
-          duration-300 ease-in-out
+          duration-300 ease-in-out  
           hover:scale-110
-          focus:scale-110 
-        dark:to-secondaryDark dark:shadow-sm
-        dark:shadow-secondaryDark dark:ring-secondaryDark sm:h-[var(--logo-mid-size)] 
-          sm:w-[var(--logo-mid-size)] md:h-[var(--logo-big-size)] 
+          focus:scale-110
+        dark:from-cf-dark 
+        dark:to-cf-dark/95
+          dark:shadow-sm
+        dark:shadow-primary 
+          dark:ring-1
+        dark:ring-primary
+          sm:h-[var(--logo-mid-size)] 
           md:w-[var(--logo-big-size)];
       }
     }
@@ -195,7 +206,7 @@
     }
 
     .hero-title-wrapper {
-      @apply mt-[var(--nav-small-height)] w-full rounded-[0.5em] bg-transparent p-[0.75rem] sm:mt-[var(--nav-mid-height)] md:mt-[var(--nav-big-height)];
+      @apply mt-[var(--nav-small-height)] h-fit w-full rounded-[0.5em] bg-transparent p-[0.75rem] sm:mt-[var(--nav-mid-height)] md:mt-[var(--nav-big-height)];
 
       animation: hero-title-wrapper-enter calc(var(--title-duration) * 1.5)
         ease-in forwards;
@@ -213,18 +224,17 @@
       var(--sub-hero-delay) backwards;
   }
 
-  /* ================================================================= */
-  /* ================================================================= */
-  /* ================================================================= */
-  /* TODO  CREATE HOME PAGE TEXT-GRADIENT CLASS FOR TEXT OVER HERO IMG */
   .title {
     animation: title-enter var(--title-duration)
       cubic-bezier(0.74, 0.01, 0.76, 1.3) both;
   }
-
   .sub-title {
     animation: sub-title-enter var(--sub-title-duration)
       cubic-bezier(0.74, 0.01, 0.76, 1.3) var(--sub-title-delay) both;
+  }
+  .sub-title-bis {
+    animation: sub-title-bis-enter var(--sub-title-duration)
+      cubic-bezier(0.74, 0.01, 0.76, 1.3) var(--sub-title-bis-delay) both;
   }
 
   .arrow {
@@ -238,7 +248,11 @@
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent dark:to-secondaryDark;
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent dark:from-cf-white dark:to-cf-white/90;
+  }
+
+  .text-gradient-always-colored {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
   }
 
   .border-gradient {
@@ -283,9 +297,16 @@
     transform: translateX(100vw);
   }
 }
+
+@keyframes sub-title-bis-enter {
+  from {
+    transform: translateX(-100vw);
+  }
+}
+
 @keyframes hero-title-wrapper-enter {
   to {
-    background: hsla(240, 5%, 96%, 0.15);
+    @apply bg-cf-dark/5 opacity-100;
   }
 }
 
