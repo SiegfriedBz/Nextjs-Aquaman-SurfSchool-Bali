@@ -10,7 +10,7 @@ const Hero = (props, heroRef) => {
   return (
     <div
       ref={heroRef}
-      className='relative flex min-h-[60vh] w-full flex-col items-center justify-between'
+      className='flex min-h-[60vh] w-full flex-col items-center justify-between'
     >
       <div className='hero-image opacity-100 dark:opacity-80'></div>
       <div className='hero-title-wrapper flex h-full w-full flex-col items-center justify-start'>
