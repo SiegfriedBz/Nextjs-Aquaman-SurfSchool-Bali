@@ -12,8 +12,7 @@ import {
 } from '@/data/homePageImages'
 import { getImageUrl, getBase64ImageUrl } from '@/utils/cloudinaryUtils'
 import getMapMarkers from '@/utils/getMapMarkers'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleArrowUp } from '@fortawesome/free-solid-svg-icons'
+import ButtonScrollToTop from '@/components/ButtonScrollToTop'
 
 export default function Home({
   homeSurfLessonsImg,
@@ -91,15 +90,11 @@ export default function Home({
         <hr />
 
         <section id='home-visit-us' className='flex scroll-mt-24 flex-col'>
-          <h2 className='mx-auto'>Visit Us</h2>
+          <h2 className='mx-auto whitespace-nowrap'>Visit Us</h2>
           <MapView mapMarkers={mapMarkers} />
         </section>
 
-        <FontAwesomeIcon
-          icon={faCircleArrowUp}
-          onClick={scrollToTop}
-          className='absolute -bottom-[4.25rem] right-[0.3rem] cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
-        />
+        <ButtonScrollToTop scrollToTop={scrollToTop} homeBottomPageBtn={true} />
       </div>
     </HomePageLayout>
   )
@@ -108,15 +103,15 @@ export default function Home({
 const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
   return (
     <>
-      <h2 className='mx-auto'>Surf Lessons</h2>
+      <h2 className='mx-auto whitespace-nowrap'>Surf Lessons</h2>
       <CustomCarousel
         carouselKey={homeSurfLessonsId}
         images={homeSurfLessonsImg}
-        carouselClasses='h-60 md:h-[32rem]'
+        carouselClasses='h-64 sm:h-80 md:h-[32rem]'
         priority={true}
-        imageClasses='md:w-11/12 rounded-md'
+        imageClasses='md:w-11/12 rounded-md mx-auto object-cover'
       />
-      <p>
+      <p className='text-justify'>
         Im baby copper mug PBR&B craft beer lo-fi cornhole pork belly vaporware
         blog hot chicken lyft tattooed. Hammock bruh tote bag, cupping
         fingerstache flannel affogato enamel pin echo park pabst
@@ -137,17 +132,17 @@ const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
 const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
   return (
     <>
-      <h2 className='mx-auto'>About me</h2>
-      <div className='mx-auto h-60 w-60 rounded-full'>
+      <h2 className='mx-auto whitespace-nowrap'>About me</h2>
+      <div className='mx-auto h-64 w-64 rounded-full sm:h-80 sm:w-80'>
         <CustomCarousel
           carouselKey={homeAboutMeId}
           images={homeAboutMeImg}
-          carouselClasses='h-60 w-60 rounded-full'
+          carouselClasses='h-64 sm:h-80 rounded-full'
           priority={true}
-          imageClasses='rounded-full'
+          imageClasses='rounded-full object-cover'
         />
       </div>
-      <p>
+      <p className='text-justify'>
         My name is Rendy and I am from Krui, South Sumatra. I started surfing at
         the age of 8 and came to Bali in 2019 to work as a Surf Instructor at
         Batu Bolong Beach in Canggu.
@@ -162,7 +157,7 @@ const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
         About me
       </ButtonAsGradient>
 
-      <HomeSectionFooter scrollToTop={scrollToTop} />
+      <ButtonScrollToTop scrollToTop={scrollToTop} />
     </>
   )
 }
@@ -170,15 +165,15 @@ const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
 const HomeSurfTrips = ({ homeSurfTripsId, homeSurfTripsImg, scrollToTop }) => {
   return (
     <>
-      <h2 className='mx-auto'>Surf Trips</h2>
+      <h2 className='mx-auto whitespace-nowrap'>Surf Trips</h2>
       <CustomCarousel
         carouselKey={homeSurfTripsId}
         images={homeSurfTripsImg}
-        carouselClasses='h-60 md:h-[32rem]'
+        carouselClasses='h-64 sm:h-80 md:h-[32rem]'
         priority={true}
-        imageClasses='rounded-md'
+        imageClasses='rounded-md object-cover'
       />
-      <p>
+      <p className='text-justify'>
         Im baby copper mug PBR&B craft beer lo-fi cornhole pork belly vaporware
         blog hot chicken lyft tattooed. Hammock bruh tote bag, cupping
         fingerstache flannel affogato enamel pin echo park pabst
@@ -193,7 +188,7 @@ const HomeSurfTrips = ({ homeSurfTripsId, homeSurfTripsImg, scrollToTop }) => {
         Surf Trips
       </ButtonAsGradient>
 
-      <HomeSectionFooter scrollToTop={scrollToTop} />
+      <ButtonScrollToTop scrollToTop={scrollToTop} />
     </>
   )
 }
@@ -213,18 +208,8 @@ const HomeTestimonials = ({ scrollToTop }) => {
         Surf Now
       </ButtonAsGradient>
 
-      <HomeSectionFooter scrollToTop={scrollToTop} />
+      <ButtonScrollToTop scrollToTop={scrollToTop} />
     </>
-  )
-}
-
-function HomeSectionFooter({ scrollToTop }) {
-  return (
-    <FontAwesomeIcon
-      icon={faCircleArrowUp}
-      onClick={scrollToTop}
-      className='absolute bottom-[0.35rem] right-0 cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
-    />
   )
 }
 
