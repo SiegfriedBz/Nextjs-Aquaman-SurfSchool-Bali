@@ -27,10 +27,8 @@ function Header() {
   return (
     <>
       <h1 className='title'>Gallery</h1>
-      <h2 className='sub-title text-center'>
-        Explore our best Photos{' '}
-        <span className='whitespace-nowrap'>& Videos</span>
-      </h2>
+      <h2 className='sub-title mb-1 text-center'>Explore our best Photos</h2>
+      <h2 className='sub-title-bis text-center'>& Videos</h2>
 
       <div className='flex w-full justify-evenly space-x-4'>
         <ButtonAsGradient

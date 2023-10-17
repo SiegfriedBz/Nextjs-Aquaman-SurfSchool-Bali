@@ -37,8 +37,8 @@ const SurfTrips = ({ surfTripImg, mapMarkers }) => {
         className={`flex h-full w-full scroll-mt-[24rem] flex-col content-center`}
       >
         <h1 className='title text-center'>Surf Trips</h1>
-        <h2 className='sub-title mb-4 text-center'>From Lombok to Sumatra</h2>
-        <h3 className='sub-title-bis text-center underline underline-offset-4'>
+        <h2 className='sub-title mb-2 text-center'>From Lombok to Sumatra</h2>
+        <h3 className='sub-title-bis mb-4 text-center underline underline-offset-4'>
           Starting at 500K IDR
         </h3>
 

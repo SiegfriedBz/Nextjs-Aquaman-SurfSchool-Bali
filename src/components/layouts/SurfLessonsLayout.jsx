@@ -38,12 +38,13 @@ function Header() {
   return (
     <>
       <h1 className='title'>Surf Lessons</h1>
-      <h2 className='sub-title'>
-        In Canggu &{' '}
+      <h2 className='sub-title mb-1'>In Canggu</h2>
+      <h2 className='sub-title-bis text-center'>
+        & during your
         <Link
           href='/surf-trips'
           target='_self'
-          className='text-gradient underline-gradient-link'
+          className='text-gradient underline-gradient-link ms-2'
         >
           Surf Trips
         </Link>
