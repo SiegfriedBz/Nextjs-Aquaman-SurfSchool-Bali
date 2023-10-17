@@ -10,7 +10,7 @@ const Hero = (props, heroRef) => {
   return (
     <div
       ref={heroRef}
-      className='flex min-h-[60vh] flex-col items-center justify-between'
+      className='relative flex min-h-[60vh] flex-col items-center justify-between'
     >
       <div className='hero-image opacity-100 dark:opacity-80'></div>
       <div className='hero-title-wrapper flex h-1/2 flex-col justify-start lg:items-end lg:justify-center'>
@@ -27,7 +27,7 @@ const Hero = (props, heroRef) => {
           setArrowIsClicked((prev) => !prev)
           router.push('#home-surf-lessons')
         }}
-        className={`relative bottom-1 cursor-pointer text-primary dark:text-cf-white ${
+        className={`absolute bottom-1 cursor-pointer text-primary dark:text-cf-white/90 ${
           arrowIsClicked ? 'animate-none' : 'arrow'
         }`}
       >
