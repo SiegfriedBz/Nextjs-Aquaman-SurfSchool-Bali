@@ -56,7 +56,7 @@ const NavLinks = ({ className = '', modal = false, setMobileMenuIsOpen }) => {
       </Li>
       <Li
         setMobileMenuIsOpen={setMobileMenuIsOpen}
-        className={modal ? '' : 'hidden'}
+        className={modal ? '' : 'hidden 2xl:inline-block'}
         modal={modal}
         href='/#home-visit-us'
       >
