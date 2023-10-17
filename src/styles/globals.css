@@ -11,7 +11,7 @@
   --logo-mid-size: calc(var(--nav-mid-height) / 2);
   --logo-big-size: calc(var(--nav-big-height) / 2);
 
-  --hero-small-mt: calc(var(--nav-small-height) + 2rem);
+  --hero-small-mt: calc(var(--nav-small-height) + 1rem);
   --hero-mid-mt: calc(var(--nav-mid-height));
   --hero-big-mt: calc(var(--nav-big-height));
 
