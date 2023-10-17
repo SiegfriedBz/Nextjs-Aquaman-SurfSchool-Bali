@@ -479,7 +479,7 @@ const DestinationDetails = ({
         </span>
       </div>
 
-      <div className='my-4 h-52 w-full md:h-[26rem]'>
+      <div className='my-4 h-80 w-full md:h-[26rem]'>
         <Image
           width='600'
           height='600'

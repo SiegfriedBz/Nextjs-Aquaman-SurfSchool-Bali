@@ -107,9 +107,9 @@ const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
       <CustomCarousel
         carouselKey={homeSurfLessonsId}
         images={homeSurfLessonsImg}
-        carouselClasses='h-64 sm:h-80 md:h-[32rem]'
+        carouselClasses='h-64 sm:h-80 md:h-96 lg:h-[32rem]'
         priority={true}
-        imageClasses='md:w-11/12 rounded-md mx-auto object-cover'
+        imageClasses='rounded-md mx-auto object-cover'
       />
       <p className='text-justify'>
         Im baby copper mug PBR&B craft beer lo-fi cornhole pork belly vaporware
@@ -133,20 +133,26 @@ const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
   return (
     <>
       <h2 className='mx-auto whitespace-nowrap'>About me</h2>
-      <div className='mx-auto h-64 w-64 rounded-full sm:h-80 sm:w-80'>
-        <CustomCarousel
-          carouselKey={homeAboutMeId}
-          images={homeAboutMeImg}
-          carouselClasses='h-64 sm:h-80 rounded-full'
-          priority={true}
-          imageClasses='rounded-full object-cover'
-        />
+      <div className='flex flex-col md:flex-row md:items-center md:space-x-16'>
+        <div>
+          <div className='mx-auto h-64 w-64 rounded-full sm:h-80 sm:w-80 md:h-96 md:w-96 lg:h-[28rem] lg:w-[28rem]'>
+            <CustomCarousel
+              carouselKey={homeAboutMeId}
+              images={homeAboutMeImg}
+              carouselClasses='h-64 sm:h-80 md:h-96 lg:h-[28rem] rounded-full'
+              priority={true}
+              imageClasses='rounded-full object-cover shadow-none'
+            />
+          </div>
+        </div>
+        <div className='mx-auto flex flex-col justify-center lg:w-1/2'>
+          <p className='text-justify'>
+            My name is Rendy and I am from Krui, South Sumatra. I started
+            surfing at the age of 8 and came to Bali in 2019 to work as a Surf
+            Instructor at Batu Bolong Beach in Canggu.
+          </p>
+        </div>
       </div>
-      <p className='text-justify'>
-        My name is Rendy and I am from Krui, South Sumatra. I started surfing at
-        the age of 8 and came to Bali in 2019 to work as a Surf Instructor at
-        Batu Bolong Beach in Canggu.
-      </p>
       <ButtonAsGradient
         As='Link'
         href='/about-me'
@@ -169,7 +175,7 @@ const HomeSurfTrips = ({ homeSurfTripsId, homeSurfTripsImg, scrollToTop }) => {
       <CustomCarousel
         carouselKey={homeSurfTripsId}
         images={homeSurfTripsImg}
-        carouselClasses='h-64 sm:h-80 md:h-[32rem]'
+        carouselClasses='h-64 sm:h-80 md:h-96 lg:h-[32rem]'
         priority={true}
         imageClasses='rounded-md object-cover'
       />
@@ -197,8 +203,11 @@ const HomeTestimonials = ({ scrollToTop }) => {
   return (
     <>
       <h2 className='mx-auto'>Testimonials</h2>
+
       <Testimonials />
+
       <TestimonialsLinks />
+
       <ButtonAsGradient
         As='Link'
         href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
