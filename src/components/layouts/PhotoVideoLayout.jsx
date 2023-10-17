@@ -3,6 +3,13 @@ import Image from 'next/image'
 import { ButtonAsGradient } from '../ButtonAsGradient'
 import PageLayout from './PageLayout'
 import { CldVideoPlayer } from 'next-cloudinary'
+import Head from 'next/head'
+
+const meta = {
+  title: 'Aquaman Bali | Surf School | Photo | Video | Drone',
+  description:
+    'Capture the thrill of your surf sessions with our professional photo and video services. From beginners to experts, preserve your surf memories. Book now!',
+}
 
 const PhotoVideoLayout = ({ children }) => {
   const ref = useRef(null)
@@ -12,16 +19,25 @@ const PhotoVideoLayout = ({ children }) => {
   }
 
   return (
-    <PageLayout>
-      <section
-        ref={ref}
-        className={`flex h-full w-full scroll-mt-32 flex-col items-center`}
-      >
-        <Header />
-        <Body>{children}</Body>
-        <Footer scrollToTop={scrollToTop} />
-      </section>
-    </PageLayout>
+    <>
+      <Head>
+        <title>{meta.title}</title>
+        <meta content={meta.description} name='description' />
+        <meta property='og:description' content={meta.description} />
+        <meta property='og:title' content={meta.title} />
+      </Head>
+
+      <PageLayout>
+        <section
+          ref={ref}
+          className={`flex h-full w-full scroll-mt-32 flex-col items-center`}
+        >
+          <Header />
+          <Body>{children}</Body>
+          <Footer scrollToTop={scrollToTop} />
+        </section>
+      </PageLayout>
+    </>
   )
 }
 

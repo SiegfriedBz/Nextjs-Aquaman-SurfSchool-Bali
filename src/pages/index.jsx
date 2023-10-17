@@ -13,6 +13,13 @@ import {
 import { getImageUrl, getBase64ImageUrl } from '@/utils/cloudinaryUtils'
 import getMapMarkers from '@/utils/getMapMarkers'
 import ButtonScrollToTop from '@/components/ButtonScrollToTop'
+import Head from 'next/head'
+
+const meta = {
+  title: 'Aquaman Bali | Surf School | Home',
+  description:
+    'Discover Aquaman Bali, your Premier Surf School and Surf Trip destination. Grow your surfing skills from beginner to advanced. Book now!',
+}
 
 export default function Home({
   homeSurfLessonsImg,
@@ -45,58 +52,77 @@ export default function Home({
   }
 
   return (
-    <HomePageLayout>
-      <section id='hero'>
-        <Hero ref={heroRef} />
-      </section>
+    <>
+      <Head>
+        <title>{meta.title}</title>
+        <meta content={meta.description} name='description' />
+        <meta property='og:description' content={meta.description} />
+        <meta property='og:title' content={meta.title} />
+      </Head>
 
-      <div ref={subHeroRef} id='sub-hero' className='relative scroll-mt-[6rem]'>
-        <section id='home-surf-lessons' className='flex scroll-mt-24 flex-col'>
-          <HomeSurfLessons
-            homeSurfLessonsId={homeSurfLessonsId}
-            homeSurfLessonsImg={homeSurfLessonsImg}
-          />
+      <HomePageLayout>
+        <section id='hero'>
+          <Hero ref={heroRef} />
         </section>
 
-        <hr />
-
-        <section id='home-about-me' className='relative flex flex-col'>
-          <HomeAboutMe
-            homeAboutMeId={homeAboutMeId}
-            homeAboutMeImg={homeAboutMeImg}
-            scrollToTop={scrollToTop}
-          />
-        </section>
-
-        <hr />
-
-        <section id='home-surf-trips' className='relative flex flex-col'>
-          <HomeSurfTrips
-            homeSurfTripsId={homeSurfTripsId}
-            homeSurfTripsImg={homeSurfTripsImg}
-            scrollToTop={scrollToTop}
-          />
-        </section>
-
-        <hr />
-
-        <section
-          id='home-testimonials'
-          className='relative flex scroll-mt-24 flex-col'
+        <div
+          ref={subHeroRef}
+          id='sub-hero'
+          className='relative scroll-mt-[6rem]'
         >
-          <HomeTestimonials scrollToTop={scrollToTop} />
-        </section>
+          <section
+            id='home-surf-lessons'
+            className='flex scroll-mt-24 flex-col'
+          >
+            <HomeSurfLessons
+              homeSurfLessonsId={homeSurfLessonsId}
+              homeSurfLessonsImg={homeSurfLessonsImg}
+            />
+          </section>
 
-        <hr />
+          <hr />
 
-        <section id='home-visit-us' className='flex scroll-mt-24 flex-col'>
-          <h2 className='mx-auto whitespace-nowrap'>Visit Us</h2>
-          <MapView mapMarkers={mapMarkers} />
-        </section>
+          <section id='home-about-me' className='relative flex flex-col'>
+            <HomeAboutMe
+              homeAboutMeId={homeAboutMeId}
+              homeAboutMeImg={homeAboutMeImg}
+              scrollToTop={scrollToTop}
+            />
+          </section>
 
-        <ButtonScrollToTop scrollToTop={scrollToTop} homeBottomPageBtn={true} />
-      </div>
-    </HomePageLayout>
+          <hr />
+
+          <section id='home-surf-trips' className='relative flex flex-col'>
+            <HomeSurfTrips
+              homeSurfTripsId={homeSurfTripsId}
+              homeSurfTripsImg={homeSurfTripsImg}
+              scrollToTop={scrollToTop}
+            />
+          </section>
+
+          <hr />
+
+          <section
+            id='home-testimonials'
+            className='relative flex scroll-mt-24 flex-col'
+          >
+            <HomeTestimonials scrollToTop={scrollToTop} />
+          </section>
+
+          <hr />
+
+          <section id='home-visit-us' className='flex scroll-mt-24 flex-col'>
+            <h2 className='mx-auto whitespace-nowrap'>Visit Us</h2>
+            <MapView mapMarkers={mapMarkers} />
+          </section>
+
+          <ButtonScrollToTop
+            scrollToTop={scrollToTop}
+            homeBottomPageBtn={true}
+          />
+        </div>
+      </HomePageLayout>
+    </>
   )
 }
 
