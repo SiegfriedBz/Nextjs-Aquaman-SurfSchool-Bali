@@ -1,18 +1,17 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { useRef } from 'react'
+import ButtonScrollToTop from '../ButtonScrollToTop'
 
 const PageLayout = ({ children }) => {
   const ref = useRef(null)
 
+  const scrollToTop = () => {
+    ref.current.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <div ref={ref} className='page-layout relative scroll-mt-[8rem]'>
       {children}
-      <FontAwesomeIcon
-        icon={faCircleArrowUp}
-        onClick={() => ref.current.scrollIntoView({ behavior: 'smooth' })}
-        className='absolute -bottom-[3.25rem] right-0 cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
-      />
+      <ButtonScrollToTop scrollToTop={scrollToTop} bottomPageBtn={true} />
     </div>
   )
 }

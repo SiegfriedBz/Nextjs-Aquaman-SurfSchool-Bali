@@ -10,14 +10,14 @@ const Hero = (props, heroRef) => {
   return (
     <div
       ref={heroRef}
-      className='flex min-h-[60vh] flex-col items-center justify-between'
+      className='flex min-h-[60vh] w-full flex-col items-center justify-between'
     >
       <div className='hero-image opacity-100 dark:opacity-80'></div>
-      <div className='hero-title-wrapper flex h-1/2 flex-col justify-start lg:items-end lg:justify-center'>
-        <h1 className='title mb-2 text-center text-5xl font-extrabold md:text-6xl lg:text-7xl xl:text-right xl:text-8xl 2xl:text-9xl'>
+      <div className='hero-title-wrapper flex h-full w-full flex-col items-center justify-start'>
+        <h1 className='title mb-2 w-full text-center text-5xl font-extrabold sm:text-6xl lg:text-7xl xl:my-16 xl:me-8 xl:text-right xl:text-8xl 2xl:my-24 2xl:me-24'>
           Aquaman Bali
         </h1>
-        <h2 className='sub-title mx-auto text-center text-4xl font-extrabold md:text-5xl xl:text-6xl 2xl:text-7xl'>
+        <h2 className='sub-title w-full text-center text-4xl font-extrabold sm:text-5xl xl:me-8 xl:text-right 2xl:me-24 2xl:text-7xl'>
           Surf School
         </h2>
       </div>
@@ -27,11 +27,11 @@ const Hero = (props, heroRef) => {
           setArrowIsClicked((prev) => !prev)
           router.push('#home-surf-lessons')
         }}
-        className={`relative bottom-1 cursor-pointer text-primary dark:text-cf-white ${
+        className={`absolute bottom-1 cursor-pointer text-primary dark:text-cf-white/90 ${
           arrowIsClicked ? 'animate-none' : 'arrow'
         }`}
       >
-        <FontAwesomeIcon icon={faCircleDown} className='text-5xl md:text-6xl' />
+        <FontAwesomeIcon icon={faCircleDown} className='text-4xl md:text-5xl' />
       </button>
     </div>
   )
