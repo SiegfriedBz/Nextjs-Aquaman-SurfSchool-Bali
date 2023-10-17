@@ -37,8 +37,8 @@ const SurfTrips = ({ surfTripImg, mapMarkers }) => {
         className={`flex h-full w-full scroll-mt-[24rem] flex-col content-center`}
       >
         <h1 className='title text-center'>Surf Trips</h1>
-        <h3 className='sub-title mb-4 text-center'>From Lombok to Sumatra</h3>
-        <h3 className='text-center text-cf-dark/80 underline underline-offset-4 dark:text-cf-white/80'>
+        <h2 className='sub-title mb-4 text-center'>From Lombok to Sumatra</h2>
+        <h3 className='sub-title-bis text-center underline underline-offset-4'>
           Starting at 500K IDR
         </h3>
 
@@ -92,17 +92,18 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
       >
         <>
           <p>
-            <span className='font-bold'>Canggu is our base</span>, at
-            <span className='font-bold'> Boto Bolong Beach</span>.
+            <span className='text-gradient font-bold'>Canggu is our base</span>,
+            at
+            <span className='text-gradient font-bold'> Boto Bolong Beach</span>.
           </p>
 
           <p>
-            <span className='font-bold'>Wave Type: </span>Gentle and ideal for
-            Beginners
+            <span className='text-gradient font-bold'>Wave Type: </span>Gentle
+            and ideal for Beginners
           </p>
 
           <ul>
-            <p className='font-bold'>Main Surf Breaks:</p>
+            <p className='text-gradient font-bold'>Main Surf Breaks:</p>
             <li className='ms-5 list-disc'>
               <p>Boto Bolong</p>
             </li>
@@ -118,7 +119,7 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
           </ul>
 
           <ul>
-            <p className='text-gradient font-bold'>Best for: </p>
+            <p className='text-gradient text-gradient font-bold'>Best for: </p>
             <li className='ms-5 list-disc'>
               <p>Beginner</p>
             </li>
@@ -131,7 +132,7 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
           </ul>
 
           <p>
-            <span className='font-bold'>Beach Conditions: </span>
+            <span className='text-gradient font-bold'>Beach Conditions: </span>
             Safe with coral and sand beaches, suitable for all levels except
             during high surf conditions.
           </p>
@@ -156,12 +157,12 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
       >
         <>
           <p>
-            <span className='font-bold'>Wave Type: </span>Long left waves,
-            around 100 meters
+            <span className='text-gradient font-bold'>Wave Type: </span>Long
+            left waves, around 100 meters
           </p>
 
           <ul>
-            <p className='text-gradient font-bold'>Best for: </p>
+            <p className='text-gradient text-gradient font-bold'>Best for: </p>
             <li className='ms-5 list-disc'>
               <p>Beginner</p>
             </li>
@@ -174,7 +175,7 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
           </ul>
 
           <p>
-            <span className='font-bold'>Beach Conditions: </span>
+            <span className='text-gradient font-bold'>Beach Conditions: </span>
             Rocky with sandy patches, suitable for all levels
           </p>
 
@@ -199,12 +200,12 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
       >
         <>
           <p>
-            <span className='font-bold'>Wave Type: </span>Big and powerful left
-            waves
+            <span className='text-gradient font-bold'>Wave Type: </span>Big and
+            powerful left waves
           </p>
 
           <ul>
-            <p className='text-gradient font-bold'>Best for: </p>
+            <p className='text-gradient text-gradient font-bold'>Best for: </p>
             <li className='ms-5 list-disc'>
               <p>Intermediate</p>
             </li>
@@ -214,7 +215,7 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
           </ul>
 
           <p>
-            <span className='font-bold'>Beach Conditions: </span>
+            <span className='text-gradient font-bold'>Beach Conditions: </span>
             Pristine coral reefs
           </p>
 
@@ -239,12 +240,12 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
       >
         <>
           <p>
-            <span className='font-bold'>Wave Type: </span>Challenging and
-            prestigious
+            <span className='text-gradient font-bold'>Wave Type: </span>
+            Challenging and prestigious
           </p>
 
           <ul>
-            <p className='font-bold'>
+            <p className='text-gradient font-bold'>
               Several famous surfing spots close from Uluwatu:
             </p>
             <li className='ms-5 list-disc'>
@@ -262,7 +263,7 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
           </ul>
 
           <ul>
-            <p className='text-gradient font-bold'>Best for: </p>
+            <p className='text-gradient text-gradient font-bold'>Best for: </p>
             <li className='ms-5 list-disc'>
               <p>Intermediate</p>
             </li>
@@ -272,7 +273,7 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
           </ul>
 
           <p>
-            <span className='font-bold'>Beach Conditions: </span>
+            <span className='text-gradient font-bold'>Beach Conditions: </span>
             Sharp coral and strong waves, not suitable for Beginners
           </p>
 
@@ -298,11 +299,11 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
       >
         <>
           <p>
-            <span className='font-bold'>Wave Type: </span>Challenging and
-            prestigious
+            <span className='text-gradient font-bold'>Wave Type: </span>
+            Challenging and prestigious
           </p>
           <ul>
-            <p className='text-gradient font-bold'>Best for: </p>
+            <p className='text-gradient text-gradient font-bold'>Best for: </p>
             <li className='ms-5 list-disc'>
               <p>Intermediate</p>
             </li>
@@ -312,13 +313,14 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
           </ul>
 
           <p>
-            <span className='font-bold'>Beach Conditions: </span>Sharp coral and
-            strong waves, not suitable for Beginners.
+            <span className='text-gradient font-bold'>Beach Conditions: </span>
+            Sharp coral and strong waves, not suitable for Beginners.
           </p>
 
           <p>
-            <span className='font-bold'>Access to waves: </span>Serangan
-            requires a short boat ride (15 minutes) to reach the surf spot.
+            <span className='text-gradient font-bold'>Access to waves: </span>
+            Serangan requires a short boat ride (15 minutes) to reach the surf
+            spot.
           </p>
 
           <p className='text-justify'>
@@ -341,7 +343,9 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
       >
         <>
           <ul>
-            <p className='font-bold'>Nusa Lembongan offers several spots:</p>
+            <p className='text-gradient font-bold'>
+              Nusa Lembongan offers several spots:
+            </p>
             <li className='ms-5 list-disc'>
               <p>Crane Shipwreck</p>
             </li>
@@ -360,7 +364,7 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
           </ul>
 
           <ul>
-            <p className='text-gradient font-bold'>Best for: </p>
+            <p className='text-gradient text-gradient font-bold'>Best for: </p>
             <li className='ms-5 list-disc'>
               <p>Beginner</p>
             </li>
@@ -393,7 +397,9 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
       >
         <>
           <ul>
-            <p className='font-bold'>Lombok offers several spots:</p>
+            <p className='text-gradient font-bold'>
+              Lombok offers several spots:
+            </p>
             <li className='ms-5 list-disc'>
               <p>Kuta Lombok</p>
             </li>
@@ -412,7 +418,7 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
           </ul>
 
           <ul>
-            <p className='text-gradient font-bold'>Best for: </p>
+            <p className='text-gradient text-gradient font-bold'>Best for: </p>
             <li className='ms-5 list-disc'>
               <p>Beginner</p>
             </li>
@@ -459,7 +465,7 @@ const DestinationDetails = ({
       >
         <FontAwesomeIcon
           icon={faEye}
-          className='me-2 text-2xl font-bold text-ternary hover:text-ternary/90 md:text-4xl'
+          className='text-gradient me-2 text-2xl font-bold text-ternary hover:text-ternary/90 md:text-4xl'
         />
         <span
           className='text-lg
@@ -510,15 +516,15 @@ const DestinationDetails = ({
 
 function BottomContent() {
   return (
-    <div className='mt-8'>
-      <h5 className='text-center font-bold'>
-        <span className='me-2 text-xl text-cf-white'>🏄‍♀️</span>Your Board or Ours
+    <div className='mt-14'>
+      <h5 className='text-gradient text-center font-bold'>
+        <span className='me-2 text-xl text-cf-white'>🏄‍♂️</span>Your Board or Ours{' '}
       </h5>
       <p className='text-center'>
         Bring your own board or use one of our top-quality boards.
       </p>
 
-      <h5 className='text-center font-bold'>
+      <h5 className='text-gradient text-center font-bold'>
         <span>
           <FontAwesomeIcon
             icon={faMapLocationDot}
@@ -532,7 +538,7 @@ function BottomContent() {
         destination.
       </p>
 
-      <h5 className='text-center font-bold'>
+      <h5 className='text-gradient text-center font-bold'>
         <span>
           <FontAwesomeIcon
             icon={faBed}

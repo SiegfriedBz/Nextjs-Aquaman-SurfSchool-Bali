@@ -65,7 +65,9 @@ const Footer = () => {
                   md:py-5 md:text-xl'
           >
             <address>
-              <h5 className='text-gradient font-bold'>Aquaman Bali</h5>
+              <span className='text-gradient-always-colored inline-block w-full font-bold sm:text-lg md:text-xl'>
+                Aquaman Bali
+              </span>
               <Link
                 href={process.env.NEXT_PUBLIC_STREETVIEW_LINK || '/'}
                 className='dark-white-link inline-block pt-1 md:text-xl'
@@ -156,7 +158,7 @@ const Footer = () => {
               target='_blank'
               className='underline-gradient-link'
             >
-              <span className='text-gradient font-bold sm:text-lg md:text-xl'>
+              <span className='text-gradient-always-colored font-bold sm:text-lg md:text-xl'>
                 SiegfriedB
               </span>
             </a>

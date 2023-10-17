@@ -35,8 +35,8 @@ function Header() {
   return (
     <>
       <h1 className='title'>Photo & Video</h1>
-      <h3 className='sub-title mb-1 text-center'>Get an amazing souvenir</h3>
-      <h4 className='sub-title'>from your Surf Session</h4>
+      <h2 className='sub-title mb-1 text-center'>Get an amazing souvenir</h2>
+      <h3 className='sub-title-bis'>from your Surf Session</h3>
 
       <div className='mt-2 flex w-full flex-col items-center'>
         <ButtonAsGradient
@@ -93,7 +93,7 @@ function BodyContent({ image, children }) {
       className='mb-3
         flex flex-col items-center justify-center
         rounded-xl border border-solid 
-      border-cf-dark
+        border-cf-dark
         p-2
       hover:border-blue-400 
       dark:border-cf-white 
@@ -112,21 +112,22 @@ function BodyContent({ image, children }) {
           blurDataURL={image.blurDataUrl}
           priority={true}
           sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-          className='mx-auto h-full w-full rounded-xl object-cover shadow-2xl md:w-11/12'
+          className='mx-auto h-full w-full rounded-b-lg rounded-t-xl object-cover md:w-11/12'
         />
       </div>
 
-      <div className='w-full py-4'>{children}</div>
-
-      <div className='flex justify-center'>
-        <ButtonAsGradient
-          As='Link'
-          href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
-          target='_blank'
-          extraClasses='mx-auto my-4'
-        >
-          Surf Now
-        </ButtonAsGradient>
+      <div className='w-full py-4'>
+        {children}
+        <div className='flex justify-center'>
+          <ButtonAsGradient
+            As='Link'
+            href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
+            target='_blank'
+            extraClasses='mx-auto my-4'
+          >
+            Book Now
+          </ButtonAsGradient>
+        </div>
       </div>
     </div>
   )

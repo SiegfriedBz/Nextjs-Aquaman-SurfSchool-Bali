@@ -3,10 +3,11 @@ import Link from 'next/link'
 
 const Logo = () => {
   return (
-    <Link href='/' id='brand-logo' className='btn-as'>
+    <Link href='/' id='brand-logo'>
       <Image
-        src='/logo.png'
-        alt='brand logo'
+        id='brand logo white'
+        src='/logo-white.png'
+        alt='brand logo white'
         style={{ objectSize: 'cover' }}
         width={96}
         height={96}
