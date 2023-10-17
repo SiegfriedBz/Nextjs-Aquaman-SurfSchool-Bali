@@ -7,7 +7,9 @@ import googleIcon from '../../public/logos/google_g_icon.png'
 import { TESTIMONIALS_QUOTES } from '../data/testimonials'
 
 const renderStars = Array.from({ length: 5 }).map((_, i) => {
-  return <FontAwesomeIcon key={`star-${i}`} icon={faStar} />
+  return (
+    <FontAwesomeIcon key={`star-${i}`} icon={faStar} className='text-3xl' />
+  )
 })
 
 export const Testimonials = () => {
@@ -94,10 +96,8 @@ export const TestimonialsLinks = () => {
         target='_blank'
         className='dark-white-link '
       >
-        <h3 className='text-center text-stone-900 dark:text-stone-50'>
-          Top-rated Surf School
-        </h3>
-        <div className='mt-1 flex items-center'>
+        <h3 className='text-center'>Top-rated Surf School</h3>
+        <div className='mt-2 flex items-center'>
           <h3 className='m-auto text-ternary hover:text-ternary/90'>
             {renderStars}
           </h3>
