@@ -1,20 +1,35 @@
 import { useRef } from 'react'
 import { ButtonAsGradient } from '../ButtonAsGradient'
 import PageLayout from './PageLayout'
+import Head from 'next/head'
+
+const meta = {
+  title: 'Aquaman Bali | Surf School | Gallery',
+  description: 'Discover our best Surf photos and videos',
+}
 
 const GalleryLayout = ({ children }) => {
   const ref = useRef(null)
 
   return (
-    <PageLayout>
-      <section
-        ref={ref}
-        className={`flex h-full w-full scroll-mt-32 flex-col items-center`}
-      >
-        <Header />
-        <Body>{children}</Body>
-      </section>
-    </PageLayout>
+    <>
+      <Head>
+        <title>{meta.title}</title>
+        <meta content={meta.description} name='description' />
+        <meta property='og:description' content={meta.description} />
+        <meta property='og:title' content={meta.title} />
+      </Head>
+
+      <PageLayout>
+        <section
+          ref={ref}
+          className={`flex h-full w-full scroll-mt-32 flex-col items-center`}
+        >
+          <Header />
+          <Body>{children}</Body>
+        </section>
+      </PageLayout>
+    </>
   )
 }
 

@@ -6,6 +6,13 @@ import { CldVideoPlayer } from 'next-cloudinary'
 import { CustomCarousel } from '../Carousel'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleArrowUp } from '@fortawesome/free-solid-svg-icons'
+import Head from 'next/head'
+
+const meta = {
+  title: 'Aquaman Bali | Surf School | Surf Lessons',
+  description:
+    'Discover our Private and Group Surf Lessons with experienced instructors. Learn to ride the waves, from beginner basics to advanced techniques. Book your session now!',
+}
 
 const SurfLessonsLayout = ({ children }) => {
   const ref = useRef(null)
@@ -15,16 +22,25 @@ const SurfLessonsLayout = ({ children }) => {
   }
 
   return (
-    <PageLayout>
-      <section
-        ref={ref}
-        className={`flex h-full w-full scroll-mt-32 flex-col items-center`}
-      >
-        <Header />
-        <Body>{children}</Body>
-        <Footer scrollToTop={scrollToTop} />
-      </section>
-    </PageLayout>
+    <>
+      <Head>
+        <title>{meta.title}</title>
+        <meta content={meta.description} name='description' />
+        <meta property='og:description' content={meta.description} />
+        <meta property='og:title' content={meta.title} />
+      </Head>
+
+      <PageLayout>
+        <section
+          ref={ref}
+          className={`flex h-full w-full scroll-mt-32 flex-col items-center`}
+        >
+          <Header />
+          <Body>{children}</Body>
+          <Footer scrollToTop={scrollToTop} />
+        </section>
+      </PageLayout>
+    </>
   )
 }
 

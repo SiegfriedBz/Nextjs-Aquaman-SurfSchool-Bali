@@ -14,6 +14,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image'
 import { useAppContext } from '@/context/appContext'
+import Head from 'next/head'
+
+const meta = {
+  title: 'Aquaman Bali | Surf School | Surf Trips',
+  description:
+    'Explore Exciting Surf Journeys in Indonesia with Aquaman Bali - Book Now!"',
+}
 
 const SurfTrips = ({ surfTripImg, mapMarkers }) => {
   const topRef = useRef(null)
@@ -31,37 +38,46 @@ const SurfTrips = ({ surfTripImg, mapMarkers }) => {
   }
 
   return (
-    <PageLayout>
-      <section
-        ref={topRef}
-        className={`flex h-full w-full scroll-mt-[24rem] flex-col content-center`}
-      >
-        <h1 className='title text-center'>Surf Trips</h1>
-        <h2 className='sub-title mb-2 text-center'>From Lombok to Sumatra</h2>
-        <h3 className='sub-title-bis mb-4 text-center underline underline-offset-4'>
-          Starting at 500K IDR
-        </h3>
+    <>
+      <Head>
+        <title>{meta.title}</title>
+        <meta content={meta.description} name='description' />
+        <meta property='og:description' content={meta.description} />
+        <meta property='og:title' content={meta.title} />
+      </Head>
 
-        <div
-          ref={mapContainerRef}
-          className='scroll-mt-[8rem] scroll-smooth px-1'
+      <PageLayout>
+        <section
+          ref={topRef}
+          className={`flex h-full w-full scroll-mt-[24rem] flex-col content-center`}
         >
-          <MapView mapMarkers={mapMarkers} />
-        </div>
+          <h1 className='title text-center'>Surf Trips</h1>
+          <h2 className='sub-title mb-2 text-center'>From Lombok to Sumatra</h2>
+          <h3 className='sub-title-bis mb-4 text-center underline underline-offset-4'>
+            Starting at 500K IDR
+          </h3>
 
-        <hr />
+          <div
+            ref={mapContainerRef}
+            className='scroll-mt-[8rem] scroll-smooth px-1'
+          >
+            <MapView mapMarkers={mapMarkers} />
+          </div>
 
-        <DestinationList
-          surfTripImg={surfTripImg}
-          handleSelectTrip={handleSelectTrip}
-          scrollToTop={scrollToTop}
-        />
+          <hr />
 
-        <hr />
+          <DestinationList
+            surfTripImg={surfTripImg}
+            handleSelectTrip={handleSelectTrip}
+            scrollToTop={scrollToTop}
+          />
 
-        <BottomContent />
-      </section>
-    </PageLayout>
+          <hr />
+
+          <BottomContent />
+        </section>
+      </PageLayout>
+    </>
   )
 }
 
