@@ -56,7 +56,7 @@ const Footer = () => {
 
         <div
           id='footer-middle-row'
-          className='flex flex-row justify-between xl:relative'
+          className='flex flex-row justify-between sm:relative'
         >
           {/* contact */}
           <div
@@ -96,7 +96,7 @@ const Footer = () => {
           {/* desktop links */}
           <div
             id='footer-links'
-            className='hidden space-x-24 sm:flex xl:absolute xl:left-1/2 xl:top-1/2 xl:-translate-x-1/2 xl:-translate-y-1/2'
+            className='hidden space-x-24 sm:absolute sm:left-1/2 sm:top-1/2 sm:inline-flex sm:-translate-x-1/2 sm:-translate-y-1/2'
           >
             <ul
               className='
@@ -175,7 +175,9 @@ const Li = ({ href = '', className = '', children }) => {
   return (
     <li className={className}>
       <Link href={href} className='underline-gradient-link'>
-        <span className='text-gradient sm:text-lg md:text-xl'>{children}</span>
+        <span className='text-gradient-always-colored sm:text-lg md:text-xl'>
+          {children}
+        </span>
       </Link>
     </li>
   )
