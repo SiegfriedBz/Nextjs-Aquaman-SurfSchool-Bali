@@ -171,7 +171,7 @@
         sm:h-[var(--nav-mid-height)]
         md:h-[var(--nav-big-height)];
 
-      & #brand-logo {
+      & .brand-logo {
         @apply absolute
           left-2
           h-[var(--logo-small-size)]
@@ -198,6 +198,8 @@
           dark:ring-1
         dark:ring-primary
           sm:h-[var(--logo-mid-size)] 
+          sm:w-[var(--logo-mid-size)]
+          md:h-[var(--logo-big-size)] 
           md:w-[var(--logo-big-size)];
       }
     }
