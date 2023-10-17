@@ -3,13 +3,17 @@
 @tailwind utilities;
 
 :root {
-  /* navbar, & brand logo sizes */
+  /* navbar, brand logo, hero sizes */
   --nav-small-height: 6rem;
   --nav-mid-height: 7rem;
   --nav-big-height: 8rem;
   --logo-small-size: calc(var(--nav-small-height) / 2);
   --logo-mid-size: calc(var(--nav-mid-height) / 2);
   --logo-big-size: calc(var(--nav-big-height) / 2);
+
+  --hero-small-mt: calc(var(--nav-small-height) + 2rem);
+  --hero-mid-mt: calc(var(--nav-mid-height));
+  --hero-big-mt: calc(var(--nav-big-height));
 
   /* animations */
   --title-duration: 700ms;
@@ -206,7 +210,11 @@
     }
 
     .hero-title-wrapper {
-      @apply mt-[var(--nav-small-height)] h-fit w-full rounded-[0.5em] bg-transparent p-[0.75rem] sm:mt-[var(--nav-mid-height)] md:mt-[var(--nav-big-height)];
+      @apply mt-[var(--hero-small-mt)]
+        rounded-[0.5em]
+        p-[0.75rem] 
+        sm:mt-[var(--hero-mid-mt)]
+        md:mt-[var(--hero-big-mt)];
 
       animation: hero-title-wrapper-enter calc(var(--title-duration) * 1.5)
         ease-in forwards;
