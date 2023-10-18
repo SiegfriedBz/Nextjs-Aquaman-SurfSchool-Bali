@@ -53,7 +53,7 @@ SurfLessonsLayout.Footer = Footer
 function Header() {
   return (
     <>
-      <MotionAs As='h1' duration={0.7} delay={0.2}>
+      <MotionAs As='h1' className='text-center' duration={0.7} delay={0.2}>
         Surf Lessons
       </MotionAs>
       <MotionAs
@@ -61,7 +61,7 @@ function Header() {
         initialX={100}
         delay={0.5}
         duration={0.8}
-        className='mb-2'
+        className='mb-2 text-center'
       >
         In Canggu
       </MotionAs>
@@ -70,7 +70,7 @@ function Header() {
         <Link
           href='/surf-trips'
           target='_self'
-          className='text-gradient underline-gradient-link ms-2'
+          className='ms-2 underline decoration-primary underline-offset-4 dark:decoration-cf-white'
         >
           Surf Trips
         </Link>
