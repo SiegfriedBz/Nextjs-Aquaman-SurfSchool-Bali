@@ -3,7 +3,7 @@ import Link from 'next/link'
 export const ButtonAsGradient = ({
   As = 'Link',
   variant = 'btn-as-gradient',
-  padding = 'px-8 py-2',
+  padding = 'py-2',
   extraClasses = '',
   children,
   ...rest
@@ -13,7 +13,7 @@ export const ButtonAsGradient = ({
   return (
     <RenderAs
       {...rest}
-      className={`btn-as w-1/2 text-center ${variant} ${padding} ${extraClasses}`}
+      className={`btn-as w-1/2 whitespace-nowrap text-center ${variant} ${padding} ${extraClasses}`}
     >
       {children}
     </RenderAs>
