@@ -46,7 +46,7 @@ const SurfLessonsGroup = ({ images }) => {
             As='Link'
             href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
             target='_blank'
-            extraClasses='mx-auto mb-4'
+            extraClasses='mx-auto mt-0 mb-4'
           >
             Surf Now
           </ButtonAsGradient>
