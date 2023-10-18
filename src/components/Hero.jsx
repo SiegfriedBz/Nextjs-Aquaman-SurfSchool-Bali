@@ -1,8 +1,24 @@
-import { useState, forwardRef } from 'react'
+import { useState, useRef, forwardRef } from 'react'
 import { useRouter } from 'next/router'
+import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleDown } from '@fortawesome/free-solid-svg-icons'
 import MotionAs from './MotionAs'
+
+const arrowVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: 1.2,
+      duration: 0.3,
+    },
+  },
+}
+
+const MotionButton = motion.button
 
 const Hero = (props, heroRef) => {
   const router = useRouter()
@@ -38,20 +54,23 @@ const Hero = (props, heroRef) => {
         </MotionAs>
       </div>
 
-      <button
+      <MotionButton
+        variants={arrowVariants}
+        initial='hidden'
+        animate='visible'
         onClick={() => {
           setArrowIsClicked((prev) => !prev)
           router.push('#home-surf-lessons')
         }}
         className={`absolute bottom-1 z-[500] cursor-pointer text-primary dark:text-cf-white/90 ${
-          arrowIsClicked ? 'animate-none' : 'arrow'
+          arrowIsClicked ? 'animate-none' : 'animate-bounce'
         }`}
       >
         <FontAwesomeIcon
           icon={faCircleDown}
           className='rounded-full bg-cf-white/70 text-4xl ring-[0.05rem] ring-cf-white dark:bg-cf-dark/10 dark:bg-transparent dark:ring-0 md:text-5xl'
         />
-      </button>
+      </MotionButton>
     </div>
   )
 }
