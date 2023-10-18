@@ -9,6 +9,7 @@ const Logo = () => {
         src='/logo-white.png'
         alt='brand logo white'
         style={{ objectSize: 'cover' }}
+        priority={true}
         width={96}
         height={96}
       />
