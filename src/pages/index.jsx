@@ -15,7 +15,6 @@ import {
 import { getImageUrl, getBase64ImageUrl } from '@/utils/cloudinaryUtils'
 import getMapMarkers from '@/utils/getMapMarkers'
 import ButtonScrollToTop from '@/components/ButtonScrollToTop'
-import MotionAs from '@/components/MotionAs'
 
 const meta = {
   title: 'Aquaman Bali | Surf School | Home',
@@ -113,7 +112,7 @@ export default function Home({
 
           <hr />
 
-          <section id='home-visit-us' className='flex scroll-mt-24 flex-col'>
+          <section id='visit-us' className='flex scroll-mt-24 flex-col'>
             <HomeMapView mapMarkers={mapMarkers} />
           </section>
 
@@ -130,9 +129,7 @@ export default function Home({
 const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
   return (
     <>
-      <MotionAs As='h2' className='mx-auto whitespace-nowrap'>
-        Surf Lessons
-      </MotionAs>
+      <h2 className='mx-auto whitespace-nowrap'>Surf Lessons</h2>
       <CustomCarousel
         carouselKey={homeSurfLessonsId}
         images={homeSurfLessonsImg}
@@ -172,9 +169,7 @@ const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
 const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
   return (
     <>
-      <MotionAs As='h2' className='mx-auto whitespace-nowrap'>
-        About me
-      </MotionAs>
+      <h2 className='mx-auto whitespace-nowrap'>About me</h2>
       <div className='flex flex-col md:flex-row md:items-center md:space-x-16'>
         <div>
           <div className='mx-auto h-64 w-64 rounded-full sm:h-80 sm:w-80 md:h-96 md:w-96 lg:h-[28rem] lg:w-[28rem]'>
@@ -216,9 +211,7 @@ const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
 const HomeSurfTrips = ({ homeSurfTripsId, homeSurfTripsImg, scrollToTop }) => {
   return (
     <>
-      <MotionAs As='h2' className='mx-auto whitespace-nowrap'>
-        Surf Trips
-      </MotionAs>
+      <h2 className='mx-auto whitespace-nowrap'>Surf Trips</h2>
       <CustomCarousel
         carouselKey={homeSurfTripsId}
         images={homeSurfTripsImg}
@@ -251,9 +244,7 @@ const HomeSurfTrips = ({ homeSurfTripsId, homeSurfTripsImg, scrollToTop }) => {
 const HomeTestimonials = ({ scrollToTop }) => {
   return (
     <>
-      <MotionAs As='h2' className='mx-auto'>
-        Testimonials
-      </MotionAs>
+      <h2 className='mx-auto'>Testimonials</h2>
 
       <Testimonials />
 
@@ -276,9 +267,7 @@ const HomeTestimonials = ({ scrollToTop }) => {
 const HomeMapView = ({ mapMarkers }) => {
   return (
     <>
-      <MotionAs As='h2' className='mx-auto whitespace-nowrap'>
-        Visit Us
-      </MotionAs>
+      <h2 className='mx-auto whitespace-nowrap'>Visit Us</h2>
       <MapView mapMarkers={mapMarkers} />
     </>
   )
