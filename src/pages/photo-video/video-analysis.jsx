@@ -10,7 +10,7 @@ const PhotoVideoAnalysis = ({ image }) => {
       </PhotoVideoLayout.Body.Header>
 
       <PhotoVideoLayout.Body.Content image={image}>
-        <h3>Who is it for?</h3>
+        <h3 className='mt-4'>Who is it for?</h3>
         <p className='text-justify'>
           Seeing yourself surf on videos and receive profound feedback what you
           are already good at or where still is room for improvement is the best
@@ -19,7 +19,7 @@ const PhotoVideoAnalysis = ({ image }) => {
           on your surfing.
         </p>
 
-        <h3>How does it work?</h3>
+        <h3 className='mt-4'>How does it work?</h3>
         <p className='text-justify'>
           The surf session (max 2 hours) will be filmed with high quality
           equipment. After your surf session (with or without surf

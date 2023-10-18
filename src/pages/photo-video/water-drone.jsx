@@ -10,7 +10,7 @@ const PhotoVideoWaterDrone = ({ image }) => {
       </PhotoVideoLayout.Body.Header>
 
       <PhotoVideoLayout.Body.Content image={image}>
-        <h3>Who is it for?</h3>
+        <h3 className='mt-4'>Who is it for?</h3>
         <p className='text-justify'>
           If you want extraordinary shots of your surfing, water photography or
           drone shots are for you. Please inquire if you plan a surf trip or
@@ -18,7 +18,7 @@ const PhotoVideoWaterDrone = ({ image }) => {
           shots from above (photo/video).
         </p>
 
-        <h3>How does it work?</h3>
+        <h3 className='mt-4'>How does it work?</h3>
         <p className='text-justify'>
           The photographer will be in the water taking close shots of you
           surfing with an underwater camera. Drone shots will be done from the
