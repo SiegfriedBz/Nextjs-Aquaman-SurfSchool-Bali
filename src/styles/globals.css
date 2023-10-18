@@ -14,26 +14,6 @@
   --hero-small-mt: calc(var(--nav-small-height) + 1rem);
   --hero-mid-mt: calc(var(--nav-mid-height));
   --hero-big-mt: calc(var(--nav-big-height));
-
-  /* animations */
-  --title-duration: 700ms;
-  --title-delay: 200ms;
-
-  --sub-title-duration: 500ms;
-  --sub-title-delay: calc(var(--title-duration) - 100ms);
-  --sub-title-bis-delay: calc(
-    var(--sub-title-delay) + var(--sub-title-duration)
-  );
-
-  --after_titles_delay: calc(
-    var(--title-delay) + var(--title-duration) + var(--sub-title-duration)
-  );
-
-  --header-duration: 400ms;
-  --header-delay: var(--after_titles_delay);
-
-  --sub-hero-duration: 400ms;
-  --sub-hero-delay: var(--after_titles_delay);
 }
 
 @layer base {
@@ -219,18 +199,12 @@
     }
   }
 
-  /* to prevent flash before hero image is painted */
-  #sub-hero {
-    animation: sub-hero-enter var(--sub-hero-duration) ease
-      var(--sub-hero-delay) backwards;
-  }
-
   .toggle-mobile-btn {
     @apply [&>div::after]:translate-y-0 [&>div::after]:-rotate-45 [&>div::before]:translate-y-0 [&>div::before]:rotate-45 [&>div]:rotate-[720deg] [&>div]:bg-transparent;
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent dark:bg-transparent dark:bg-none dark:text-cf-white/90;
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent dark:bg-transparent dark:bg-none dark:text-cf-white;
   }
 
   .text-gradient-always-colored {
@@ -258,11 +232,5 @@
     &:hover {
       @apply bg-gradient-to-r from-ternary/95 to-ternary-light/95 ring-1 ring-ternary-light/95;
     }
-  }
-}
-
-@keyframes sub-hero-enter {
-  from {
-    opacity: 0;
   }
 }

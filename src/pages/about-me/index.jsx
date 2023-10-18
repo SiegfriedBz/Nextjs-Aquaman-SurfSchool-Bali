@@ -24,7 +24,7 @@ const AboutMe = ({ aboutMeImg }) => {
 
       <PageLayout>
         <section className={`flex h-full w-full flex-col items-center`}>
-          <MotionAs As='h1' duration={0.7} delay={0.2}>
+          <MotionAs As='h1' duration={0.7} delay={0.2} className='text-center'>
             About Me
           </MotionAs>
           <CustomCarousel

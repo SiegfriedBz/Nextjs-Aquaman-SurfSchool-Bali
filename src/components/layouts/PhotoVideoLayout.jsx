@@ -4,7 +4,6 @@ import Image from 'next/image'
 import PageLayout from './PageLayout'
 import { CldVideoPlayer } from 'next-cloudinary'
 import { ButtonAsGradient } from '../ButtonAsGradient'
-
 import MotionAs from '../MotionAs'
 
 const meta = {
@@ -52,7 +51,7 @@ PhotoVideoLayout.Footer = Footer
 function Header() {
   return (
     <>
-      <MotionAs As='h1' duration={0.7} delay={0.2}>
+      <MotionAs As='h1' duration={0.7} delay={0.2} className='text-center'>
         Photo & Video
       </MotionAs>
       <MotionAs
