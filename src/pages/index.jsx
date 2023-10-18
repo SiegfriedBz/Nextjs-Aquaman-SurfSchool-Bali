@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect, useCallback, useId } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import { motion, useInView } from 'framer-motion'
 import Hero from '@/components/Hero'
 import HomePageLayout from '@/components/layouts/HomePageLayout'
 import MapView from '@/components/MapView'
@@ -21,23 +20,6 @@ const meta = {
   title: 'Aquaman Bali | Surf School | Home',
   description:
     'Discover Aquaman Bali, your Premier Surf School and Surf Trip destination. Grow your surfing skills from beginner to advanced. Book now!',
-}
-
-const h2Variants = {
-  initial: {
-    x: -100,
-    opacity: 1,
-  },
-  animate: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      // delay: 0.25,
-      duration: 0.5,
-      type: 'spring',
-      stiffness: 100,
-    },
-  },
 }
 
 export default function Home({
@@ -130,7 +112,7 @@ export default function Home({
 
           <hr />
 
-          <section id='home-visit-us' className='flex scroll-mt-24 flex-col'>
+          <section id='visit-us' className='flex scroll-mt-24 flex-col'>
             <HomeMapView mapMarkers={mapMarkers} />
           </section>
 
@@ -145,20 +127,9 @@ export default function Home({
 }
 
 const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { amount: 0.1 }, { once: true })
-
   return (
     <>
-      <motion.h2
-        ref={ref}
-        variants={h2Variants}
-        initial='initial'
-        animate={isInView ? 'animate' : 'initial'}
-        className='mx-auto whitespace-nowrap'
-      >
-        Surf Lessons
-      </motion.h2>
+      <h2 className='mx-auto whitespace-nowrap'>Surf Lessons</h2>
       <CustomCarousel
         carouselKey={homeSurfLessonsId}
         images={homeSurfLessonsImg}
@@ -196,20 +167,9 @@ const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
 }
 
 const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { amount: 0.1 }, { once: true })
-
   return (
     <>
-      <motion.h2
-        ref={ref}
-        variants={h2Variants}
-        initial='initial'
-        animate={isInView ? 'animate' : 'initial'}
-        className='mx-auto whitespace-nowrap'
-      >
-        About me
-      </motion.h2>
+      <h2 className='mx-auto whitespace-nowrap'>About me</h2>
       <div className='flex flex-col md:flex-row md:items-center md:space-x-16'>
         <div>
           <div className='mx-auto h-64 w-64 rounded-full sm:h-80 sm:w-80 md:h-96 md:w-96 lg:h-[28rem] lg:w-[28rem]'>
@@ -243,27 +203,15 @@ const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
           </p>
         </div>
       </div>
-
       <ButtonScrollToTop scrollToTop={scrollToTop} />
     </>
   )
 }
 
 const HomeSurfTrips = ({ homeSurfTripsId, homeSurfTripsImg, scrollToTop }) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { amount: 0.1 }, { once: true })
-
   return (
     <>
-      <motion.h2
-        ref={ref}
-        variants={h2Variants}
-        initial='initial'
-        animate={isInView ? 'animate' : 'initial'}
-        className='mx-auto whitespace-nowrap'
-      >
-        Surf Trips
-      </motion.h2>
+      <h2 className='mx-auto whitespace-nowrap'>Surf Trips</h2>
       <CustomCarousel
         carouselKey={homeSurfTripsId}
         images={homeSurfTripsImg}
@@ -294,20 +242,9 @@ const HomeSurfTrips = ({ homeSurfTripsId, homeSurfTripsImg, scrollToTop }) => {
 }
 
 const HomeTestimonials = ({ scrollToTop }) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { amount: 0.1 }, { once: true })
-
   return (
     <>
-      <motion.h2
-        ref={ref}
-        variants={h2Variants}
-        initial='initial'
-        animate={isInView ? 'animate' : 'initial'}
-        className='mx-auto'
-      >
-        Testimonials
-      </motion.h2>
+      <h2 className='mx-auto'>Testimonials</h2>
 
       <Testimonials />
 
@@ -328,20 +265,9 @@ const HomeTestimonials = ({ scrollToTop }) => {
 }
 
 const HomeMapView = ({ mapMarkers }) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { amount: 0.1 }, { once: true })
-
   return (
     <>
-      <motion.h2
-        ref={ref}
-        variants={h2Variants}
-        initial='initial'
-        animate={isInView ? 'animate' : 'initial'}
-        className='mx-auto whitespace-nowrap'
-      >
-        Visit Us
-      </motion.h2>
+      <h2 className='mx-auto whitespace-nowrap'>Visit Us</h2>
       <MapView mapMarkers={mapMarkers} />
     </>
   )

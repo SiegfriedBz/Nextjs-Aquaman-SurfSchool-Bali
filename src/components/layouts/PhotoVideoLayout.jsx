@@ -1,9 +1,11 @@
 import { useRef } from 'react'
+import Head from 'next/head'
 import Image from 'next/image'
-import { ButtonAsGradient } from '../ButtonAsGradient'
 import PageLayout from './PageLayout'
 import { CldVideoPlayer } from 'next-cloudinary'
-import Head from 'next/head'
+import { ButtonAsGradient } from '../ButtonAsGradient'
+
+import MotionAs from '../MotionAs'
 
 const meta = {
   title: 'Aquaman Bali | Surf School | Photo | Video | Drone',
@@ -50,9 +52,21 @@ PhotoVideoLayout.Footer = Footer
 function Header() {
   return (
     <>
-      <h1 className='title'>Photo & Video</h1>
-      <h2 className='sub-title mb-2 text-center'>Get an amazing souvenir</h2>
-      <h3 className='sub-title-bis'>from your Surf Session</h3>
+      <MotionAs As='h1' duration={0.7} delay={0.2}>
+        Photo & Video
+      </MotionAs>
+      <MotionAs
+        As='h2'
+        initialX={100}
+        delay={0.5}
+        duration={0.8}
+        className='mb-2 text-center'
+      >
+        Get an amazing souvenir
+      </MotionAs>
+      <MotionAs As='h3' delay={0.9} duration={0.8} className='text-center'>
+        from your Surf Session
+      </MotionAs>
 
       <div className='my-1 flex w-full flex-col items-center'>
         <ButtonAsGradient

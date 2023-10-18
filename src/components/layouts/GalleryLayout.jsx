@@ -1,7 +1,8 @@
 import { useRef } from 'react'
-import { ButtonAsGradient } from '../ButtonAsGradient'
-import PageLayout from './PageLayout'
 import Head from 'next/head'
+import PageLayout from './PageLayout'
+import MotionAs from '../MotionAs'
+import { ButtonAsGradient } from '../ButtonAsGradient'
 
 const meta = {
   title: 'Aquaman Bali | Surf School | Gallery',
@@ -41,9 +42,21 @@ GalleryLayout.Body = Body
 function Header() {
   return (
     <>
-      <h1 className='title'>Gallery</h1>
-      <h2 className='sub-title mb-1 text-center'>Explore our best Photos</h2>
-      <h2 className='sub-title-bis text-center'>& Videos</h2>
+      <MotionAs As='h1' duration={0.7} delay={0.2}>
+        Gallery
+      </MotionAs>
+      <MotionAs
+        As='h2'
+        initialX={100}
+        delay={0.5}
+        duration={0.8}
+        className='mb-1 text-center'
+      >
+        Explore our best Photos
+      </MotionAs>
+      <MotionAs As='h2' delay={0.9} duration={0.8} className='text-center'>
+        & Videos
+      </MotionAs>
 
       <div className='flex w-full justify-evenly space-x-4'>
         <ButtonAsGradient

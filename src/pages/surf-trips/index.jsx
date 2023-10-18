@@ -15,6 +15,7 @@ import {
 import Image from 'next/image'
 import { useAppContext } from '@/context/appContext'
 import Head from 'next/head'
+import MotionAs from '@/components/MotionAs'
 
 const meta = {
   title: 'Aquaman Bali | Surf School | Surf Trips',
@@ -25,6 +26,7 @@ const meta = {
 const SurfTrips = ({ surfTripImg, mapMarkers }) => {
   const topRef = useRef(null)
   const mapContainerRef = useRef(null)
+
   const { setShowPopup, setPopup } = useAppContext()
 
   const handleSelectTrip = (spot) => {
@@ -51,11 +53,31 @@ const SurfTrips = ({ surfTripImg, mapMarkers }) => {
           ref={topRef}
           className={`flex h-full w-full scroll-mt-[24rem] flex-col content-center`}
         >
-          <h1 className='title text-center'>Surf Trips</h1>
-          <h2 className='sub-title mb-2 text-center'>From Lombok to Sumatra</h2>
-          <h3 className='sub-title-bis mb-4 text-center underline underline-offset-4'>
+          <MotionAs
+            As='h1'
+            duration={0.7}
+            delay={0.2}
+            className='w-full text-center'
+          >
+            Surf Trips
+          </MotionAs>
+          <MotionAs
+            As='h2'
+            initialX={100}
+            delay={0.5}
+            duration={0.8}
+            className='mb-2  text-center'
+          >
+            From Lombok to Sumatra
+          </MotionAs>
+          <MotionAs
+            As='h3'
+            delay={0.9}
+            duration={0.8}
+            className='mb-4 text-center'
+          >
             Starting at 500K IDR
-          </h3>
+          </MotionAs>
 
           <div
             ref={mapContainerRef}
@@ -506,7 +528,7 @@ const DestinationDetails = ({
       >
         <FontAwesomeIcon
           icon={faEye}
-          className='text-gradient me-2 text-2xl font-bold text-ternary hover:text-ternary/90 md:text-4xl'
+          className='text-gradient me-2 text-2xl font-bold text-ternary hover:text-ternary/90  dark:text-ternary dark:hover:text-ternary/90 md:text-4xl'
         />
         <span
           className='text-lg

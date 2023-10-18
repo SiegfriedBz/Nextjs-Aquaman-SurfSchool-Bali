@@ -32,9 +32,6 @@
   --header-duration: 400ms;
   --header-delay: var(--after_titles_delay);
 
-  --arrow-duration: 800ms;
-  --arrow-delay: var(--after_titles_delay);
-
   --sub-hero-duration: 400ms;
   --sub-hero-delay: var(--after_titles_delay);
 }
@@ -97,7 +94,7 @@
   }
   h6 {
     /* @apply text-gradient  text-sm md:text-base 2xl:text-[1.35rem]; */
-    @apply text-gradient  text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl;
+    @apply text-gradient text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl;
   }
 
   p {
@@ -163,11 +160,6 @@
 @layer components {
   /* header, navbar */
   #header {
-    &.home-navTop {
-      animation: home-navTop-enter var(--header-duration) ease
-        var(--header-delay) backwards;
-    }
-
     .navbar {
       @apply z-[999] 
         h-[var(--nav-small-height)]
@@ -211,19 +203,14 @@
   /* hero */
   #hero {
     .hero-image {
-      @apply absolute left-0 right-0 top-0 h-full max-w-full rounded-[0.25em] bg-[url('/images/surf.png')] bg-cover bg-[35%] bg-no-repeat sm:bg-[25%] md:bg-[15%];
+      @apply absolute left-0 right-0 top-0 z-[100] h-full max-w-full rounded-[0.25em] bg-[url('/images/surf.png')] bg-cover bg-[35%] bg-no-repeat sm:bg-[25%] md:bg-[15%];
     }
 
     .hero-title-wrapper {
-      @apply mt-[var(--hero-small-mt)]
-        h-fit
-        rounded-[0.5em]
+      @apply z-[500] mt-[var(--hero-small-mt)]
         p-[0.75rem] 
         sm:mt-[var(--hero-mid-mt)]
         md:mt-[var(--hero-big-mt)];
-
-      animation: hero-title-wrapper-enter calc(var(--title-duration) * 1.5)
-        ease-in forwards;
 
       & .title,
       & .sub-title {
@@ -238,31 +225,12 @@
       var(--sub-hero-delay) backwards;
   }
 
-  .title {
-    animation: title-enter var(--title-duration)
-      cubic-bezier(0.74, 0.01, 0.76, 1.3) var(--title-delay) both;
-  }
-  .sub-title {
-    animation: sub-title-enter var(--sub-title-duration)
-      cubic-bezier(0.74, 0.01, 0.76, 1.3) var(--sub-title-delay) both;
-  }
-  .sub-title-bis {
-    animation: sub-title-bis-enter var(--sub-title-duration)
-      cubic-bezier(0.74, 0.01, 0.76, 1.3) var(--sub-title-bis-delay) both;
-  }
-
-  .arrow {
-    animation:
-      arrow_enter var(--arrow-duration) ease var(--arrow-delay) backwards,
-      arrow_bounce 1s var(--arrow-delay) infinite both;
-  }
-
   .toggle-mobile-btn {
     @apply [&>div::after]:translate-y-0 [&>div::after]:-rotate-45 [&>div::before]:translate-y-0 [&>div::before]:rotate-45 [&>div]:rotate-[720deg] [&>div]:bg-transparent;
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent dark:from-cf-white dark:to-cf-white/90;
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent dark:bg-transparent dark:bg-none dark:text-cf-white/90;
   }
 
   .text-gradient-always-colored {
@@ -290,58 +258,6 @@
     &:hover {
       @apply bg-gradient-to-r from-ternary/95 to-ternary-light/95 ring-1 ring-ternary-light/95;
     }
-  }
-}
-
-@keyframes home-navTop-enter {
-  from {
-    opacity: 0;
-    transform: translateY(-10vh);
-  }
-}
-
-@keyframes title-enter {
-  from {
-    opacity: 0;
-    transform: translateX(-100vw);
-  }
-}
-
-@keyframes sub-title-enter {
-  from {
-    opacity: 0;
-    transform: translateX(100vw);
-  }
-}
-
-@keyframes sub-title-bis-enter {
-  from {
-    opacity: 0;
-    transform: translateX(-100vw);
-  }
-}
-
-@keyframes hero-title-wrapper-enter {
-  to {
-    @apply bg-cf-dark/5 opacity-100;
-  }
-}
-
-@keyframes arrow_enter {
-  from {
-    opacity: 0;
-  }
-}
-
-@keyframes arrow_bounce {
-  0%,
-  100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
-  50% {
-    transform: translateY(0);
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
 
