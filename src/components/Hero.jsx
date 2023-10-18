@@ -36,7 +36,7 @@ const Hero = (props, heroRef) => {
       >
         <FontAwesomeIcon
           icon={faCircleDown}
-          className='rounded-full bg-cf-dark/10 text-4xl ring-1 ring-cf-white dark:bg-transparent dark:ring-0 md:text-5xl'
+          className='rounded-full bg-cf-dark/10 text-4xl ring-[1px] ring-cf-white dark:bg-transparent dark:ring-0 md:text-5xl'
         />
       </button>
     </div>
