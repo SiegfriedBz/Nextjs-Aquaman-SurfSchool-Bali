@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect, useCallback, useId } from 'react'
+import { useState, useRef, useLayoutEffect, useCallback, useId } from 'react'
+import { motion, useInView } from 'framer-motion'
 import Head from 'next/head'
 import Link from 'next/link'
 import Hero from '@/components/Hero'
@@ -22,6 +23,15 @@ const meta = {
     'Discover Aquaman Bali, your Premier Surf School and Surf Trip destination. Grow your surfing skills from beginner to advanced. Book now!',
 }
 
+const h2Variants = {
+  hide: { opacity: 0, x: -100 },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: { type: 'spring', duration: 1.5, stiffness: 150 },
+  },
+}
+
 export default function Home({
   homeSurfLessonsImg,
   homeSurfTripsImg,
@@ -41,7 +51,7 @@ export default function Home({
     heroRef.current.style.height = `${adjustedHeroHeight}px`
   }, [viewportOffset])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (window == undefined || heroRef?.current == null) return
 
     setViewportOffset(window.outerHeight - window.innerHeight)
@@ -127,9 +137,21 @@ export default function Home({
 }
 
 const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
+  const h2Ref = useRef(null)
+  const isInView = useInView(h2Ref, { once: true, threshold: 0.5 })
+
   return (
     <>
-      <h2 className='mx-auto whitespace-nowrap'>Surf Lessons</h2>
+      <motion.h2
+        ref={h2Ref}
+        variants={h2Variants}
+        initial='hide'
+        animate={isInView ? 'animate' : 'hide'}
+        transition={{ type: 'spring', duration: 1.5, stiffness: 150 }}
+        className='mx-auto whitespace-nowrap'
+      >
+        Surf Lessons
+      </motion.h2>
       <CustomCarousel
         carouselKey={homeSurfLessonsId}
         images={homeSurfLessonsImg}
@@ -167,9 +189,21 @@ const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
 }
 
 const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
+  const h2Ref = useRef(null)
+  const isInView = useInView(h2Ref, { once: true, threshold: 0.5 })
+
   return (
     <>
-      <h2 className='mx-auto whitespace-nowrap'>About me</h2>
+      <motion.h2
+        ref={h2Ref}
+        variants={h2Variants}
+        initial='hide'
+        animate={isInView ? 'animate' : 'hide'}
+        transition={{ type: 'spring', duration: 1.5, stiffness: 150 }}
+        className='mx-auto whitespace-nowrap'
+      >
+        About me
+      </motion.h2>
       <div className='flex flex-col md:flex-row md:items-center md:space-x-16'>
         <div>
           <div className='mx-auto h-64 w-64 rounded-full sm:h-80 sm:w-80 md:h-96 md:w-96 lg:h-[28rem] lg:w-[28rem]'>
@@ -209,9 +243,21 @@ const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
 }
 
 const HomeSurfTrips = ({ homeSurfTripsId, homeSurfTripsImg, scrollToTop }) => {
+  const h2Ref = useRef(null)
+  const isInView = useInView(h2Ref, { once: true, threshold: 0.5 })
+
   return (
     <>
-      <h2 className='mx-auto whitespace-nowrap'>Surf Trips</h2>
+      <motion.h2
+        ref={h2Ref}
+        variants={h2Variants}
+        initial='hide'
+        animate={isInView ? 'animate' : 'hide'}
+        transition={{ type: 'spring', duration: 1.5, stiffness: 150 }}
+        className='mx-auto whitespace-nowrap'
+      >
+        Surf Trips
+      </motion.h2>
       <CustomCarousel
         carouselKey={homeSurfTripsId}
         images={homeSurfTripsImg}
@@ -242,9 +288,21 @@ const HomeSurfTrips = ({ homeSurfTripsId, homeSurfTripsImg, scrollToTop }) => {
 }
 
 const HomeTestimonials = ({ scrollToTop }) => {
+  const h2Ref = useRef(null)
+  const isInView = useInView(h2Ref, { once: true, threshold: 0.5 })
+
   return (
     <>
-      <h2 className='mx-auto'>Testimonials</h2>
+      <motion.h2
+        ref={h2Ref}
+        variants={h2Variants}
+        initial='hide'
+        animate={isInView ? 'animate' : 'hide'}
+        transition={{ type: 'spring', duration: 1.5, stiffness: 150 }}
+        className='mx-auto'
+      >
+        Testimonials
+      </motion.h2>
 
       <Testimonials />
 
@@ -265,9 +323,21 @@ const HomeTestimonials = ({ scrollToTop }) => {
 }
 
 const HomeMapView = ({ mapMarkers }) => {
+  const h2Ref = useRef(null)
+  const isInView = useInView(h2Ref, { once: true, threshold: 0.5 })
+
   return (
     <>
-      <h2 className='mx-auto whitespace-nowrap'>Visit Us</h2>
+      <motion.h2
+        ref={h2Ref}
+        variants={h2Variants}
+        initial='hide'
+        animate={isInView ? 'animate' : 'hide'}
+        transition={{ type: 'spring', duration: 1.5, stiffness: 150 }}
+        className='mx-auto whitespace-nowrap'
+      >
+        Visit Us
+      </motion.h2>
       <MapView mapMarkers={mapMarkers} />
     </>
   )
