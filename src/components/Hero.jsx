@@ -1,7 +1,7 @@
 import { useState, forwardRef } from 'react'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleDown } from '@fortawesome/free-regular-svg-icons'
+import { faCircleDown } from '@fortawesome/free-solid-svg-icons'
 
 const Hero = (props, heroRef) => {
   const router = useRouter()
@@ -12,7 +12,10 @@ const Hero = (props, heroRef) => {
       ref={heroRef}
       className='flex min-h-[60vh] w-full flex-col items-center justify-between'
     >
-      <div className='hero-image opacity-100 dark:opacity-80'></div>
+      <div
+        id='hero-image'
+        className='hero-image opacity-100 dark:opacity-80'
+      ></div>
       <div className='hero-title-wrapper flex h-full w-full flex-col items-center justify-start'>
         <h1 className='title mb-2 w-full text-center text-5xl font-extrabold sm:text-6xl lg:text-7xl xl:my-16 xl:me-8 xl:text-right xl:text-8xl 2xl:my-24 2xl:me-24'>
           Aquaman Bali
@@ -31,7 +34,10 @@ const Hero = (props, heroRef) => {
           arrowIsClicked ? 'animate-none' : 'arrow'
         }`}
       >
-        <FontAwesomeIcon icon={faCircleDown} className='text-4xl md:text-5xl' />
+        <FontAwesomeIcon
+          icon={faCircleDown}
+          className='rounded-full bg-cf-dark/10 text-4xl ring-1 ring-cf-white dark:bg-transparent dark:ring-0 md:text-5xl'
+        />
       </button>
     </div>
   )
