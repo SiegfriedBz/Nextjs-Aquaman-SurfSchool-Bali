@@ -1,8 +1,8 @@
 import { useRef } from 'react'
-import { ButtonAsGradient } from '../ButtonAsGradient'
-import PageLayout from './PageLayout'
 import Head from 'next/head'
+import PageLayout from './PageLayout'
 import MotionAs from '../MotionAs'
+import { ButtonAsGradient } from '../ButtonAsGradient'
 
 const meta = {
   title: 'Aquaman Bali | Surf School | Gallery',
