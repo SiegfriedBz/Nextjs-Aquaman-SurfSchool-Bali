@@ -1,12 +1,11 @@
 import { useRef } from 'react'
 import Link from 'next/link'
+import Head from 'next/head'
 import { ButtonAsGradient } from '../ButtonAsGradient'
 import PageLayout from './PageLayout'
 import { CldVideoPlayer } from 'next-cloudinary'
 import { CustomCarousel } from '../Carousel'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleArrowUp } from '@fortawesome/free-solid-svg-icons'
-import Head from 'next/head'
+import ButtonScrollToTop from '../ButtonScrollToTop'
 
 const meta = {
   title: 'Aquaman Bali | Surf School | Surf Lessons',
@@ -169,16 +168,16 @@ function Footer({ scrollToTop }) {
               </li>
             </ul>
           </div>
-          <FontAwesomeIcon
-            icon={faCircleArrowUp}
-            onClick={scrollToTop}
-            className='absolute -bottom-[1.5rem] right-0 cursor-pointer text-2xl text-ternary-light transition-all hover:text-ternary'
-          />
+
+          <ButtonScrollToTop scrollToTop={scrollToTop} />
+          <br />
+          <hr />
         </div>
 
-        <hr />
-
-        <div id='surf-lessons-footer-surfer-levels' className='mb-4 mt-8'>
+        <div
+          id='surf-lessons-footer-surfer-levels'
+          className='relative mb-4 mt-8'
+        >
           <h3 className='mt-4'>Surfer Levels</h3>
           <div className='px-2'>
             <h4 className='mt-4 font-bold'>
@@ -230,6 +229,9 @@ function Footer({ scrollToTop }) {
               afterwards.
             </p>
           </div>
+          <ButtonScrollToTop scrollToTop={scrollToTop} />
+          <br />
+          <hr />
         </div>
       </section>
 
@@ -243,7 +245,6 @@ function Footer({ scrollToTop }) {
         loop={true}
         className='rounded-md border-0 shadow-2xl'
       />
-      <hr />
     </>
   )
 }
