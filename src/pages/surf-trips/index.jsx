@@ -114,43 +114,45 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
           </p>
 
           <p>
-            <span className='text-gradient font-bold'>Wave Type: </span>Gentle
-            and ideal for Beginners
+            <span className='text-gradient font-bold'>Wave Type: </span>
+            <span className='block'>Gentle and ideal for Beginners</span>
           </p>
 
           <ul>
             <p className='text-gradient font-bold'>Main Surf Breaks:</p>
             <li className='ms-5 list-disc'>
-              <p>Boto Bolong</p>
+              <span>Boto Bolong</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Nelayan</p>
+              <span>Nelayan</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>The Lawn</p>
+              <span>The Lawn</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Old&apos;s man</p>
+              <span>Old&apos;s man</span>
             </li>
           </ul>
 
           <ul>
-            <p className='text-gradient text-gradient font-bold'>Best for: </p>
+            <p className='text-gradient font-bold'>Best for: </p>
             <li className='ms-5 list-disc'>
-              <p>Beginner</p>
+              <span>Beginner</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Intermediate</p>
+              <span>Intermediate</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Advanced</p>
+              <span>Advanced</span>
             </li>
           </ul>
 
           <p>
-            <span className='text-gradient font-bold'>Beach Conditions: </span>
-            Safe with coral and sand beaches, suitable for all levels except
-            during high surf conditions.
+            <span className='text-gradient font-bold'>Beach Conditions:</span>
+            <span className='inline-block'>
+              Safe with coral and sand beaches, suitable for all levels except
+              during high surf conditions.
+            </span>
           </p>
 
           <p className='text-justify'>
@@ -173,34 +175,39 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
       >
         <>
           <p>
-            <span className='text-gradient font-bold'>Wave Type: </span>Long
-            left waves, around 100 meters
+            <span className='text-gradient font-bold'>Wave Type: </span>
+            <span className='block'>Long left waves, around 100 meters</span>
           </p>
 
           <ul>
-            <p className='text-gradient text-gradient font-bold'>Best for: </p>
+            <p className='text-gradient font-bold'>Best for: </p>
             <li className='ms-5 list-disc'>
-              <p>Beginner</p>
+              <span>Beginner</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Intermediate</p>
+              <span>Intermediate</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Advanced</p>
+              <span>Advanced</span>
             </li>
           </ul>
 
           <p>
             <span className='text-gradient font-bold'>Beach Conditions: </span>
-            Rocky with sandy patches, suitable for all levels
+            <span className='block'>
+              Rocky with sandy patches, suitable for all levels
+            </span>
           </p>
 
           <p className='text-justify'>
             Medewi is renowned for its iconic long left waves, making it a
             must-visit surf spot in Bali. Despite the rocky beach conditions, it
             accommodates surfers of all levels, including Beginners,
-            Intermediates, and those seeking expert advice. The journey from
-            Canggu takes a maximum of 2 hours by car or motorbike.
+            Intermediates, and those seeking expert advice.
+          </p>
+          <p className='text-justify'>
+            The journey from Canggu takes a maximum of 2 hours by car or
+            motorbike.
           </p>
         </>
       </DestinationDetails>
@@ -216,30 +223,32 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
       >
         <>
           <p>
-            <span className='text-gradient font-bold'>Wave Type: </span>Big and
-            powerful left waves
+            <span className='text-gradient font-bold'>Wave Type: </span>
+            <span className='block'>Big and powerful left waves</span>
           </p>
 
           <ul>
-            <p className='text-gradient text-gradient font-bold'>Best for: </p>
+            <p className='text-gradient font-bold'>Best for: </p>
             <li className='ms-5 list-disc'>
-              <p>Intermediate</p>
+              <span>Intermediate</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Advanced</p>
+              <span>Advanced</span>
             </li>
           </ul>
 
           <p>
             <span className='text-gradient font-bold'>Beach Conditions: </span>
-            Pristine coral reefs
+            <span className='block'>Pristine coral reefs</span>
           </p>
 
           <p className='text-justify'>
             Balangan Beach boasts some of the best waves in Bali, making it a
             favorite for Intermediate surfers. However, it&apos;s not
-            recommended for Beginners due to sharp coral and large waves. The
-            journey from Canggu to Balangan takes approximately 1.5 hour,
+            recommended for Beginners due to sharp coral and large waves.
+          </p>
+          <p className='text-justify'>
+            The journey from Canggu to Balangan takes approximately 1.5 hour,
             depending on traffic.
           </p>
         </>
@@ -257,7 +266,7 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
         <>
           <p>
             <span className='text-gradient font-bold'>Wave Type: </span>
-            Challenging and prestigious
+            <span className='block'>Challenging and prestigious</span>
           </p>
 
           <ul>
@@ -265,32 +274,34 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
               Several famous surfing spots close from Uluwatu:
             </p>
             <li className='ms-5 list-disc'>
-              <p>Padang Padang</p>
+              <span>Padang Padang</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Bingin Beach</p>
+              <span>Bingin Beach</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Dreamland Beach</p>
+              <span>Dreamland Beach</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Balangan Beach</p>
+              <span>Balangan Beach</span>
             </li>
           </ul>
 
           <ul>
-            <p className='text-gradient text-gradient font-bold'>Best for: </p>
+            <p className='text-gradient font-bold'>Best for: </p>
             <li className='ms-5 list-disc'>
-              <p>Intermediate</p>
+              <span>Intermediate</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Advanced</p>
+              <span>Advanced</span>
             </li>
           </ul>
 
           <p>
             <span className='text-gradient font-bold'>Beach Conditions: </span>
-            Sharp coral and strong waves, not suitable for Beginners
+            <span className='block'>
+              Sharp coral and strong waves, not suitable for Beginners
+            </span>
           </p>
 
           <p className='text-justify'>
@@ -299,7 +310,10 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
             competitions. However, it&apos;s not recommended for Beginners due
             to the sharp coral and strong waves. Several famous surf spots are
             nearby, including Padang Padang, Bingin Beach, Dreamland Beach, and
-            Balangan Beach. The journey from Canggu can take up to 1.5 hours.
+            Balangan Beach.
+          </p>
+          <p className='text-justify'>
+            The journey from Canggu can take up to 1.5 hours.
           </p>
         </>
       </DestinationDetails>
@@ -316,34 +330,40 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
         <>
           <p>
             <span className='text-gradient font-bold'>Wave Type: </span>
-            Challenging and prestigious
+            <span className='block'>Challenging and prestigious</span>
           </p>
           <ul>
-            <p className='text-gradient text-gradient font-bold'>Best for: </p>
+            <p className='text-gradient font-bold'>Best for: </p>
             <li className='ms-5 list-disc'>
-              <p>Intermediate</p>
+              <span>Intermediate</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Advanced</p>
+              <span>Advanced</span>
             </li>
           </ul>
 
           <p>
             <span className='text-gradient font-bold'>Beach Conditions: </span>
-            Sharp coral and strong waves, not suitable for Beginners.
+            <span className='block'>
+              Sharp coral and strong waves, not suitable for Beginners.
+            </span>
           </p>
 
           <p>
             <span className='text-gradient font-bold'>Access to waves: </span>
-            Serangan requires a short boat ride (15 minutes) to reach the surf
-            spot.
+            <span className='block'>
+              Serangan requires a short boat ride (15 minutes) to reach the surf
+              spot.
+            </span>
           </p>
 
           <p className='text-justify'>
             Serangan is a challenging spot with sharp coral and strong waves,
             making it unsuitable for Beginners. Intermediate surfers seeking an
-            adventure will enjoy Serangan. The journey from Canggu takes about
-            1.5 hours, depending on traffic.
+            adventure will enjoy Serangan.
+          </p>
+          <p className='text-justify'>
+            The journey from Canggu takes about 1.5 hours, depending on traffic.
           </p>
         </>
       </DestinationDetails>
@@ -363,41 +383,43 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
               Nusa Lembongan offers several spots:
             </p>
             <li className='ms-5 list-disc'>
-              <p>Crane Shipwreck</p>
+              <span>Crane Shipwreck</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Isolation</p>
+              <span>Isolation</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Play Ground</p>
+              <span>Play Ground</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Tamrin</p>
+              <span>Tamrin</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Ceningan</p>
+              <span>Ceningan</span>
             </li>
           </ul>
 
           <ul>
-            <p className='text-gradient text-gradient font-bold'>Best for: </p>
+            <p className='text-gradient font-bold'>Best for: </p>
             <li className='ms-5 list-disc'>
-              <p>Beginner</p>
+              <span>Beginner</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Intermediate</p>
+              <span>Intermediate</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Advanced</p>
+              <span>Advanced</span>
             </li>
           </ul>
 
           <p className='text-justify'>
             Nusa Lembongan offers a variety of surf spots close to each other.
-            It&apos;s an excellent destination for surfers of all levels. The
-            journey from Sanur to Nusa Lembongan takes about an hour by fast
-            boat. Nusa Penida, nearby, is also fantastic for surfing and
-            relaxation.
+            It&apos;s an excellent destination for surfers of all levels. Nusa
+            Penida, nearby, is also fantastic for surfing and relaxation.
+          </p>
+          <p className='text-justify'>
+            The journey from Sanur to Nusa Lembongan takes about an hour by fast
+            boat.
           </p>
         </>
       </DestinationDetails>
@@ -417,42 +439,45 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
               Lombok offers several spots:
             </p>
             <li className='ms-5 list-disc'>
-              <p>Kuta Lombok</p>
+              <span>Kuta Lombok</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Tanjung Aan</p>
+              <span>Tanjung Aan</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Dom Dom</p>
+              <span>Dom Dom</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Grupuk Inside</p>
+              <span>Grupuk Inside</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Grupuk Outside</p>
+              <span>Grupuk Outside</span>
             </li>
           </ul>
 
           <ul>
-            <p className='text-gradient text-gradient font-bold'>Best for: </p>
+            <p className='text-gradient font-bold'>Best for: </p>
             <li className='ms-5 list-disc'>
-              <p>Beginner</p>
+              <span>Beginner</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Intermediate</p>
+              <span>Intermediate</span>
             </li>
             <li className='ms-5 list-disc'>
-              <p>Advanced</p>
+              <span>Advanced</span>
             </li>
           </ul>
 
           <p className='text-justify'>
             Lombok offers an array of surf spots close to each other. To reach
             them, you must use a boat due to the considerable distance. The boat
-            ride takes only 8-10 minutes to each spot. You can choose between a
-            scenic ferry boat journey (4-5 hours) from Padang Bai or a quick
-            flight (1 hour) from Ngurah Rai Airport to Lombok International
-            Airport. Lombok is an excellent choice for surfers of all levels.
+            ride takes only 8-10 minutes to each spot. Lombok is an excellent
+            choice for surfers of all levels.
+          </p>
+          <p className='text-justify'>
+            From Bali, you can choose between a scenic ferry boat journey (4-5
+            hours) from Padang Bai or a quick flight (1 hour) from Ngurah Rai
+            Airport to Lombok International Airport.
           </p>
         </>
       </DestinationDetails>

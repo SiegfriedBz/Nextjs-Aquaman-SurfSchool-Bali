@@ -115,7 +115,7 @@ const Footer = () => {
             >
               <Li href='/gallery'>Gallery</Li>
               <Li href='/about-me'>About me</Li>
-              <Li href='/#home-testimonials'>Testimonials</Li>
+              <Li href='/#testimonials'>Testimonials</Li>
             </ul>
           </div>
 

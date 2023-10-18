@@ -67,7 +67,7 @@ export const Testimonials = () => {
                         width={40}
                         height={40}
                         alt='google-icon'
-                        className='ml-2 dark:ml-3 md:h-16 md:w-16'
+                        className='ml-2 h-10 w-10 dark:ml-3 sm:h-12 sm:w-12 md:h-16 md:w-16'
                       />
                     </a>
                   </blockquote>

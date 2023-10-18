@@ -1,4 +1,7 @@
 import { useState, useRef, useEffect, useCallback, useId } from 'react'
+import Head from 'next/head'
+import Link from 'next/link'
+import { motion, useInView } from 'framer-motion'
 import Hero from '@/components/Hero'
 import HomePageLayout from '@/components/layouts/HomePageLayout'
 import MapView from '@/components/MapView'
@@ -13,12 +16,28 @@ import {
 import { getImageUrl, getBase64ImageUrl } from '@/utils/cloudinaryUtils'
 import getMapMarkers from '@/utils/getMapMarkers'
 import ButtonScrollToTop from '@/components/ButtonScrollToTop'
-import Head from 'next/head'
 
 const meta = {
   title: 'Aquaman Bali | Surf School | Home',
   description:
     'Discover Aquaman Bali, your Premier Surf School and Surf Trip destination. Grow your surfing skills from beginner to advanced. Book now!',
+}
+
+const h2Variants = {
+  initial: {
+    x: -100,
+    opacity: 1,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      // delay: 0.25,
+      duration: 0.5,
+      type: 'spring',
+      stiffness: 100,
+    },
+  },
 }
 
 export default function Home({
@@ -68,7 +87,7 @@ export default function Home({
         <div
           ref={subHeroRef}
           id='sub-hero'
-          className='relative scroll-mt-[6rem]'
+          className='relative scroll-mt-[5rem]'
         >
           <section
             id='home-surf-lessons'
@@ -103,7 +122,7 @@ export default function Home({
           <hr />
 
           <section
-            id='home-testimonials'
+            id='testimonials'
             className='relative flex scroll-mt-24 flex-col'
           >
             <HomeTestimonials scrollToTop={scrollToTop} />
@@ -112,8 +131,7 @@ export default function Home({
           <hr />
 
           <section id='home-visit-us' className='flex scroll-mt-24 flex-col'>
-            <h2 className='mx-auto whitespace-nowrap'>Visit Us</h2>
-            <MapView mapMarkers={mapMarkers} />
+            <HomeMapView mapMarkers={mapMarkers} />
           </section>
 
           <ButtonScrollToTop
@@ -127,9 +145,20 @@ export default function Home({
 }
 
 const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { amount: 0.1 }, { once: true })
+
   return (
     <>
-      <h2 className='mx-auto whitespace-nowrap'>Surf Lessons</h2>
+      <motion.h2
+        ref={ref}
+        variants={h2Variants}
+        initial='initial'
+        animate={isInView ? 'animate' : 'initial'}
+        className='mx-auto whitespace-nowrap'
+      >
+        Surf Lessons
+      </motion.h2>
       <CustomCarousel
         carouselKey={homeSurfLessonsId}
         images={homeSurfLessonsImg}
@@ -137,15 +166,28 @@ const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
         priority={true}
         imageClasses='rounded-md mx-auto object-cover'
       />
-      <p className='text-justify'>
-        LINK TO TESTIMONIALS + FIX P PADDINGS MARGINS in GLOBALS.CSS
+      <p className='text-center'>
+        Surf the waves in Bali or on exciting surf trips with our Private or
+        Group lessons.
+      </p>
+      <p className='text-center'>
+        Enjoy surfing with expert guidance for an unforgettable experience --
+        see what our surfers have to say in our
+        <Link
+          href='#testimonials'
+          target='_self'
+          className='underline-gradient-link'
+        >
+          {' '}
+          <span className='text-gradient-always-colored'>testimonials !</span>
+        </Link>
       </p>
       <ButtonAsGradient
         As='Link'
         href='/surf-lessons'
         target='_self'
         variant='btn-as-gradient-amber'
-        extraClasses='mx-auto my-4'
+        extraClasses='mx-auto mt-4 mb-2'
       >
         Surf Lessons
       </ButtonAsGradient>
@@ -154,9 +196,20 @@ const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
 }
 
 const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { amount: 0.1 }, { once: true })
+
   return (
     <>
-      <h2 className='mx-auto whitespace-nowrap'>About me</h2>
+      <motion.h2
+        ref={ref}
+        variants={h2Variants}
+        initial='initial'
+        animate={isInView ? 'animate' : 'initial'}
+        className='mx-auto whitespace-nowrap'
+      >
+        About me
+      </motion.h2>
       <div className='flex flex-col md:flex-row md:items-center md:space-x-16'>
         <div>
           <div className='mx-auto h-64 w-64 rounded-full sm:h-80 sm:w-80 md:h-96 md:w-96 lg:h-[28rem] lg:w-[28rem]'>
@@ -170,22 +223,26 @@ const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
           </div>
         </div>
         <div className='mx-auto flex flex-col justify-center lg:w-1/2'>
-          <p className='text-justify'>
+          <p className='text-center'>
             My name is Rendy and I am from Krui, South Sumatra. I started
             surfing at the age of 8 and came to Bali in 2019 to work as a Surf
             Instructor at Batu Bolong Beach in Canggu.
           </p>
+          <p className='my-2 text-center'>
+            Learn
+            <Link
+              href='/about-me'
+              target='_self'
+              className='underline-gradient-link'
+            >
+              {' '}
+              <span className='text-gradient-always-colored'>
+                more about me.
+              </span>
+            </Link>
+          </p>
         </div>
       </div>
-      <ButtonAsGradient
-        As='Link'
-        href='/about-me'
-        target='_self'
-        variant='btn-as-gradient-amber'
-        extraClasses='mx-auto my-4'
-      >
-        About me
-      </ButtonAsGradient>
 
       <ButtonScrollToTop scrollToTop={scrollToTop} />
     </>
@@ -193,9 +250,20 @@ const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
 }
 
 const HomeSurfTrips = ({ homeSurfTripsId, homeSurfTripsImg, scrollToTop }) => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { amount: 0.1 }, { once: true })
+
   return (
     <>
-      <h2 className='mx-auto whitespace-nowrap'>Surf Trips</h2>
+      <motion.h2
+        ref={ref}
+        variants={h2Variants}
+        initial='initial'
+        animate={isInView ? 'animate' : 'initial'}
+        className='mx-auto whitespace-nowrap'
+      >
+        Surf Trips
+      </motion.h2>
       <CustomCarousel
         carouselKey={homeSurfTripsId}
         images={homeSurfTripsImg}
@@ -203,17 +271,19 @@ const HomeSurfTrips = ({ homeSurfTripsId, homeSurfTripsImg, scrollToTop }) => {
         priority={true}
         imageClasses='rounded-md object-cover'
       />
-      <p className='text-justify'>
-        Im baby copper mug PBR&B craft beer lo-fi cornhole pork belly vaporware
-        blog hot chicken lyft tattooed. Hammock bruh tote bag, cupping
-        fingerstache flannel affogato enamel pin echo park pabst
+      <p className='text-center'>
+        Discover epic surf journeys from Bali to Lombok, Uluwatu, and Sumatra.
+      </p>
+      <p className='text-center'>
+        Join us for the ultimate wave-riding adventure and chase the thrill with
+        our guided surf trips.
       </p>
       <ButtonAsGradient
         As='Link'
         href='/surf-trips'
         target='_self'
         variant='btn-as-gradient-amber'
-        extraClasses='mx-auto my-4'
+        extraClasses='mx-auto mt-4 mb-2'
       >
         Surf Trips
       </ButtonAsGradient>
@@ -224,9 +294,20 @@ const HomeSurfTrips = ({ homeSurfTripsId, homeSurfTripsImg, scrollToTop }) => {
 }
 
 const HomeTestimonials = ({ scrollToTop }) => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { amount: 0.1 }, { once: true })
+
   return (
     <>
-      <h2 className='mx-auto'>Testimonials</h2>
+      <motion.h2
+        ref={ref}
+        variants={h2Variants}
+        initial='initial'
+        animate={isInView ? 'animate' : 'initial'}
+        className='mx-auto'
+      >
+        Testimonials
+      </motion.h2>
 
       <Testimonials />
 
@@ -236,12 +317,32 @@ const HomeTestimonials = ({ scrollToTop }) => {
         As='Link'
         href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
         target='_blank'
-        extraClasses='mx-auto my-4'
+        extraClasses='mx-auto my-2'
       >
         Surf Now
       </ButtonAsGradient>
 
       <ButtonScrollToTop scrollToTop={scrollToTop} />
+    </>
+  )
+}
+
+const HomeMapView = ({ mapMarkers }) => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { amount: 0.1 }, { once: true })
+
+  return (
+    <>
+      <motion.h2
+        ref={ref}
+        variants={h2Variants}
+        initial='initial'
+        animate={isInView ? 'animate' : 'initial'}
+        className='mx-auto whitespace-nowrap'
+      >
+        Visit Us
+      </motion.h2>
+      <MapView mapMarkers={mapMarkers} />
     </>
   )
 }

@@ -51,10 +51,10 @@ function Header() {
   return (
     <>
       <h1 className='title'>Photo & Video</h1>
-      <h2 className='sub-title mb-1 text-center'>Get an amazing souvenir</h2>
+      <h2 className='sub-title mb-2 text-center'>Get an amazing souvenir</h2>
       <h3 className='sub-title-bis'>from your Surf Session</h3>
 
-      <div className='mt-2 flex w-full flex-col items-center'>
+      <div className='my-1 flex w-full flex-col items-center'>
         <ButtonAsGradient
           As='Link'
           href='/photo-video'
@@ -72,7 +72,7 @@ function Header() {
             target='_self'
             variant='btn-as-gradient-amber'
             padding='px-2 py-1'
-            extraClasses='btn-hover-small-scale my-2 w-1/2 text-center'
+            extraClasses='btn-hover-small-scale mt-2 w-1/2 text-center'
           >
             Water & Drone
           </ButtonAsGradient>
@@ -82,7 +82,7 @@ function Header() {
             target='_self'
             variant='btn-as-gradient-amber'
             padding='px-2 py-1'
-            extraClasses='btn-hover-small-scale my-2 w-1/2 text-center'
+            extraClasses='btn-hover-small-scale mt-2 w-1/2 text-center'
           >
             Video Analysis
           </ButtonAsGradient>
@@ -139,7 +139,7 @@ function BodyContent({ image, children }) {
             As='Link'
             href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
             target='_blank'
-            extraClasses='mx-auto my-4'
+            extraClasses='mx-auto mt-4 mb-2'
           >
             Book Now
           </ButtonAsGradient>

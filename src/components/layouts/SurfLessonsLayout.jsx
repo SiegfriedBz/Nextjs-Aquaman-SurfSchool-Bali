@@ -54,7 +54,7 @@ function Header() {
   return (
     <>
       <h1 className='title'>Surf Lessons</h1>
-      <h2 className='sub-title mb-1'>In Canggu</h2>
+      <h2 className='sub-title mb-2'>In Canggu</h2>
       <h2 className='sub-title-bis text-center'>
         & during your
         <Link
@@ -66,7 +66,7 @@ function Header() {
         </Link>
       </h2>
 
-      <div className='flex w-full justify-evenly space-x-4'>
+      <div className='my-1 flex w-full justify-evenly space-x-4'>
         <ButtonAsGradient
           As='Link'
           href='/surf-lessons'
@@ -133,7 +133,7 @@ function Footer({ scrollToTop }) {
       <section id='surf-lessons-footer'>
         <div id='surf-lessons-footer-what-to-bring' className='relative mb-8'>
           <h3 className='self-start'>What is included?</h3>
-          <h4 className='self-start'>All equipment needed !</h4>
+          <h4 className='mt-4 self-start font-bold'>All equipment needed !</h4>
           <div className='px-2'>
             <ul className='ms-4 w-full'>
               <li className='list-disc'>
@@ -159,7 +159,7 @@ function Footer({ scrollToTop }) {
               </li>
             </ul>
 
-            <h4 className='self-start'>Options</h4>
+            <h4 className='mt-4 self-start font-bold'>Options</h4>
             <ul className='ms-4 w-full'>
               <li className='list-disc'>
                 <p>Photos & Videos of your session</p>
@@ -179,9 +179,9 @@ function Footer({ scrollToTop }) {
         <hr />
 
         <div id='surf-lessons-footer-surfer-levels' className='mb-4 mt-8'>
-          <h3>Surfer Levels</h3>
+          <h3 className='mt-4'>Surfer Levels</h3>
           <div className='px-2'>
-            <h4>
+            <h4 className='mt-4 font-bold'>
               Beginner<span className='ms-2 text-cf-white'>🏄‍♂️</span>
             </h4>
             <p className='text-justify'>
@@ -197,7 +197,7 @@ function Footer({ scrollToTop }) {
           </div>
 
           <div className='px-2'>
-            <h4>
+            <h4 className='mt-4 font-bold'>
               Intermediate<span className='ms-2 text-cf-white'>🏄‍♀️🏄‍♂️</span>
             </h4>
             <p className='text-justify'>
@@ -214,7 +214,7 @@ function Footer({ scrollToTop }) {
           </div>
 
           <div className='px-2'>
-            <h4>
+            <h4 className='mt-4 font-bold'>
               Advanced<span className='ms-2 text-cf-white'>🏄‍♀️🏄‍♂️🏄‍♀️</span>
             </h4>
             <p className='text-justify'>

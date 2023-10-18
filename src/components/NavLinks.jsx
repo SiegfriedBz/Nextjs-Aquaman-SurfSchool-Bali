@@ -66,7 +66,7 @@ const NavLinks = ({ className = '', modal = false, setMobileMenuIsOpen }) => {
         setMobileMenuIsOpen={setMobileMenuIsOpen}
         className={modal ? '' : 'hidden md:inline-block'}
         modal={modal}
-        href='/#home-testimonials'
+        href='/#testimonials'
       >
         Testimonials
       </Li>

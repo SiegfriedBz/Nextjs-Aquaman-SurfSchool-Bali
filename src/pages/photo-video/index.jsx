@@ -10,7 +10,7 @@ const PhotoVideo = ({ image }) => {
       </PhotoVideoLayout.Body.Header>
 
       <PhotoVideoLayout.Body.Content image={image}>
-        <h3>Who is it for?</h3>
+        <h3 className='mt-4'>Who is it for?</h3>
         <p className='text-justify'>
           Anyone who wants to keep a memory from their surf session. First time
           surfer, beginner, intermediate and advanced surfer - doesn&apos;t
@@ -19,7 +19,7 @@ const PhotoVideo = ({ image }) => {
           session and/or on the beach!
         </p>
 
-        <h3>How does it work?</h3>
+        <h3 className='mt-4'>How does it work?</h3>
         <p className='text-justify'>
           Photos or videos will be taken during your surf session (max 2 hours)
           with high quality equipment.
