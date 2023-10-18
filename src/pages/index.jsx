@@ -145,20 +145,9 @@ export default function Home({
 }
 
 const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { amount: 0.1 }, { once: true })
-
   return (
     <>
-      <motion.h2
-        ref={ref}
-        variants={h2Variants}
-        initial='initial'
-        animate={isInView ? 'animate' : 'initial'}
-        className='mx-auto whitespace-nowrap'
-      >
-        Surf Lessons
-      </motion.h2>
+      <h2 className='mx-auto whitespace-nowrap'>Surf Lessons</h2>
       <CustomCarousel
         carouselKey={homeSurfLessonsId}
         images={homeSurfLessonsImg}
@@ -197,7 +186,7 @@ const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
 
 const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { amount: 0.1 }, { once: true })
+  const isInView = useInView(ref, { amount: 0.1, once: true })
 
   return (
     <>
@@ -251,7 +240,7 @@ const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
 
 const HomeSurfTrips = ({ homeSurfTripsId, homeSurfTripsImg, scrollToTop }) => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { amount: 0.1 }, { once: true })
+  const isInView = useInView(ref, { amount: 0.1, once: true })
 
   return (
     <>
@@ -295,7 +284,7 @@ const HomeSurfTrips = ({ homeSurfTripsId, homeSurfTripsImg, scrollToTop }) => {
 
 const HomeTestimonials = ({ scrollToTop }) => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { amount: 0.1 }, { once: true })
+  const isInView = useInView(ref, { amount: 0.1, once: true })
 
   return (
     <>
@@ -329,7 +318,7 @@ const HomeTestimonials = ({ scrollToTop }) => {
 
 const HomeMapView = ({ mapMarkers }) => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { amount: 0.1 }, { once: true })
+  const isInView = useInView(ref, { amount: 0.1, once: true })
 
   return (
     <>
