@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <header
       id='header'
-      className={`fixed left-0 right-0 top-0
+      className={`fixed left-0 right-0 top-0 z-[999] 
        ${isHomePage ? 'home-navTop' : ''}`}
     >
       <BorderBottomGradient>

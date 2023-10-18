@@ -17,12 +17,17 @@
 
   /* animations */
   --title-duration: 700ms;
+  --title-delay: 200ms;
 
   --sub-title-duration: 500ms;
-  --sub-title-delay: calc(var(--title-duration) - 200ms);
-  --sub-title-bis-delay: calc(var(--sub-title-delay) + 200ms);
+  --sub-title-delay: calc(var(--title-duration) - 100ms);
+  --sub-title-bis-delay: calc(
+    var(--sub-title-delay) + var(--sub-title-duration)
+  );
 
-  --after_titles_delay: calc(var(--title-duration) + var(--sub-title-duration));
+  --after_titles_delay: calc(
+    var(--title-delay) + var(--title-duration) + var(--sub-title-duration)
+  );
 
   --header-duration: 400ms;
   --header-delay: var(--after_titles_delay);
@@ -158,8 +163,6 @@
 @layer components {
   /* header, navbar */
   #header {
-    @apply z-[999];
-
     &.home-navTop {
       animation: home-navTop-enter var(--header-duration) ease
         var(--header-delay) backwards;
@@ -213,6 +216,7 @@
 
     .hero-title-wrapper {
       @apply mt-[var(--hero-small-mt)]
+        h-fit
         rounded-[0.5em]
         p-[0.75rem] 
         sm:mt-[var(--hero-mid-mt)]
@@ -236,7 +240,7 @@
 
   .title {
     animation: title-enter var(--title-duration)
-      cubic-bezier(0.74, 0.01, 0.76, 1.3) both;
+      cubic-bezier(0.74, 0.01, 0.76, 1.3) var(--title-delay) both;
   }
   .sub-title {
     animation: sub-title-enter var(--sub-title-duration)
@@ -249,7 +253,7 @@
 
   .arrow {
     animation:
-      arrow_enter var(--arrow-duration) ease var(--arrow-delay) both,
+      arrow_enter var(--arrow-duration) ease var(--arrow-delay) backwards,
       arrow_bounce 1s var(--arrow-delay) infinite both;
   }
 
@@ -298,18 +302,21 @@
 
 @keyframes title-enter {
   from {
+    opacity: 0;
     transform: translateX(-100vw);
   }
 }
 
 @keyframes sub-title-enter {
   from {
+    opacity: 0;
     transform: translateX(100vw);
   }
 }
 
 @keyframes sub-title-bis-enter {
   from {
+    opacity: 0;
     transform: translateX(-100vw);
   }
 }
@@ -322,12 +329,7 @@
 
 @keyframes arrow_enter {
   from {
-    transform: rotateZ(180deg);
     opacity: 0;
-  }
-  to {
-    transform: rotateZ(0deg);
-    opacity: 1;
   }
 }
 
