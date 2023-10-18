@@ -29,7 +29,7 @@ const MotionAs = ({
   children,
 }) => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { amount: 0.1, once: true })
+  const isInView = useInView(ref, { once: true })
 
   const RenderAs = motion(As)
 
