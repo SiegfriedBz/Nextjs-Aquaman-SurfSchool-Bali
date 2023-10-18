@@ -20,6 +20,7 @@ const Navbar = () => {
             id='brand-link'
             className='dark-white-link absolute left-16 top-1/2 inline-block w-1/2 -translate-y-1/2 xs:w-1/3 sm:left-20 sm:w-1/4 xl:w-1/6'
             href='/'
+            target='_self'
           >
             <h5 className='text-gradient mb-0 w-full whitespace-nowrap font-bold italic'>
               Aquaman Bali
