@@ -1,25 +1,51 @@
 import { useRouter } from 'next/router'
+import { motion } from 'framer-motion'
 import Navbar from './Navbar'
 import { BorderBottomGradient } from './BorderGradient'
+
+const navVariants = {
+  hidden: {
+    opacity: 0,
+    y: -100,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 1.2,
+      duration: 0.3,
+    },
+  },
+}
 
 const Header = () => {
   const router = useRouter()
   const isHomePage =
     router.asPath.endsWith('/') ||
-    router.asPath.endsWith('/#school-carousel') ||
-    router.asPath.endsWith('/#about-me') ||
+    router.asPath.endsWith('/#home-surf-lessons') ||
     router.asPath.endsWith('/#testimonials') ||
-    router.asPath.endsWith('/#home-map')
+    router.asPath.endsWith('/#visit-us')
 
   return (
-    <header
-      id='header'
-      className={`fixed left-0 right-0 top-0 z-[999] 
-       ${isHomePage ? 'home-navTop' : ''}`}
-    >
-      <BorderBottomGradient>
-        <Navbar />
-      </BorderBottomGradient>
+    <header id='header' className='fixed left-0 right-0 top-0 z-[999]'>
+      {isHomePage ? (
+        <motion.div
+          variants={navVariants}
+          initial='hidden'
+          animate='visible'
+          className='w-full'
+        >
+          <BorderBottomGradient>
+            <Navbar />
+          </BorderBottomGradient>
+        </motion.div>
+      ) : (
+        <div className='w-full'>
+          <BorderBottomGradient>
+            <Navbar />
+          </BorderBottomGradient>
+        </div>
+      )}
     </header>
   )
 }
