@@ -26,6 +26,7 @@ const meta = {
 const SurfTrips = ({ surfTripImg, mapMarkers }) => {
   const topRef = useRef(null)
   const mapContainerRef = useRef(null)
+
   const { setShowPopup, setPopup } = useAppContext()
 
   const handleSelectTrip = (spot) => {
@@ -527,7 +528,7 @@ const DestinationDetails = ({
       >
         <FontAwesomeIcon
           icon={faEye}
-          className='text-gradient me-2 text-2xl font-bold text-ternary hover:text-ternary/90 md:text-4xl'
+          className='text-gradient me-2 text-2xl font-bold text-ternary hover:text-ternary/90  dark:text-ternary dark:hover:text-ternary/90 md:text-4xl'
         />
         <span
           className='text-lg
