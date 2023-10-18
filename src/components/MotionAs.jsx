@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-const variants = (initialX, delay, duration) => {
+const variants = ({ initialX, delay, duration }) => {
   return {
     initial: {
       x: initialX,
@@ -22,7 +22,7 @@ const variants = (initialX, delay, duration) => {
 
 const MotionAs = ({
   As = 'h1',
-  initialX = -100,
+  initialX = '-100',
   delay = 0,
   duration = 0.5,
   className = '',
@@ -36,10 +36,10 @@ const MotionAs = ({
   return (
     <RenderAs
       ref={ref}
-      variants={variants(initialX, delay, duration)}
+      variants={variants({ initialX, delay, duration })}
       initial='initial'
       animate={isInView ? 'animate' : 'initial'}
-      className={className}
+      className={`w-full ${className}`}
     >
       {children}
     </RenderAs>
