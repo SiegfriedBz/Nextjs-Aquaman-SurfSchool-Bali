@@ -1,9 +1,10 @@
 import { useRef } from 'react'
+import Head from 'next/head'
 import Image from 'next/image'
-import { ButtonAsGradient } from '../ButtonAsGradient'
 import PageLayout from './PageLayout'
 import { CldVideoPlayer } from 'next-cloudinary'
-import Head from 'next/head'
+import { ButtonAsGradient } from '../ButtonAsGradient'
+
 import MotionAs from '../MotionAs'
 
 const meta = {
