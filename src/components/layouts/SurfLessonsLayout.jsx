@@ -6,6 +6,7 @@ import PageLayout from './PageLayout'
 import { CldVideoPlayer } from 'next-cloudinary'
 import { CustomCarousel } from '../Carousel'
 import ButtonScrollToTop from '../ButtonScrollToTop'
+import MotionAs from '../MotionAs'
 
 const meta = {
   title: 'Aquaman Bali | Surf School | Surf Lessons',
@@ -52,9 +53,19 @@ SurfLessonsLayout.Footer = Footer
 function Header() {
   return (
     <>
-      <h1 className='title'>Surf Lessons</h1>
-      <h2 className='sub-title mb-2'>In Canggu</h2>
-      <h2 className='sub-title-bis text-center'>
+      <MotionAs As='h1' duration={0.7} delay={0.2}>
+        Surf Lessons
+      </MotionAs>
+      <MotionAs
+        As='h2'
+        initialX={100}
+        delay={0.5}
+        duration={0.8}
+        className='mb-2'
+      >
+        In Canggu
+      </MotionAs>
+      <MotionAs As='h2' delay={0.9} duration={0.8} className='text-center'>
         & during your
         <Link
           href='/surf-trips'
@@ -63,7 +74,7 @@ function Header() {
         >
           Surf Trips
         </Link>
-      </h2>
+      </MotionAs>
 
       <div className='my-1 flex w-full justify-evenly space-x-4'>
         <ButtonAsGradient

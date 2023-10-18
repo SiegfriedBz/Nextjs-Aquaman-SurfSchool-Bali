@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect, useCallback, useId } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import { motion, useInView } from 'framer-motion'
 import Hero from '@/components/Hero'
 import HomePageLayout from '@/components/layouts/HomePageLayout'
 import MapView from '@/components/MapView'
@@ -16,28 +15,12 @@ import {
 import { getImageUrl, getBase64ImageUrl } from '@/utils/cloudinaryUtils'
 import getMapMarkers from '@/utils/getMapMarkers'
 import ButtonScrollToTop from '@/components/ButtonScrollToTop'
+import MotionAs from '@/components/MotionAs'
 
 const meta = {
   title: 'Aquaman Bali | Surf School | Home',
   description:
     'Discover Aquaman Bali, your Premier Surf School and Surf Trip destination. Grow your surfing skills from beginner to advanced. Book now!',
-}
-
-const h2Variants = {
-  initial: {
-    x: -100,
-    opacity: 1,
-  },
-  animate: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      // delay: 0.25,
-      duration: 0.5,
-      type: 'spring',
-      stiffness: 100,
-    },
-  },
 }
 
 export default function Home({
@@ -147,7 +130,9 @@ export default function Home({
 const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
   return (
     <>
-      <h2 className='mx-auto whitespace-nowrap'>Surf Lessons</h2>
+      <MotionAs As='h2' className='mx-auto whitespace-nowrap'>
+        Surf Lessons
+      </MotionAs>
       <CustomCarousel
         carouselKey={homeSurfLessonsId}
         images={homeSurfLessonsImg}
@@ -185,20 +170,11 @@ const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
 }
 
 const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { amount: 0.1, once: true })
-
   return (
     <>
-      <motion.h2
-        ref={ref}
-        variants={h2Variants}
-        initial='initial'
-        animate={isInView ? 'animate' : 'initial'}
-        className='mx-auto whitespace-nowrap'
-      >
+      <MotionAs As='h2' className='mx-auto whitespace-nowrap'>
         About me
-      </motion.h2>
+      </MotionAs>
       <div className='flex flex-col md:flex-row md:items-center md:space-x-16'>
         <div>
           <div className='mx-auto h-64 w-64 rounded-full sm:h-80 sm:w-80 md:h-96 md:w-96 lg:h-[28rem] lg:w-[28rem]'>
@@ -232,27 +208,17 @@ const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
           </p>
         </div>
       </div>
-
       <ButtonScrollToTop scrollToTop={scrollToTop} />
     </>
   )
 }
 
 const HomeSurfTrips = ({ homeSurfTripsId, homeSurfTripsImg, scrollToTop }) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { amount: 0.1, once: true })
-
   return (
     <>
-      <motion.h2
-        ref={ref}
-        variants={h2Variants}
-        initial='initial'
-        animate={isInView ? 'animate' : 'initial'}
-        className='mx-auto whitespace-nowrap'
-      >
+      <MotionAs As='h2' className='mx-auto whitespace-nowrap'>
         Surf Trips
-      </motion.h2>
+      </MotionAs>
       <CustomCarousel
         carouselKey={homeSurfTripsId}
         images={homeSurfTripsImg}
@@ -283,20 +249,11 @@ const HomeSurfTrips = ({ homeSurfTripsId, homeSurfTripsImg, scrollToTop }) => {
 }
 
 const HomeTestimonials = ({ scrollToTop }) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { amount: 0.1, once: true })
-
   return (
     <>
-      <motion.h2
-        ref={ref}
-        variants={h2Variants}
-        initial='initial'
-        animate={isInView ? 'animate' : 'initial'}
-        className='mx-auto'
-      >
+      <MotionAs As='h2' className='mx-auto'>
         Testimonials
-      </motion.h2>
+      </MotionAs>
 
       <Testimonials />
 
@@ -317,20 +274,11 @@ const HomeTestimonials = ({ scrollToTop }) => {
 }
 
 const HomeMapView = ({ mapMarkers }) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { amount: 0.1, once: true })
-
   return (
     <>
-      <motion.h2
-        ref={ref}
-        variants={h2Variants}
-        initial='initial'
-        animate={isInView ? 'animate' : 'initial'}
-        className='mx-auto whitespace-nowrap'
-      >
+      <MotionAs As='h2' className='mx-auto whitespace-nowrap'>
         Visit Us
-      </motion.h2>
+      </MotionAs>
       <MapView mapMarkers={mapMarkers} />
     </>
   )

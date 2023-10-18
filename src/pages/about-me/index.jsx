@@ -1,5 +1,6 @@
 import { ButtonAsGradient } from '@/components/ButtonAsGradient'
 import { CustomCarousel } from '@/components/Carousel'
+import MotionAs from '@/components/MotionAs'
 import PageLayout from '@/components/layouts/PageLayout'
 import { aboutMeImages } from '@/data/aboutMePageImages'
 import { getImageUrl, getBase64ImageUrl } from '@/utils/cloudinaryUtils'
@@ -23,7 +24,9 @@ const AboutMe = ({ aboutMeImg }) => {
 
       <PageLayout>
         <section className={`flex h-full w-full flex-col items-center`}>
-          <h1 className='title'>About Me</h1>
+          <MotionAs As='h1' duration={0.7} delay={0.2}>
+            About Me
+          </MotionAs>
           <CustomCarousel
             carouselKey='about-me'
             images={aboutMeImg}
@@ -36,7 +39,7 @@ const AboutMe = ({ aboutMeImg }) => {
             surfing at the age of 8 and came to Bali in 2019 to work as a Surf
             Instructor at Batu Bolong Beach in Canggu.
           </p>
-          <p className='my-3 text-justify'>
+          <p className='text-justify'>
             Batu Bolong is an easy place to learn surfing as a beginner but is
             also good for intermediate surfers.
           </p>
