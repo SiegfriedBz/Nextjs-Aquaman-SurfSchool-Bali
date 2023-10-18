@@ -42,7 +42,7 @@ GalleryLayout.Body = Body
 function Header() {
   return (
     <>
-      <MotionAs As='h1' duration={0.7} delay={0.2}>
+      <MotionAs As='h1' duration={0.7} delay={0.2} className='text-center'>
         Gallery
       </MotionAs>
       <MotionAs
