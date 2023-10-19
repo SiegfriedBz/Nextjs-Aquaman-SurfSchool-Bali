@@ -67,7 +67,7 @@ const ModalMenu = ({ mobileMenuIsOpen, children }) => {
         shadow-sm shadow-slate-900
         dark:border-stone-100 dark:bg-slate-900/50
         dark:shadow-sm dark:shadow-stone-100
-        sm:mx-12 md:mx-24 lg:hidden'
+        sm:mx-12 md:mx-24 2xl:hidden'
       onClick={(e) => e.stopPropagation()}
     >
       {children}

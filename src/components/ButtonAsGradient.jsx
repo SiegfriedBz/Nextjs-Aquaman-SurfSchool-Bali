@@ -3,7 +3,7 @@ import Link from 'next/link'
 export const ButtonAsGradient = ({
   As = 'Link',
   variant = 'btn-as-gradient',
-  padding = 'py-2',
+  padding = 'py-2 md:py-4',
   extraClasses = '',
   children,
   ...rest

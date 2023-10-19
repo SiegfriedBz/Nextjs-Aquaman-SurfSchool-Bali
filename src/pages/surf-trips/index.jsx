@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { forwardRef, useRef } from 'react'
 import { ButtonAsGradient } from '@/components/ButtonAsGradient'
 import MapView from '@/components/MapView'
 import PageLayout from '@/components/layouts/PageLayout'
@@ -22,6 +22,8 @@ const meta = {
   description:
     'Explore Exciting Surf Journeys in Indonesia with Aquaman Bali - Book Now!"',
 }
+
+const Header = forwardRef(SurfTripsHeader)
 
 const SurfTrips = ({ surfTripImg, mapMarkers }) => {
   const topRef = useRef(null)
@@ -53,50 +55,16 @@ const SurfTrips = ({ surfTripImg, mapMarkers }) => {
           ref={topRef}
           className={`flex h-full w-full scroll-mt-[24rem] flex-col content-center`}
         >
-          <MotionAs
-            As='h1'
-            duration={0.7}
-            delay={0.2}
-            className='w-full text-center'
-          >
-            Surf Trips
-          </MotionAs>
-          <MotionAs
-            As='h2'
-            initialX={100}
-            delay={0.5}
-            duration={0.8}
-            className='mb-2  text-center'
-          >
-            From Lombok to Sumatra
-          </MotionAs>
-          <MotionAs
-            As='h3'
-            delay={0.9}
-            duration={0.8}
-            className='mb-4 text-center'
-          >
-            Starting at 500K IDR
-          </MotionAs>
+          <Header ref={mapContainerRef} mapMarkers={mapMarkers} />
 
-          <div
-            ref={mapContainerRef}
-            className='scroll-mt-[8rem] scroll-smooth px-1'
-          >
-            <MapView mapMarkers={mapMarkers} />
-          </div>
-
-          <hr />
-
-          <DestinationList
+          <Body
             surfTripImg={surfTripImg}
             handleSelectTrip={handleSelectTrip}
             scrollToTop={scrollToTop}
           />
-
           <hr />
 
-          <BottomContent />
+          <Footer />
         </section>
       </PageLayout>
     </>
@@ -105,10 +73,43 @@ const SurfTrips = ({ surfTripImg, mapMarkers }) => {
 
 export default SurfTrips
 
-SurfTrips.DestinationList = DestinationList
-SurfTrips.BottomContent = BottomContent
+// SurfTrips Header
+function SurfTripsHeader({ mapMarkers }, ref) {
+  return (
+    <>
+      <MotionAs
+        As='h1'
+        duration={0.7}
+        delay={0.2}
+        className='w-full text-center'
+      >
+        Surf Trips
+      </MotionAs>
+      <MotionAs
+        As='h2'
+        initialX={100}
+        delay={0.5}
+        duration={0.8}
+        className='mb-2 text-center'
+      >
+        From Lombok to Sumatra
+      </MotionAs>
+      <MotionAs As='h3' delay={0.9} duration={0.8} className='text-center'>
+        Starting at 500K IDR
+      </MotionAs>
 
-function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
+      <div
+        ref={ref}
+        className='scroll-mt-[8rem] scroll-smooth px-1 sm:py-4 lg:py-8'
+      >
+        <MapView mapMarkers={mapMarkers} />
+      </div>
+    </>
+  )
+}
+
+// SurfTrips Body
+function Body({ surfTripImg, handleSelectTrip, scrollToTop }) {
   const [
     cangguImg,
     medewiImg,
@@ -124,65 +125,64 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
       <DestinationDetails
         id='canggu'
         name='Canggu, Bali'
-        image={cangguImg}
         handleSelectTrip={handleSelectTrip}
         scrollToTop={scrollToTop}
       >
         <>
-          <p>
-            <span className='text-gradient font-bold'>Canggu is our base</span>,
-            at
-            <span className='text-gradient font-bold'> Boto Bolong Beach</span>.
-          </p>
+          <DestinationDetailsHeader image={cangguImg}>
+            <p>
+              <span className='text-gradient font-bold'>Wave Type</span>
+              <span className='block'>Gentle and ideal for Beginners</span>
+            </p>
+            <div className='flex space-x-8'>
+              <ul className='w-1/2'>
+                <p className='text-gradient whitespace-nowrap font-bold'>
+                  Main Surf Breaks
+                </p>
+                <li className='ms-5 list-disc'>
+                  <span>Boto Bolong</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Nelayan</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>The Lawn</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Old&apos;s man</span>
+                </li>
+              </ul>
 
-          <p>
-            <span className='text-gradient font-bold'>Wave Type: </span>
-            <span className='block'>Gentle and ideal for Beginners</span>
-          </p>
+              <ul className='w-1/2'>
+                <p className='text-gradient font-bold'>Best for</p>
+                <li className='ms-5 list-disc'>
+                  <span>Beginner</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Intermediate</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Advanced</span>
+                </li>
+              </ul>
+            </div>
+          </DestinationDetailsHeader>
 
-          <ul>
-            <p className='text-gradient font-bold'>Main Surf Breaks:</p>
-            <li className='ms-5 list-disc'>
-              <span>Boto Bolong</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Nelayan</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>The Lawn</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Old&apos;s man</span>
-            </li>
-          </ul>
-
-          <ul>
-            <p className='text-gradient font-bold'>Best for: </p>
-            <li className='ms-5 list-disc'>
-              <span>Beginner</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Intermediate</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Advanced</span>
-            </li>
-          </ul>
-
-          <p>
-            <span className='text-gradient font-bold'>Beach Conditions:</span>
-            <span className='inline-block'>
-              Safe with coral and sand beaches, suitable for all levels except
-              during high surf conditions.
-            </span>
-          </p>
-
-          <p className='text-justify'>
-            Canggu is a paradise for Beginners with its calm, manageable waves.
-            It offers four main surf breaks and caters to surfers of all levels.
-            However, during high surf conditions, the coral and sand beaches can
-            become hazardous.
-          </p>
+          <DestinationDetailsFooter>
+            <p>
+              <span className='text-gradient font-bold'>Beach Conditions</span>
+              <span className='block'>
+                Safe with coral and sand beaches, suitable for all levels except
+                during high surf conditions.
+              </span>
+            </p>
+            <p className='text-justify'>
+              Canggu is a paradise for Beginners with its calm, manageable
+              waves. It offers four main surf breaks and caters to surfers of
+              all levels. However, during high surf conditions, the coral and
+              sand beaches can become hazardous.
+            </p>
+          </DestinationDetailsFooter>
         </>
       </DestinationDetails>
 
@@ -191,46 +191,51 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
       <DestinationDetails
         id='medewi'
         name='Medewi, Bali'
-        image={medewiImg}
         handleSelectTrip={handleSelectTrip}
         scrollToTop={scrollToTop}
       >
         <>
-          <p>
-            <span className='text-gradient font-bold'>Wave Type: </span>
-            <span className='block'>Long left waves, around 100 meters</span>
-          </p>
+          <DestinationDetailsHeader image={medewiImg}>
+            <p>
+              <span className='text-gradient font-bold'>Wave Type</span>
+              <span className='block'>Long left waves, around 100 meters</span>
+            </p>
 
-          <ul>
-            <p className='text-gradient font-bold'>Best for: </p>
-            <li className='ms-5 list-disc'>
-              <span>Beginner</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Intermediate</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Advanced</span>
-            </li>
-          </ul>
+            <div>
+              <ul>
+                <p className='text-gradient font-bold'>Best for</p>
+                <li className='ms-5 list-disc'>
+                  <span>Beginner</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Intermediate</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Advanced</span>
+                </li>
+              </ul>
+            </div>
+          </DestinationDetailsHeader>
 
-          <p>
-            <span className='text-gradient font-bold'>Beach Conditions: </span>
-            <span className='block'>
-              Rocky with sandy patches, suitable for all levels
-            </span>
-          </p>
+          <DestinationDetailsFooter>
+            <p>
+              <span className='text-gradient font-bold'>Beach Conditions </span>
+              <span className='block'>
+                Rocky with sandy patches, suitable for all levels
+              </span>
+            </p>
 
-          <p className='text-justify'>
-            Medewi is renowned for its iconic long left waves, making it a
-            must-visit surf spot in Bali. Despite the rocky beach conditions, it
-            accommodates surfers of all levels, including Beginners,
-            Intermediates, and those seeking expert advice.
-          </p>
-          <p className='text-justify'>
-            The journey from Canggu takes a maximum of 2 hours by car or
-            motorbike.
-          </p>
+            <p className='text-justify'>
+              Medewi is renowned for its iconic long left waves, making it a
+              must-visit surf spot in Bali. Despite the rocky beach conditions,
+              it accommodates surfers of all levels, including Beginners,
+              Intermediates, and those seeking expert advice.
+            </p>
+            <p className='text-justify'>
+              The journey from Canggu takes a maximum of 2 hours by car or
+              motorbike.
+            </p>
+          </DestinationDetailsFooter>
         </>
       </DestinationDetails>
 
@@ -244,35 +249,41 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
         scrollToTop={scrollToTop}
       >
         <>
-          <p>
-            <span className='text-gradient font-bold'>Wave Type: </span>
-            <span className='block'>Big and powerful left waves</span>
-          </p>
+          <DestinationDetailsHeader image={balanganImg}>
+            <p>
+              <span className='text-gradient font-bold'>Wave Type</span>
+              <span className='block'>Big and powerful left waves</span>
+            </p>
 
-          <ul>
-            <p className='text-gradient font-bold'>Best for: </p>
-            <li className='ms-5 list-disc'>
-              <span>Intermediate</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Advanced</span>
-            </li>
-          </ul>
+            <div>
+              <ul>
+                <p className='text-gradient font-bold'>Best for</p>
+                <li className='ms-5 list-disc'>
+                  <span>Intermediate</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Advanced</span>
+                </li>
+              </ul>
+            </div>
+          </DestinationDetailsHeader>
 
-          <p>
-            <span className='text-gradient font-bold'>Beach Conditions: </span>
-            <span className='block'>Pristine coral reefs</span>
-          </p>
+          <DestinationDetailsFooter>
+            <p>
+              <span className='text-gradient font-bold'>Beach Conditions </span>
+              <span className='block'>Pristine coral reefs</span>
+            </p>
 
-          <p className='text-justify'>
-            Balangan Beach boasts some of the best waves in Bali, making it a
-            favorite for Intermediate surfers. However, it&apos;s not
-            recommended for Beginners due to sharp coral and large waves.
-          </p>
-          <p className='text-justify'>
-            The journey from Canggu to Balangan takes approximately 1.5 hour,
-            depending on traffic.
-          </p>
+            <p className='text-justify'>
+              Balangan Beach boasts some of the best waves in Bali, making it a
+              favorite for Intermediate surfers. However, it&apos;s not
+              recommended for Beginners due to sharp coral and large waves.
+            </p>
+            <p className='text-justify'>
+              The journey from Canggu to Balangan takes approximately 1.5 hour,
+              depending on traffic.
+            </p>
+          </DestinationDetailsFooter>
         </>
       </DestinationDetails>
 
@@ -281,62 +292,67 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
       <DestinationDetails
         id='uluwatu'
         name='Uluwatu, Bali'
-        image={uluwatuImg}
         handleSelectTrip={handleSelectTrip}
         scrollToTop={scrollToTop}
       >
         <>
-          <p>
-            <span className='text-gradient font-bold'>Wave Type: </span>
-            <span className='block'>Challenging and prestigious</span>
-          </p>
-
-          <ul>
-            <p className='text-gradient font-bold'>
-              Several famous surfing spots close from Uluwatu:
+          <DestinationDetailsHeader image={uluwatuImg}>
+            <p>
+              <span className='text-gradient font-bold'>Wave Type</span>
+              <span className='block'>Challenging and prestigious</span>
             </p>
-            <li className='ms-5 list-disc'>
-              <span>Padang Padang</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Bingin Beach</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Dreamland Beach</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Balangan Beach</span>
-            </li>
-          </ul>
 
-          <ul>
-            <p className='text-gradient font-bold'>Best for: </p>
-            <li className='ms-5 list-disc'>
-              <span>Intermediate</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Advanced</span>
-            </li>
-          </ul>
+            <div className='flex space-x-8'>
+              <ul className='w-1/2'>
+                <p className='text-gradient whitespace-nowrap font-bold'>
+                  Main Spots
+                </p>
+                <li className='ms-5 list-disc'>
+                  <span>Padang Padang</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Bingin Beach</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Dreamland Beach</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Balangan Beach</span>
+                </li>
+              </ul>
 
-          <p>
-            <span className='text-gradient font-bold'>Beach Conditions: </span>
-            <span className='block'>
-              Sharp coral and strong waves, not suitable for Beginners
-            </span>
-          </p>
+              <ul className='w-1/2'>
+                <p className='text-gradient font-bold'>Best for</p>
+                <li className='ms-5 list-disc'>
+                  <span>Intermediate</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Advanced</span>
+                </li>
+              </ul>
+            </div>
+          </DestinationDetailsHeader>
 
-          <p className='text-justify'>
-            Uluwatu is a haven for experienced surfers, known for its big and
-            challenging waves. This spot has even hosted prestigious
-            competitions. However, it&apos;s not recommended for Beginners due
-            to the sharp coral and strong waves. Several famous surf spots are
-            nearby, including Padang Padang, Bingin Beach, Dreamland Beach, and
-            Balangan Beach.
-          </p>
-          <p className='text-justify'>
-            The journey from Canggu can take up to 1.5 hours.
-          </p>
+          <DestinationDetailsFooter>
+            <p>
+              <span className='text-gradient font-bold'>Beach Conditions </span>
+              <span className='block'>
+                Sharp coral and strong waves, not suitable for Beginners
+              </span>
+            </p>
+
+            <p className='text-justify'>
+              Uluwatu is a haven for experienced surfers, known for its big and
+              challenging waves. This spot has even hosted prestigious
+              competitions. However, it&apos;s not recommended for Beginners due
+              to the sharp coral and strong waves. Several famous surf spots are
+              nearby, including Padang Padang, Bingin Beach, Dreamland Beach,
+              and Balangan Beach.
+            </p>
+            <p className='text-justify'>
+              The journey from Canggu can take up to 1.5 hours.
+            </p>
+          </DestinationDetailsFooter>
         </>
       </DestinationDetails>
 
@@ -345,48 +361,55 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
       <DestinationDetails
         id='serangan'
         name='Serangan, Bali'
-        image={seranganImg}
         handleSelectTrip={handleSelectTrip}
         scrollToTop={scrollToTop}
       >
         <>
-          <p>
-            <span className='text-gradient font-bold'>Wave Type: </span>
-            <span className='block'>Challenging and prestigious</span>
-          </p>
-          <ul>
-            <p className='text-gradient font-bold'>Best for: </p>
-            <li className='ms-5 list-disc'>
-              <span>Intermediate</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Advanced</span>
-            </li>
-          </ul>
+          <DestinationDetailsHeader image={seranganImg}>
+            <p>
+              <span className='text-gradient font-bold'>Wave Type</span>
+              <span className='block'>Challenging and prestigious</span>
+            </p>
 
-          <p>
-            <span className='text-gradient font-bold'>Beach Conditions: </span>
-            <span className='block'>
-              Sharp coral and strong waves, not suitable for Beginners.
-            </span>
-          </p>
+            <div>
+              <ul>
+                <p className='text-gradient font-bold'>Best for</p>
+                <li className='ms-5 list-disc'>
+                  <span>Intermediate</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Advanced</span>
+                </li>
+              </ul>
+            </div>
+          </DestinationDetailsHeader>
 
-          <p>
-            <span className='text-gradient font-bold'>Access to waves: </span>
-            <span className='block'>
-              Serangan requires a short boat ride (15 minutes) to reach the surf
-              spot.
-            </span>
-          </p>
+          <DestinationDetailsFooter>
+            <p>
+              <span className='text-gradient font-bold'>Beach Conditions </span>
+              <span className='inline-block'>
+                Sharp coral and strong waves, not suitable for Beginners.
+              </span>
+            </p>
 
-          <p className='text-justify'>
-            Serangan is a challenging spot with sharp coral and strong waves,
-            making it unsuitable for Beginners. Intermediate surfers seeking an
-            adventure will enjoy Serangan.
-          </p>
-          <p className='text-justify'>
-            The journey from Canggu takes about 1.5 hours, depending on traffic.
-          </p>
+            <p>
+              <span className='text-gradient font-bold'>Access to waves</span>
+              <span className='block'>
+                Serangan requires a short boat ride (15 minutes) to reach the
+                surf spot.
+              </span>
+            </p>
+
+            <p className='text-justify'>
+              Serangan is a challenging spot with sharp coral and strong waves,
+              making it unsuitable for Beginners. Intermediate surfers seeking
+              an adventure will enjoy Serangan.
+            </p>
+            <p className='text-justify'>
+              The journey from Canggu takes about 1.5 hours, depending on
+              traffic.
+            </p>
+          </DestinationDetailsFooter>
         </>
       </DestinationDetails>
 
@@ -395,54 +418,57 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
       <DestinationDetails
         id='nusa-lembongan'
         name='Nusa Lembongan'
-        image={nusaImg}
         handleSelectTrip={handleSelectTrip}
         scrollToTop={scrollToTop}
       >
         <>
-          <ul>
-            <p className='text-gradient font-bold'>
-              Nusa Lembongan offers several spots:
+          <DestinationDetailsHeader image={nusaImg}>
+            <div className='flex space-x-8'>
+              <ul className='w-1/2'>
+                <p className='text-gradient font-bold'>Main Spots</p>
+                <li className='ms-5 list-disc'>
+                  <span>Crane Shipwreck</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Isolation</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Play Ground</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Tamrin</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Ceningan</span>
+                </li>
+              </ul>
+
+              <ul className='w-1/2'>
+                <p className='text-gradient font-bold'>Best for</p>
+                <li className='ms-5 list-disc'>
+                  <span>Beginner</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Intermediate</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Advanced</span>
+                </li>
+              </ul>
+            </div>
+          </DestinationDetailsHeader>
+
+          <DestinationDetailsFooter>
+            <p className='text-justify'>
+              Nusa Lembongan offers a variety of surf spots close to each other.
+              It&apos;s an excellent destination for surfers of all levels. Nusa
+              Penida, nearby, is also fantastic for surfing and relaxation.
             </p>
-            <li className='ms-5 list-disc'>
-              <span>Crane Shipwreck</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Isolation</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Play Ground</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Tamrin</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Ceningan</span>
-            </li>
-          </ul>
-
-          <ul>
-            <p className='text-gradient font-bold'>Best for: </p>
-            <li className='ms-5 list-disc'>
-              <span>Beginner</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Intermediate</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Advanced</span>
-            </li>
-          </ul>
-
-          <p className='text-justify'>
-            Nusa Lembongan offers a variety of surf spots close to each other.
-            It&apos;s an excellent destination for surfers of all levels. Nusa
-            Penida, nearby, is also fantastic for surfing and relaxation.
-          </p>
-          <p className='text-justify'>
-            The journey from Sanur to Nusa Lembongan takes about an hour by fast
-            boat.
-          </p>
+            <p className='text-justify'>
+              The journey from Sanur to Nusa Lembongan takes about an hour by
+              fast boat.
+            </p>
+          </DestinationDetailsFooter>
         </>
       </DestinationDetails>
 
@@ -451,56 +477,59 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
       <DestinationDetails
         id='lombok'
         name='Lombok Island'
-        image={lombokImg}
         handleSelectTrip={handleSelectTrip}
         scrollToTop={scrollToTop}
       >
         <>
-          <ul>
-            <p className='text-gradient font-bold'>
-              Lombok offers several spots:
+          <DestinationDetailsHeader image={lombokImg}>
+            <div className='flex space-x-8'>
+              <ul className='w-1/2'>
+                <p className='text-gradient font-bold'>Main Spots</p>
+                <li className='ms-5 list-disc'>
+                  <span>Kuta Lombok</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Tanjung Aan</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Dom Dom</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Grupuk Inside</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Grupuk Outside</span>
+                </li>
+              </ul>
+
+              <ul className='w-1/2'>
+                <p className='text-gradient font-bold'>Best for</p>
+                <li className='ms-5 list-disc'>
+                  <span>Beginner</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Intermediate</span>
+                </li>
+                <li className='ms-5 list-disc'>
+                  <span>Advanced</span>
+                </li>
+              </ul>
+            </div>
+          </DestinationDetailsHeader>
+
+          <DestinationDetailsFooter>
+            <p className='text-justify'>
+              Lombok offers an array of surf spots close to each other. To reach
+              them, you must use a boat due to the considerable distance. The
+              boat ride takes only 8-10 minutes to each spot. Lombok is an
+              excellent choice for surfers of all levels.
             </p>
-            <li className='ms-5 list-disc'>
-              <span>Kuta Lombok</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Tanjung Aan</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Dom Dom</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Grupuk Inside</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Grupuk Outside</span>
-            </li>
-          </ul>
-
-          <ul>
-            <p className='text-gradient font-bold'>Best for: </p>
-            <li className='ms-5 list-disc'>
-              <span>Beginner</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Intermediate</span>
-            </li>
-            <li className='ms-5 list-disc'>
-              <span>Advanced</span>
-            </li>
-          </ul>
-
-          <p className='text-justify'>
-            Lombok offers an array of surf spots close to each other. To reach
-            them, you must use a boat due to the considerable distance. The boat
-            ride takes only 8-10 minutes to each spot. Lombok is an excellent
-            choice for surfers of all levels.
-          </p>
-          <p className='text-justify'>
-            From Bali, you can choose between a scenic ferry boat journey (4-5
-            hours) from Padang Bai or a quick flight (1 hour) from Ngurah Rai
-            Airport to Lombok International Airport.
-          </p>
+            <p className='text-justify'>
+              From Bali, you can choose between a scenic ferry boat journey (4-5
+              hours) from Padang Bai or a quick flight (1 hour) from Ngurah Rai
+              Airport to Lombok International Airport.
+            </p>
+          </DestinationDetailsFooter>
         </>
       </DestinationDetails>
     </>
@@ -510,7 +539,6 @@ function DestinationList({ surfTripImg, handleSelectTrip, scrollToTop }) {
 const DestinationDetails = ({
   id,
   name,
-  image,
   handleSelectTrip,
   scrollToTop,
   children,
@@ -542,20 +570,6 @@ const DestinationDetails = ({
         </span>
       </div>
 
-      <div className='my-4 h-80 w-full md:h-[26rem]'>
-        <Image
-          width='600'
-          height='600'
-          src={image.src}
-          alt={image.alt}
-          loading='lazy'
-          placeholder='blur'
-          blurDataURL={image.blurDataUrl}
-          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-          className='h-full w-full rounded-lg object-cover shadow-2xl md:w-11/12'
-        />
-      </div>
-
       {children}
 
       <div className='flex justify-center'>
@@ -563,7 +577,7 @@ const DestinationDetails = ({
           As='Link'
           href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
           target='_blank'
-          extraClasses='mx-auto my-4'
+          extraClasses='mx-auto my-4 sm:w-1/3 md:w:1/4 lg:w-1/5 text-center'
         >
           Surf Now
         </ButtonAsGradient>
@@ -577,9 +591,43 @@ const DestinationDetails = ({
   )
 }
 
-function BottomContent() {
+DestinationDetails.Header = DestinationDetailsHeader
+DestinationDetails.Footer = DestinationDetailsFooter
+
+// DestinationDetails Header
+function DestinationDetailsHeader({ image, children }) {
   return (
-    <div className='mt-14'>
+    <div className='flex flex-col md:my-4 md:flex-row md:items-center lg:my-8'>
+      <div className='lg:w-2/3'>
+        <div className='my-4 h-80 w-full md:h-[26rem]'>
+          <Image
+            width='600'
+            height='600'
+            src={image.src}
+            alt={image.alt}
+            loading='lazy'
+            placeholder='blur'
+            blurDataURL={image.blurDataUrl}
+            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+            className='mx-auto h-full w-full rounded-lg object-cover dark:shadow-sm dark:shadow-cf-white md:w-11/12'
+          />
+        </div>
+      </div>
+
+      <div className='lg:w-1/3'>{children}</div>
+    </div>
+  )
+}
+
+// DestinationDetails Footer
+function DestinationDetailsFooter({ children }) {
+  return <>{children}</>
+}
+
+// SurfTrips Footer
+function Footer() {
+  return (
+    <div className='md:pt-18 pt-20 lg:pt-24'>
       <h5 className='text-gradient text-center font-bold'>
         <span className='me-2 text-xl text-cf-white'>🏄‍♂️</span>Your Board or Ours{' '}
       </h5>
@@ -587,7 +635,7 @@ function BottomContent() {
         Bring your own board or use one of our top-quality boards.
       </p>
 
-      <h5 className='text-gradient text-center font-bold'>
+      <h5 className='text-gradient mt-8 text-center font-bold'>
         <span>
           <FontAwesomeIcon
             icon={faMapLocationDot}
@@ -601,7 +649,7 @@ function BottomContent() {
         destination.
       </p>
 
-      <h5 className='text-gradient text-center font-bold'>
+      <h5 className='text-gradient mt-8 text-center font-bold'>
         <span>
           <FontAwesomeIcon
             icon={faBed}
@@ -611,7 +659,8 @@ function BottomContent() {
         Stay Your Way
       </h5>
       <p className='text-center'>
-        Book your own hotel or let us assist you in finding the perfect spot.
+        Book your own hotel or let us assist you in finding{' '}
+        <span className='whitespace-nowrap'>the perfect spot.</span>
       </p>
     </div>
   )

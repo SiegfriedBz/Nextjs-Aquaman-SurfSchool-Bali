@@ -57,28 +57,41 @@
   }
 
   h1 {
-    @apply text-gradient mb-5 text-4xl font-extrabold sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl;
+    @apply text-gradient mb-5 text-4xl font-extrabold sm:text-5xl md:mb-6 md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl;
   }
 
   h2 {
-    @apply text-gradient mb-4 text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl;
+    @apply text-gradient mb-4 text-2xl font-bold sm:text-3xl md:mb-5 md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl;
   }
   h3 {
-    @apply text-gradient  mb-3 text-xl font-semibold sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl;
+    @apply text-gradient mb-3 text-xl font-semibold sm:text-2xl md:mb-4 md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl;
   }
   h4 {
-    @apply text-gradient  mb-2 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl;
+    @apply text-gradient mb-2 text-lg sm:text-xl md:mb-3 md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl;
   }
   h5 {
-    @apply text-gradient  mb-2 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl;
+    @apply text-gradient mb-2 text-base sm:text-lg md:mb-3 md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl;
   }
   h6 {
     /* @apply text-gradient  text-sm md:text-base 2xl:text-[1.35rem]; */
-    @apply text-gradient text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl;
+    @apply text-gradient text-sm sm:text-base md:mb-1 md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl;
   }
 
   p {
-    @apply mt-4 text-cf-dark dark:text-cf-white sm:my-8 sm:text-lg md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl;
+    @apply mt-4 text-cf-dark dark:text-cf-white md:mt-5;
+  }
+
+  p,
+  ul li span {
+    @apply sm:my-4 sm:text-lg md:my-5 md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl;
+  }
+
+  ul li span {
+    @apply mt-1 inline-block md:mt-2;
+  }
+
+  li > * {
+    vertical-align: middle;
   }
 
   /* button, links */
