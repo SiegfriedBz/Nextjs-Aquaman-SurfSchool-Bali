@@ -88,9 +88,9 @@ export const Testimonials = () => {
   )
 }
 
-export const TestimonialsLinks = () => {
+export const TestimonialStars = () => {
   return (
-    <div id='testimonials-link' className='mx-auto mb-4 mt-8'>
+    <div id='testimonials-link' className='mx-auto mb-4 mt-8 md:my-4'>
       <a
         href={process.env.NEXT_PUBLIC_STREETVIEW_LINK || '/'}
         target='_blank'

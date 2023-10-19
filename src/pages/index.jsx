@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Hero from '@/components/Hero'
 import HomePageLayout from '@/components/layouts/HomePageLayout'
 import MapView from '@/components/MapView'
-import { Testimonials, TestimonialsLinks } from '@/components/Testimonials'
+import { Testimonials, TestimonialStars } from '@/components/Testimonials'
 import { ButtonAsGradient } from '@/components/ButtonAsGradient'
 import { CustomCarousel } from '@/components/Carousel'
 import {
@@ -107,6 +107,8 @@ export default function Home({
             <HomeSurfTrips
               homeSurfTripsId={homeSurfTripsId}
               homeSurfTripsImg={homeSurfTripsImg}
+              // homeSurfLessonsId={homeSurfLessonsId}
+              // homeSurfLessonsImg={homeSurfLessonsImg}
               scrollToTop={scrollToTop}
             />
           </section>
@@ -152,38 +154,58 @@ const HomeSurfLessons = ({ homeSurfLessonsId, homeSurfLessonsImg }) => {
       >
         Surf Lessons
       </motion.h2>
-      <CustomCarousel
-        carouselKey={homeSurfLessonsId}
-        images={homeSurfLessonsImg}
-        carouselClasses='h-64 sm:h-80 md:h-96 lg:h-[32rem]'
-        priority={true}
-        imageClasses='rounded-md mx-auto object-cover'
-      />
-      <p className='text-center'>
-        Surf the waves in Bali or on exciting surf trips with our Private or
-        Group lessons.
-      </p>
-      <p className='text-center'>
-        Enjoy surfing with expert guidance for an unforgettable experience --
-        see what our surfers have to say in our
-        <Link
-          href='#testimonials'
+
+      <div className='flex flex-col md:my-4 lg:my-8 lg:flex-row lg:items-center'>
+        <div className='w-full lg:w-2/3'>
+          <CustomCarousel
+            carouselKey={homeSurfLessonsId}
+            images={homeSurfLessonsImg}
+            carouselClasses='h-64 sm:h-80 md:h-96 lg:h-[30rem]'
+            priority={true}
+            imageClasses='rounded-md mx-auto object-cover'
+          />
+        </div>
+
+        <div className='flex w-full flex-col items-center md:px-8 md:py-2 lg:w-1/3 lg:px-2 xl:px-8'>
+          <p className='text-center xl:text-justify'>
+            Surf the waves in Bali or on exciting surf trips with our Private or
+            Group lessons.
+          </p>
+          <p className='text-center xl:text-justify'>
+            Enjoy surfing with expert guidance for an unforgettable experience
+            -- see what our surfers have to say in{' '}
+            <Link
+              href='#testimonials'
+              target='_self'
+              className='underline-gradient-link'
+            >
+              <span className='text-gradient-always-colored whitespace-nowrap'>
+                our testimonials!
+              </span>
+            </Link>
+          </p>
+
+          <ButtonAsGradient
+            As='Link'
+            href='/surf-lessons'
+            target='_self'
+            variant='btn-as-gradient-amber'
+            extraClasses='mx-auto mt-4 mb-2 hidden lg:inline-block lg:w-3/4'
+          >
+            Surf Lessons
+          </ButtonAsGradient>
+        </div>
+
+        <ButtonAsGradient
+          As='Link'
+          href='/surf-lessons'
           target='_self'
-          className='underline-gradient-link'
+          variant='btn-as-gradient-amber'
+          extraClasses='mx-auto mt-4 mb-2 md:w-1/3 lg:hidden'
         >
-          {' '}
-          <span className='text-gradient-always-colored'>testimonials !</span>
-        </Link>
-      </p>
-      <ButtonAsGradient
-        As='Link'
-        href='/surf-lessons'
-        target='_self'
-        variant='btn-as-gradient-amber'
-        extraClasses='mx-auto mt-4 mb-2'
-      >
-        Surf Lessons
-      </ButtonAsGradient>
+          Surf Lessons
+        </ButtonAsGradient>
+      </div>
     </>
   )
 }
@@ -204,8 +226,8 @@ const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
       >
         About me
       </motion.h2>
-      <div className='flex flex-col md:flex-row md:items-center md:space-x-16'>
-        <div>
+      <div className='flex flex-col md:my-4 md:flex-row md:items-center lg:my-8 lg:flex-row-reverse'>
+        <div className='lg:w-1/2'>
           <div className='mx-auto h-64 w-64 rounded-full sm:h-80 sm:w-80 md:h-96 md:w-96 lg:h-[28rem] lg:w-[28rem]'>
             <CustomCarousel
               carouselKey={homeAboutMeId}
@@ -216,22 +238,23 @@ const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
             />
           </div>
         </div>
-        <div className='mx-auto flex flex-col justify-center lg:w-1/2'>
-          <p className='text-center'>
-            My name is Rendy and I am from Krui, South Sumatra. I started
-            surfing at the age of 8 and came to Bali in 2019 to work as a Surf
-            Instructor at Batu Bolong Beach in Canggu.
+        <div className='flex w-full flex-col justify-center md:mx-auto md:px-8 md:py-2 lg:w-1/2'>
+          <p className='text-center xl:text-justify'>
+            My name is Rendy and I am from Krui, South Sumatra.
           </p>
-          <p className='my-2 text-center'>
-            Learn
+          <p className='text-center xl:text-justify'>
+            I started surfing at the age of 8 and came to Bali in 2019 to work
+            as a Surf Instructor at Batu Bolong Beach in Canggu.
+          </p>
+          <p className='text-center xl:text-justify'>
+            Learn{' '}
             <Link
               href='/about-me'
               target='_self'
               className='underline-gradient-link'
             >
-              {' '}
               <span className='text-gradient-always-colored'>
-                more about me.
+                more <span className='whitespace-nowrap'>about me.</span>
               </span>
             </Link>
           </p>
@@ -258,29 +281,48 @@ const HomeSurfTrips = ({ homeSurfTripsId, homeSurfTripsImg, scrollToTop }) => {
       >
         Surf Trips
       </motion.h2>
-      <CustomCarousel
-        carouselKey={homeSurfTripsId}
-        images={homeSurfTripsImg}
-        carouselClasses='h-64 sm:h-80 md:h-96 lg:h-[32rem]'
-        priority={true}
-        imageClasses='rounded-md object-cover'
-      />
-      <p className='text-center'>
-        Discover epic surf journeys from Bali to Lombok, Uluwatu, and Sumatra.
-      </p>
-      <p className='text-center'>
-        Join us for the ultimate wave-riding adventure and chase the thrill with
-        our guided surf trips.
-      </p>
-      <ButtonAsGradient
-        As='Link'
-        href='/surf-trips'
-        target='_self'
-        variant='btn-as-gradient-amber'
-        extraClasses='mx-auto mt-4 mb-2'
-      >
-        Surf Trips
-      </ButtonAsGradient>
+
+      <div className='flex flex-col md:my-4 lg:my-8 lg:flex-row lg:items-center'>
+        <div className='w-full lg:w-2/3'>
+          <CustomCarousel
+            carouselKey={homeSurfTripsId}
+            images={homeSurfTripsImg}
+            carouselClasses='h-64 sm:h-80 md:h-96 lg:h-[30rem]'
+            priority={true}
+            imageClasses='rounded-md mx-auto object-cover'
+          />
+        </div>
+
+        <div className='flex w-full flex-col items-center md:px-8 md:py-2 lg:w-1/3 lg:px-2 xl:px-8'>
+          <p className='text-center xl:text-justify'>
+            Discover epic surf journeys from Bali to Lombok, Uluwatu, and
+            Sumatra.
+          </p>
+          <p className='text-center xl:text-justify'>
+            Join us for the ultimate wave-riding adventure and chase the thrill
+            with our guided surf trips.
+          </p>
+          <ButtonAsGradient
+            As='Link'
+            href='/surf-trips'
+            target='_self'
+            variant='btn-as-gradient-amber'
+            extraClasses='mx-auto mt-4 mb-2 hidden lg:inline-block lg:w-3/4'
+          >
+            Surf Trips
+          </ButtonAsGradient>
+        </div>
+
+        <ButtonAsGradient
+          As='Link'
+          href='/surf-trips'
+          target='_self'
+          variant='btn-as-gradient-amber'
+          extraClasses='mx-auto mt-4 mb-2 md:w-1/3 lg:hidden'
+        >
+          Surf Trips
+        </ButtonAsGradient>
+      </div>
 
       <ButtonScrollToTop scrollToTop={scrollToTop} />
     </>
@@ -304,15 +346,28 @@ const HomeTestimonials = ({ scrollToTop }) => {
         Testimonials
       </motion.h2>
 
-      <Testimonials />
-
-      <TestimonialsLinks />
+      <div className='md:items-cente flex flex-col md:my-4 md:flex-row lg:my-8 lg:flex-row-reverse'>
+        <div className='md:w-1/2 lg:w-2/3'>
+          <Testimonials />
+        </div>
+        <div className='flex w-full flex-col justify-center md:mx-8 md:w-1/2 md:justify-start md:space-y-8 md:py-8 lg:mx-4 lg:w-1/3'>
+          <TestimonialStars />
+          <ButtonAsGradient
+            As='Link'
+            href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
+            target='_blank'
+            extraClasses='mx-auto my-2 hidden md:inline-block md:w-3/4'
+          >
+            Surf Now
+          </ButtonAsGradient>
+        </div>
+      </div>
 
       <ButtonAsGradient
         As='Link'
         href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
         target='_blank'
-        extraClasses='mx-auto my-2'
+        extraClasses='mx-auto my-2 md:hidden'
       >
         Surf Now
       </ButtonAsGradient>
