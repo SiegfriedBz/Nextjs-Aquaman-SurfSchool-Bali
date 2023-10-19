@@ -90,7 +90,7 @@ function SurfTripsHeader({ mapMarkers }, ref) {
         initialX={100}
         delay={0.5}
         duration={0.8}
-        className='mb-2 text-center'
+        className='mb-2 text-center sm:mb-4 md:mb-8'
       >
         From Lombok to Sumatra
       </MotionAs>
@@ -549,7 +549,7 @@ const DestinationDetails = ({
      * relative / absolute used to position the scroll-to-top button
      * */
     <section id={id} className='relative scroll-mt-[6rem] scroll-smooth'>
-      <h2>{name}</h2>
+      <h3>{name}</h3>
       <div
         className='flex cursor-pointer items-center'
         onClick={() => handleSelectTrip(id === 'nusa-lembongan' ? 'nusa' : id)}
@@ -577,7 +577,7 @@ const DestinationDetails = ({
           As='Link'
           href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || '/'}
           target='_blank'
-          extraClasses='mx-auto my-4 sm:w-1/3 md:w:1/4 lg:w-1/5 text-center'
+          extraClasses='mx-auto mt-8 mb-4 sm:w-1/3 md:w:1/4 lg:w-1/5 text-center'
         >
           Surf Now
         </ButtonAsGradient>
@@ -609,7 +609,7 @@ function DestinationDetailsHeader({ image, children }) {
             placeholder='blur'
             blurDataURL={image.blurDataUrl}
             sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-            className='mx-auto h-full w-full rounded-lg object-cover dark:shadow-sm dark:shadow-cf-white md:w-11/12'
+            className='mx-auto h-full w-full rounded-lg object-cover dark:shadow-sm dark:shadow-cf-white md:ms-0 md:w-11/12'
           />
         </div>
       </div>
@@ -627,12 +627,13 @@ function DestinationDetailsFooter({ children }) {
 // SurfTrips Footer
 function Footer() {
   return (
-    <div className='md:pt-18 pt-20 lg:pt-24'>
+    <div className='pt-16'>
       <h5 className='text-gradient text-center font-bold'>
         <span className='me-2 text-xl text-cf-white'>🏄‍♂️</span>Your Board or Ours{' '}
       </h5>
       <p className='text-center'>
-        Bring your own board or use one of our top-quality boards.
+        Bring your own board or use one of our{' '}
+        <span className='whitespace-nowrap'>top-quality boards.</span>
       </p>
 
       <h5 className='text-gradient mt-8 text-center font-bold'>
@@ -645,8 +646,8 @@ function Footer() {
         Flexible Departures
       </h5>
       <p className='text-center'>
-        Start your surf adventure right from Canggu or meet us at your chosen
-        destination.
+        Start your surf adventure right from Canggu or meet us at{' '}
+        <span className='whitespace-nowrap'>your chosen destination.</span>
       </p>
 
       <h5 className='text-gradient mt-8 text-center font-bold'>
