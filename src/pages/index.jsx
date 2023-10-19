@@ -240,11 +240,14 @@ const HomeAboutMe = ({ homeAboutMeId, homeAboutMeImg, scrollToTop }) => {
         </div>
         <div className='flex w-full flex-col justify-center md:mx-auto md:px-8 md:py-2 lg:w-1/2'>
           <p className='text-center xl:text-justify'>
-            My name is Rendy and I am from Krui, South Sumatra.
+            My name is Rendy and I am from{' '}
+            <span className='whitespace-nowrap'>Krui, South Sumatra.</span>
           </p>
           <p className='text-center xl:text-justify'>
             I started surfing at the age of 8 and came to Bali in 2019 to work
-            as a Surf Instructor at Batu Bolong Beach in Canggu.
+            as a <span className='whitespace-nowrap'>Surf Instructor</span>{' '}
+            <span className='whitespace-nowrap'>at Batu Bolong Beach</span> in
+            Canggu.
           </p>
           <p className='text-center xl:text-justify'>
             Learn{' '}
