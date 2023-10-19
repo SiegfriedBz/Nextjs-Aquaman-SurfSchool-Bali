@@ -58,14 +58,14 @@ function Header() {
         & Videos
       </MotionAs>
 
-      <div className='flex w-full justify-evenly space-x-4'>
+      <div className='my-1 flex w-full justify-evenly space-x-4 sm:my-2 md:my-4 md:justify-around xl:my-8'>
         <ButtonAsGradient
           As='Link'
           href='/gallery'
           target='_self'
           variant='btn-as-gradient-amber'
           padding='px-2 py-1'
-          extraClasses='btn-hover-small-scale my-2 w-1/2 text-center'
+          extraClasses='btn-hover-small-scale my-2 w-1/2 md:w-1/3 md:py-4 text-center'
         >
           Photos
         </ButtonAsGradient>
@@ -75,7 +75,7 @@ function Header() {
           target='_self'
           variant='btn-as-gradient-amber'
           padding='px-2 py-1'
-          extraClasses='btn-hover-small-scale my-2 w-1/2 text-center'
+          extraClasses='btn-hover-small-scale my-2 w-1/2 md:w-1/3 md:py-4 text-center'
         >
           Videos
         </ButtonAsGradient>
