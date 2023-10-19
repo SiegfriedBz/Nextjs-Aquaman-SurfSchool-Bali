@@ -36,7 +36,9 @@ const SurfLessonsLayout = ({ children }) => {
           className={`flex h-full w-full scroll-mt-32 flex-col items-center`}
         >
           <Header />
+
           <Body>{children}</Body>
+
           <Footer scrollToTop={scrollToTop} />
         </section>
       </PageLayout>
@@ -61,29 +63,29 @@ function Header() {
         initialX={100}
         delay={0.5}
         duration={0.8}
-        className='mb-2 text-center'
+        className='mb-2 text-center sm:mb-4 md:mb-8'
       >
         In Canggu
       </MotionAs>
-      <MotionAs As='h2' delay={0.9} duration={0.8} className='text-center'>
-        & during your
+      <MotionAs As='h3' delay={0.9} duration={0.8} className='text-center'>
+        & during your{' '}
         <Link
           href='/surf-trips'
           target='_self'
-          className='ms-2 underline decoration-primary underline-offset-4 dark:decoration-cf-white'
+          className='underline decoration-primary underline-offset-4 dark:decoration-cf-white'
         >
           Surf Trips
         </Link>
       </MotionAs>
 
-      <div className='my-1 flex w-full justify-evenly space-x-4'>
+      <div className='my-1 flex w-full justify-evenly space-x-4 sm:my-2 md:my-4 md:justify-around xl:my-8'>
         <ButtonAsGradient
           As='Link'
           href='/surf-lessons'
           target='_self'
           variant='btn-as-gradient-amber'
           padding='px-2 py-1'
-          extraClasses='btn-hover-small-scale my-2 w-1/2 text-center'
+          extraClasses='btn-hover-small-scale my-2 w-1/2 md:w-1/3 md:py-4 text-center'
         >
           Private
         </ButtonAsGradient>
@@ -93,7 +95,7 @@ function Header() {
           target='_self'
           variant='btn-as-gradient-amber'
           padding='px-2 py-1'
-          extraClasses='btn-hover-small-scale my-2 w-1/2 text-center'
+          extraClasses='btn-hover-small-scale my-2 w-1/2 md:w-1/3 md:py-4 text-center'
         >
           Group
         </ButtonAsGradient>
@@ -116,23 +118,28 @@ function BodyHeader({ children }) {
 function BodyContent({ images, children }) {
   return (
     <div
-      className='mb-3 
-          flex flex-col items-center justify-center
+      className='mb-3 flex
+          max-w-[364px] flex-col items-center justify-center
           rounded-xl border border-solid 
-          border-cf-dark
-          p-2
-        hover:border-blue-400 
+          border-cf-dark p-2
+          hover:border-blue-400
         dark:border-cf-white 
-        dark:hover:border-blue-400'
+          dark:hover:border-blue-400 
+          md:max-w-none
+          md:flex-row
+          md:space-x-4
+         '
     >
-      <CustomCarousel
-        images={images}
-        carouselKey='private-lessons'
-        carouselClasses='mb-5 h-72 md:h-[30rem]'
-        imageClasses='mx-auto h-full w-full rounded-t-xl rounded-b-lg object-cover md:w-11/12'
-        priority={true}
-      />
-      <div className='w-full space-y-8 py-4'>{children}</div>
+      <div className='flex w-full items-center overflow-hidden rounded-b-lg rounded-t-xl md:w-1/2 md:rounded-l-xl md:rounded-r-lg xl:w-2/3'>
+        <CustomCarousel
+          images={images}
+          carouselKey='private-lessons'
+          carouselClasses='mb-5 md:mb-0 h-72 md:h-[28rem] '
+          imageClasses='mx-auto h-full rounded-t-xl rounded-b-lg md:rounded-l-xl md:rounded-r-lg object-cover'
+          priority={true}
+        />
+      </div>
+      <div className='w-full space-y-8 py-4 md:w-1/2 xl:w-1/3'>{children}</div>
     </div>
   )
 }
@@ -140,12 +147,12 @@ function BodyContent({ images, children }) {
 function Footer({ scrollToTop }) {
   return (
     <>
-      <section id='surf-lessons-footer'>
-        <div id='surf-lessons-footer-what-to-bring' className='relative mb-8'>
+      <section id='surf-lessons-footer' className=' mb-4'>
+        <div id='surf-lessons-footer-what-to-bring' className='relative pb-8'>
           <h3 className='self-start'>What is included?</h3>
           <h4 className='mt-4 self-start font-bold'>All equipment needed !</h4>
           <div className='px-2'>
-            <ul className='ms-4 w-full'>
+            <ul className='ms-4 w-full sm:columns-2 sm:gap-x-8'>
               <li className='list-disc'>
                 <p>Premium custom made beginner soft boards with soft fins</p>
               </li>
@@ -155,7 +162,7 @@ function Footer({ scrollToTop }) {
               <li className='list-disc'>
                 <p>Leash</p>
               </li>
-              <li className='list-disc'>
+              <li className='list-disc break-after-column'>
                 <p>Rash guard</p>
               </li>
               <li className='list-disc'>
@@ -181,17 +188,12 @@ function Footer({ scrollToTop }) {
           </div>
 
           <ButtonScrollToTop scrollToTop={scrollToTop} />
-          <br />
-          <hr />
         </div>
-
-        <div
-          id='surf-lessons-footer-surfer-levels'
-          className='relative mb-4 mt-8'
-        >
-          <h3 className='mt-4'>Surfer Levels</h3>
+        <hr />
+        <div id='surf-lessons-footer-surfer-levels' className='relative py-8'>
+          <h3>Surfer Levels</h3>
           <div className='px-2'>
-            <h4 className='mt-4 font-bold'>
+            <h4 className='font-bold'>
               Beginner<span className='ms-2 text-cf-white'>🏄‍♂️</span>
             </h4>
             <p className='text-justify'>
@@ -206,8 +208,8 @@ function Footer({ scrollToTop }) {
             </p>
           </div>
 
-          <div className='px-2'>
-            <h4 className='mt-4 font-bold'>
+          <div className='px-2 py-4'>
+            <h4 className='font-bold'>
               Intermediate<span className='ms-2 text-cf-white'>🏄‍♀️🏄‍♂️</span>
             </h4>
             <p className='text-justify'>
@@ -224,7 +226,7 @@ function Footer({ scrollToTop }) {
           </div>
 
           <div className='px-2'>
-            <h4 className='mt-4 font-bold'>
+            <h4 className='font-bold'>
               Advanced<span className='ms-2 text-cf-white'>🏄‍♀️🏄‍♂️🏄‍♀️</span>
             </h4>
             <p className='text-justify'>
@@ -240,10 +242,9 @@ function Footer({ scrollToTop }) {
               afterwards.
             </p>
           </div>
-          <ButtonScrollToTop scrollToTop={scrollToTop} />
-          <br />
-          <hr />
+          <ButtonScrollToTop className='md:hidden' scrollToTop={scrollToTop} />
         </div>
+        <hr />
       </section>
 
       <CldVideoPlayer

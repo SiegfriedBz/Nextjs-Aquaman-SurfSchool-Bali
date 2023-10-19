@@ -7,13 +7,13 @@ const SurfLessonsPrivate = ({ images }) => {
   return (
     <>
       <SurfLessonsLayout.Body.Header>
-        <h2 className='mb-0 text-center'>Private</h2>
+        <h2 className='mb-1 text-center md:mb-4'>Private</h2>
         <h3 className='text-center'>1 Coach & 1 Guest</h3>
       </SurfLessonsLayout.Body.Header>
 
       <SurfLessonsLayout.Body.Content images={images}>
         <div className='flex flex-col items-center'>
-          <h2>
+          <h2 className='md:text-4xl'>
             1 Surf Lesson<span className='ms-2 text-3xl text-white'>🏄‍♂️</span>
           </h2>
           <div className='flex items-center'>
@@ -23,7 +23,7 @@ const SurfLessonsPrivate = ({ images }) => {
         </div>
 
         <div className='flex flex-col items-center'>
-          <h2>
+          <h2 className='md:text-4xl'>
             3 Surf Lessons
             <span className='ms-2 text-3xl text-white'>🏄‍♀️🏄‍♂️🏄‍♀️</span>
           </h2>

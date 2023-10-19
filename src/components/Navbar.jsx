@@ -7,7 +7,11 @@ import ButtonMobileBurger from './ButtonMobileBurger'
 import Modal from './Modal'
 
 const Navbar = () => {
-  const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false)
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+
+  const closeModal = () => {
+    setModalIsOpen(false)
+  }
 
   return (
     <>
@@ -41,8 +45,8 @@ const Navbar = () => {
             {/* mobile */}
             <span className='2xl:hidden'>
               <ButtonMobileBurger
-                mobileMenuIsOpen={mobileMenuIsOpen}
-                setMobileMenuIsOpen={setMobileMenuIsOpen}
+                modalIsOpen={modalIsOpen}
+                setModalIsOpen={setModalIsOpen}
               />
             </span>
           </div>
@@ -50,14 +54,14 @@ const Navbar = () => {
       </div>
 
       {/* mobile: backdrop & menu */}
-      {mobileMenuIsOpen && (
+      {modalIsOpen && (
         <Modal
-          mobileMenuIsOpen={mobileMenuIsOpen}
-          setMobileMenuIsOpen={setMobileMenuIsOpen}
-          className={mobileMenuIsOpen ? 'z-[999]' : 'z-0'}
+          modalIsOpen={modalIsOpen}
+          closeModal={closeModal}
+          className={modalIsOpen ? 'z-[999]' : 'z-0'}
         >
           <div className='w-full py-1'>
-            <NavLinks modal={true} setMobileMenuIsOpen={setMobileMenuIsOpen} />
+            <NavLinks modal={true} closeModal={closeModal} />
           </div>
         </Modal>
       )}

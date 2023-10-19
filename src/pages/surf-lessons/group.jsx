@@ -7,19 +7,19 @@ const SurfLessonsGroup = ({ images }) => {
   return (
     <>
       <SurfLessonsLayout.Body.Header>
-        <h2 className='mb-0 text-center'>Group</h2>
+        <h2 className='mb-1 text-center md:mb-4'>Group</h2>
         <h3 className='text-center'>1 Coach & 2 Guests</h3>
       </SurfLessonsLayout.Body.Header>
 
       <SurfLessonsLayout.Body.Content images={images}>
         <div className='flex flex-col items-center'>
-          <h2>
+          <h2 className='md:text-4xl'>
             1 Surf Lesson<span className='ms-2 text-3xl text-white'>🏄‍♂️</span>
           </h2>
-          <h3 className='text-cf-dark dark:text-cf-white'>
+          <h4 className='text-cf-dark dark:text-cf-white md:hidden'>
             <span className='underline underline-offset-4'>Total</span> for 2
             Guests
-          </h3>
+          </h4>
           <div className='flex items-center'>
             <h3>2 hours:</h3>
             <h4 className='ms-2'>650K IDR (USD 42)</h4>
@@ -27,11 +27,11 @@ const SurfLessonsGroup = ({ images }) => {
         </div>
 
         <div className='flex flex-col items-center'>
-          <h2>
+          <h2 className='md:text-4xl'>
             3 Surf Lessons
             <span className='ms-2 text-3xl text-white'>🏄‍♀️🏄‍♂️🏄‍♀️</span>
           </h2>
-          <h3 className='text-cf-dark dark:text-cf-white'>
+          <h3 className='text-cf-dark dark:text-cf-white md:hidden'>
             <span className='underline underline-offset-4'>Total</span> for 2
             Guests
           </h3>

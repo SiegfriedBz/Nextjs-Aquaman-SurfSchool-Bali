@@ -24,24 +24,15 @@
 
   /*  */
   .home-page-layout {
-    @apply pb-4 
-      xs:pb-8 
-      sm:pb-16
-      md:pb-24
-      lg:pb-32;
+    @apply py-8;
   }
 
   /* non-home page layout */
   .page-layout {
     /* mt-[Xrem] to push the content below the navbar on non-home pages */
     @apply mt-[var(--nav-small-height)] 
-      py-4
-      xs:py-8 
-      sm:mt-[var(--nav-mid-height)] 
-      sm:py-16
-      md:mt-[var(--nav-big-height)]
-      md:py-24
-      lg:py-32;
+      py-8 sm:mt-[var(--nav-mid-height)]
+      md:mt-[var(--nav-big-height)];
   }
 
   section:not(#hero) {
@@ -57,24 +48,23 @@
   }
 
   h1 {
-    @apply text-gradient mb-5 text-4xl font-extrabold sm:text-5xl md:mb-6 md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl;
+    @apply text-gradient mb-5 text-4xl font-extrabold sm:text-5xl md:mb-6 md:text-6xl lg:text-7xl xl:text-8xl;
   }
 
   h2 {
-    @apply text-gradient mb-4 text-2xl font-bold sm:text-3xl md:mb-5 md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl;
+    @apply text-gradient mb-4 text-2xl font-bold sm:text-3xl md:mb-5 md:text-4xl lg:text-5xl xl:text-6xl;
   }
   h3 {
-    @apply text-gradient mb-3 text-xl font-semibold sm:text-2xl md:mb-4 md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl;
+    @apply text-gradient mb-3 text-xl font-semibold sm:text-2xl md:mb-4 md:text-3xl lg:text-4xl;
   }
   h4 {
-    @apply text-gradient mb-2 text-lg sm:text-xl md:mb-3 md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl;
+    @apply text-gradient mb-2 text-lg sm:text-xl md:mb-3 md:text-2xl;
   }
   h5 {
-    @apply text-gradient mb-2 text-base sm:text-lg md:mb-3 md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl;
+    @apply text-gradient mb-2 text-base sm:text-lg md:mb-3 md:text-xl;
   }
   h6 {
-    /* @apply text-gradient  text-sm md:text-base 2xl:text-[1.35rem]; */
-    @apply text-gradient text-sm sm:text-base md:mb-1 md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl;
+    @apply text-gradient text-sm sm:text-base md:mb-1 md:text-lg;
   }
 
   p {
@@ -83,7 +73,7 @@
 
   p,
   ul li span {
-    @apply sm:my-4 sm:text-lg md:my-5 md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl;
+    @apply sm:my-4 sm:text-lg md:my-5 md:text-xl;
   }
 
   ul li span {

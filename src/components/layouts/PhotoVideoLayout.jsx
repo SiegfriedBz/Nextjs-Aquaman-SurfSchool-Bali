@@ -63,29 +63,29 @@ function Header() {
       >
         Get an amazing souvenir
       </MotionAs>
-      <MotionAs As='h3' delay={0.9} duration={0.8} className='text-center'>
+      <MotionAs As='h2' delay={0.9} duration={0.8} className='text-center'>
         from your Surf Session
       </MotionAs>
 
-      <div className='my-1 flex w-full flex-col items-center'>
+      <div className='my-1 flex w-full flex-col items-center space-x-4 sm:my-2 md:my-4 md:justify-around xl:my-8'>
         <ButtonAsGradient
           As='Link'
           href='/photo-video'
           target='_self'
           variant='btn-as-gradient-amber'
           padding='px-2 py-1'
-          extraClasses='btn-hover-small-scale my-2 w-1/2 text-center'
+          extraClasses='mx-auto btn-hover-small-scale my-2 w-1/2 md:w-1/3 md:py-4 text-center'
         >
           Photo & Video
         </ButtonAsGradient>
-        <div className='flex w-full justify-evenly space-x-4'>
+        <div className='flex justify-center space-x-2'>
           <ButtonAsGradient
             As='Link'
             href='/photo-video/water-drone'
             target='_self'
             variant='btn-as-gradient-amber'
             padding='px-2 py-1'
-            extraClasses='btn-hover-small-scale mt-2 w-1/2 text-center'
+            extraClasses='btn-hover-small-scale mx-auto my-2 w-1/2 md:w-1/3 md:py-4 text-center'
           >
             Water & Drone
           </ButtonAsGradient>
@@ -95,7 +95,7 @@ function Header() {
             target='_self'
             variant='btn-as-gradient-amber'
             padding='px-2 py-1'
-            extraClasses='btn-hover-small-scale mt-2 w-1/2 text-center'
+            extraClasses='btn-hover-small-scale mx-auto my-2 w-1/2 md:w-1/3 md:py-4 text-center'
           >
             Video Analysis
           </ButtonAsGradient>

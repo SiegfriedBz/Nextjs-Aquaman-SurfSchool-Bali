@@ -173,9 +173,9 @@ export default Footer
 
 const Li = ({ href = '', className = '', children }) => {
   return (
-    <li className={className}>
+    <li className={`${className}`}>
       <Link href={href} className='underline-gradient-link'>
-        <span className='text-gradient-always-colored sm:text-lg md:text-xl'>
+        <span className='text-gradient-always-colored m-0 sm:text-lg md:text-xl'>
           {children}
         </span>
       </Link>
