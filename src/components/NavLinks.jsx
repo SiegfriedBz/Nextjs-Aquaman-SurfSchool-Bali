@@ -7,7 +7,7 @@ import {
   WhatsappIconLink,
 } from './Icons'
 
-const NavLinks = ({ className = '', modal = false, setMobileMenuIsOpen }) => {
+const NavLinks = ({ className = '', modal = false, closeModal }) => {
   return (
     <ul
       className={`${
@@ -15,7 +15,7 @@ const NavLinks = ({ className = '', modal = false, setMobileMenuIsOpen }) => {
       } flex h-full w-full items-center ${className}`}
     >
       <Li
-        setMobileMenuIsOpen={setMobileMenuIsOpen}
+        closeModal={closeModal}
         className={modal ? '' : 'hidden md:inline-block'}
         modal={modal}
         href='/surf-lessons'
@@ -23,7 +23,7 @@ const NavLinks = ({ className = '', modal = false, setMobileMenuIsOpen }) => {
         Surf Lessons
       </Li>
       <Li
-        setMobileMenuIsOpen={setMobileMenuIsOpen}
+        closeModal={closeModal}
         className={modal ? '' : 'hidden lg:inline-block'}
         modal={modal}
         href='/surf-trips'
@@ -31,7 +31,7 @@ const NavLinks = ({ className = '', modal = false, setMobileMenuIsOpen }) => {
         Surf Trips
       </Li>
       <Li
-        setMobileMenuIsOpen={setMobileMenuIsOpen}
+        closeModal={closeModal}
         className={modal ? '' : 'hidden xl:inline-block'}
         modal={modal}
         href='/photo-video'
@@ -39,7 +39,7 @@ const NavLinks = ({ className = '', modal = false, setMobileMenuIsOpen }) => {
         Photo & Video
       </Li>
       <Li
-        setMobileMenuIsOpen={setMobileMenuIsOpen}
+        closeModal={closeModal}
         className={modal ? '' : 'hidden xl:inline-block'}
         modal={modal}
         href='/gallery'
@@ -47,7 +47,7 @@ const NavLinks = ({ className = '', modal = false, setMobileMenuIsOpen }) => {
         Gallery
       </Li>
       <Li
-        setMobileMenuIsOpen={setMobileMenuIsOpen}
+        closeModal={closeModal}
         className={modal ? '' : 'hidden 2xl:inline-block'}
         modal={modal}
         href='/about-me'
@@ -55,7 +55,7 @@ const NavLinks = ({ className = '', modal = false, setMobileMenuIsOpen }) => {
         About me
       </Li>
       <Li
-        setMobileMenuIsOpen={setMobileMenuIsOpen}
+        closeModal={closeModal}
         className={modal ? '' : 'hidden 2xl:inline-block'}
         modal={modal}
         href='/#visit-us'
@@ -63,7 +63,7 @@ const NavLinks = ({ className = '', modal = false, setMobileMenuIsOpen }) => {
         Visit us
       </Li>
       <Li
-        setMobileMenuIsOpen={setMobileMenuIsOpen}
+        closeModal={closeModal}
         className={modal ? '' : 'hidden md:inline-block'}
         modal={modal}
         href='/#testimonials'
@@ -79,14 +79,14 @@ const NavLinks = ({ className = '', modal = false, setMobileMenuIsOpen }) => {
       >
         <li
           onClick={() => {
-            modal && setMobileMenuIsOpen(false)
+            modal && closeModal()
           }}
         >
           <StreetViewIconLink className={modal ? 'text-[2.75rem]' : ''} />
         </li>
         <li
           onClick={() => {
-            modal && setMobileMenuIsOpen(false)
+            modal && closeModal()
           }}
           className={modal ? '' : 'hidden 2xl:inline-block'}
         >
@@ -94,7 +94,7 @@ const NavLinks = ({ className = '', modal = false, setMobileMenuIsOpen }) => {
         </li>
         <li
           onClick={() => {
-            modal && setMobileMenuIsOpen(false)
+            modal && closeModal()
           }}
           className={modal ? '' : 'hidden 2xl:inline-block'}
         >
@@ -102,7 +102,7 @@ const NavLinks = ({ className = '', modal = false, setMobileMenuIsOpen }) => {
         </li>
         <li
           onClick={() => {
-            modal && setMobileMenuIsOpen(false)
+            modal && closeModal()
           }}
           className={modal ? '' : 'hidden xl:inline-block'}
         >
@@ -110,7 +110,7 @@ const NavLinks = ({ className = '', modal = false, setMobileMenuIsOpen }) => {
         </li>
         <li
           onClick={() => {
-            modal && setMobileMenuIsOpen(false)
+            modal && closeModal()
           }}
         >
           <WhatsappIconLink className={modal ? 'text-[3rem]' : ''} />
@@ -126,14 +126,14 @@ const Li = ({
   className = '',
   href = '',
   modal = false,
-  setMobileMenuIsOpen,
+  closeModal,
   children,
 }) => {
   return (
     <li
       className={className}
       onClick={() => {
-        modal && setMobileMenuIsOpen(false)
+        modal && closeModal()
       }}
     >
       <Link href={href} className='underline-gradient-link'>

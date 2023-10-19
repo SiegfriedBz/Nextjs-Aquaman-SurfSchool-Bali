@@ -1,11 +1,6 @@
 import { motion } from 'framer-motion'
 
-const Modal = ({
-  mobileMenuIsOpen,
-  setMobileMenuIsOpen,
-  className,
-  children,
-}) => {
+const Modal = ({ modalIsOpen, closeModal, className, children }) => {
   return (
     <motion.div
       id='backdrop'
@@ -15,14 +10,14 @@ const Modal = ({
         flex h-screen w-full
         -translate-y-1/2
         items-center justify-center backdrop-blur-md
-        2xl:hidden`}
+        `}
       initial={{ opacity: 0 }}
-      animate={mobileMenuIsOpen ? { opacity: 1 } : { opacity: 0 }}
+      animate={modalIsOpen ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.3 }}
       exit={{ opacity: 0 }}
-      onClick={() => setMobileMenuIsOpen(false)}
+      onClick={closeModal}
     >
-      <ModalMenu mobileMenuIsOpen={mobileMenuIsOpen}>{children}</ModalMenu>
+      <ModalMenu modalIsOpen={modalIsOpen}>{children}</ModalMenu>
     </motion.div>
   )
 }
@@ -49,12 +44,12 @@ const modalMenuVariants = {
   },
 }
 
-const ModalMenu = ({ mobileMenuIsOpen, children }) => {
+const ModalMenu = ({ modalIsOpen, children }) => {
   return (
     <motion.div
       variants={modalMenuVariants}
       initial='hidden'
-      animate={mobileMenuIsOpen ? 'visible' : ''}
+      animate={modalIsOpen ? 'visible' : ''}
       exit='exit'
       className='mx-4 flex w-full flex-col
         items-center justify-center
