@@ -78,7 +78,20 @@
   }
 
   p {
-    @apply mt-4 text-cf-dark dark:text-cf-white sm:my-4 sm:text-lg md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl;
+    @apply mt-4;
+  }
+
+  p,
+  ul li span {
+    @apply text-cf-dark dark:text-cf-white sm:my-4 sm:text-lg md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl;
+  }
+
+  ul li span {
+    @apply mt-1 inline-block;
+  }
+
+  li > * {
+    vertical-align: middle;
   }
 
   /* button, links */
