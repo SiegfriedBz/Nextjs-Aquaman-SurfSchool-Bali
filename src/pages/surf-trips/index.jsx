@@ -57,7 +57,6 @@ const SurfTrips = ({ surfTripImg, mapMarkers }) => {
         >
           <Header ref={mapContainerRef} mapMarkers={mapMarkers} />
 
-          <hr />
           <Body
             surfTripImg={surfTripImg}
             handleSelectTrip={handleSelectTrip}
@@ -91,15 +90,18 @@ function SurfTripsHeader({ mapMarkers }, ref) {
         initialX={100}
         delay={0.5}
         duration={0.8}
-        className='mb-2  text-center'
+        className='mb-2 text-center'
       >
         From Lombok to Sumatra
       </MotionAs>
-      <MotionAs As='h3' delay={0.9} duration={0.8} className='mb-4 text-center'>
+      <MotionAs As='h3' delay={0.9} duration={0.8} className='text-center'>
         Starting at 500K IDR
       </MotionAs>
 
-      <div ref={ref} className='scroll-mt-[8rem] scroll-smooth px-1'>
+      <div
+        ref={ref}
+        className='scroll-mt-[8rem] scroll-smooth px-1 sm:py-4 lg:py-8'
+      >
         <MapView mapMarkers={mapMarkers} />
       </div>
     </>
@@ -169,7 +171,7 @@ function Body({ surfTripImg, handleSelectTrip, scrollToTop }) {
           <DestinationDetailsFooter>
             <p>
               <span className='text-gradient font-bold'>Beach Conditions</span>
-              <span className='inline-block'>
+              <span className='block'>
                 Safe with coral and sand beaches, suitable for all levels except
                 during high surf conditions.
               </span>
@@ -385,7 +387,7 @@ function Body({ surfTripImg, handleSelectTrip, scrollToTop }) {
           <DestinationDetailsFooter>
             <p>
               <span className='text-gradient font-bold'>Beach Conditions </span>
-              <span className='block'>
+              <span className='inline-block'>
                 Sharp coral and strong waves, not suitable for Beginners.
               </span>
             </p>
@@ -607,7 +609,7 @@ function DestinationDetailsHeader({ image, children }) {
             placeholder='blur'
             blurDataURL={image.blurDataUrl}
             sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-            className='h-full w-full rounded-lg object-cover shadow-2xl md:w-11/12'
+            className='mx-auto h-full w-full rounded-lg object-cover dark:shadow-sm dark:shadow-cf-white md:w-11/12'
           />
         </div>
       </div>
