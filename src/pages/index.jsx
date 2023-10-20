@@ -1,4 +1,4 @@
-import { useState, useRef, useLayoutEffect, useCallback, useId } from 'react'
+import { useRef, useId } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -41,22 +41,8 @@ export default function Home({
   const homeSurfLessonsId = useId()
   const homeSurfTripsId = useId()
   const homeAboutMeId = useId()
-  const heroRef = useRef(null)
+
   const subHeroRef = useRef(null)
-  const [viewportOffset, setViewportOffset] = useState(0)
-
-  // set hero height to viewport height
-  const setHeroHeight = useCallback(() => {
-    const adjustedHeroHeight = window.outerHeight - viewportOffset
-    heroRef.current.style.height = `${adjustedHeroHeight}px`
-  }, [viewportOffset])
-
-  useLayoutEffect(() => {
-    if (window == undefined || heroRef?.current == null) return
-
-    setViewportOffset(window.outerHeight - window.innerHeight)
-    setHeroHeight()
-  }, [setHeroHeight])
 
   const scrollToTop = () => {
     subHeroRef.current.scrollIntoView({ behavior: 'smooth' })
@@ -73,7 +59,7 @@ export default function Home({
 
       <HomePageLayout>
         <section id='hero'>
-          <Hero ref={heroRef} />
+          <Hero />
         </section>
 
         <div
