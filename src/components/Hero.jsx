@@ -1,4 +1,4 @@
-import { useState, useRef, forwardRef } from 'react'
+import { useState, useLayoutEffect, useRef, useCallback } from 'react'
 import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -20,19 +20,51 @@ const arrowVariants = {
 
 const MotionButton = motion.button
 
-const Hero = (props, heroRef) => {
+const Hero = () => {
   const router = useRouter()
+  const heroRef = useRef(null)
+  const [isClient, setIsClient] = useState(false)
+  const [viewportOffset, setViewportOffset] = useState(0)
   const [arrowIsClicked, setArrowIsClicked] = useState(false)
 
+  // set hero height to viewport height on client
+  const setHeroHeight = useCallback(() => {
+    if (!isClient) return
+
+    const adjustedHeroHeight = window.outerHeight - viewportOffset
+    heroRef.current.style.height = `${adjustedHeroHeight}px`
+  }, [viewportOffset, isClient])
+
+  // 2. client-side set hero height to user viewport height before first render
+  useLayoutEffect(() => {
+    setIsClient(true)
+    setViewportOffset(window.outerHeight - window.innerHeight)
+    setHeroHeight()
+  }, [setHeroHeight])
+
+  // 1. server-side render image h-screen (reserve space for hero image)
+  if (!isClient) {
+    return (
+      <div className='h-screen w-full'>
+        <div
+          id='hero-image-server'
+          className='hero-image h-full opacity-100 dark:opacity-80'
+        ></div>
+      </div>
+    )
+  }
+
+  // 3. render full hero section on client with adjusted height
   return (
     <div
       ref={heroRef}
-      className='flex min-h-[60vh] w-full flex-col items-center justify-between'
+      className={`flex max-h-[100vh] w-full flex-col items-center justify-between`}
     >
       <div
         id='hero-image'
-        className='hero-image opacity-100 dark:opacity-80'
+        className='hero-image h-full opacity-100 dark:opacity-80'
       ></div>
+
       <div className='hero-title-wrapper flex h-full w-full flex-col items-center justify-start'>
         <MotionAs
           As='h1'
@@ -75,4 +107,4 @@ const Hero = (props, heroRef) => {
   )
 }
 
-export default forwardRef(Hero)
+export default Hero
