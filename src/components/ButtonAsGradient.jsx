@@ -13,7 +13,7 @@ export const ButtonAsGradient = ({
   return (
     <RenderAs
       {...rest}
-      className={`btn-as w-1/2 whitespace-nowrap text-center tracking-wider  ${variant} ${padding} ${extraClasses}`}
+      className={`btn-as w-1/2 whitespace-nowrap text-center font-extrabold  tracking-wider  ${variant} ${padding} ${extraClasses}`}
     >
       {children}
     </RenderAs>
