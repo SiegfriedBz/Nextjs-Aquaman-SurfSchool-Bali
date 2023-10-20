@@ -1,10 +1,11 @@
-import RootLayout from '@/components/layouts/RootLayout'
-import '@/styles/globals.css'
+import Head from 'next/head'
+import Script from 'next/script'
 import { Roboto } from 'next/font/google'
+import RootLayout from '@/components/layouts/RootLayout'
 import generateSocialImage from '@/utils/generateSocialImage'
+import '@/styles/globals.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-import Head from 'next/head'
 config.autoAddCss = false
 
 const roboto = Roboto({
@@ -39,6 +40,18 @@ export default function App({ Component, pageProps }) {
       <RootLayout imageUrl={socialImageConf}>
         <Layout>
           <Component {...pageProps} />
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=G-MXR53C59LS`}
+          />
+          <Script id='google-analytics'>
+            {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-MXR53C59LS');
+        `}
+          </Script>
         </Layout>
       </RootLayout>
     </>
