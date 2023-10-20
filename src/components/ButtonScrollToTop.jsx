@@ -7,7 +7,7 @@ const ButtonScrollToTop = ({
   homeBottomPageBtn = false,
 }) => {
   const bottom = homeBottomPageBtn
-    ? '-bottom-[4.25rem] xs:-bottom-[5.35rem] sm:-bottom-[7.5rem] md:-bottom-[9.5rem] lg:-bottom-[11.5rem]'
+    ? '-bottom-[5.15rem] xs:-bottom-[5.35rem] sm:-bottom-[5.5rem]'
     : bottomPageBtn
     ? '-bottom-[3.25rem] sm:-bottom-[3.5rem]'
     : 'bottom-[0.35rem]'

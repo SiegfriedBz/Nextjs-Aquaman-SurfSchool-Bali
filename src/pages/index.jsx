@@ -79,11 +79,11 @@ export default function Home({
         <div
           ref={subHeroRef}
           id='sub-hero'
-          className='relative scroll-mt-[5rem]'
+          className='relative scroll-mt-[6rem] md:scroll-mt-[8rem]'
         >
           <section
             id='home-surf-lessons'
-            className='flex scroll-mt-24 flex-col'
+            className='flex scroll-mt-24 flex-col  md:scroll-mt-32'
           >
             <HomeSurfLessons
               homeSurfLessonsId={homeSurfLessonsId}
@@ -117,14 +117,17 @@ export default function Home({
 
           <section
             id='testimonials'
-            className='relative flex scroll-mt-24 flex-col'
+            className='relative flex scroll-mt-24 flex-col  md:scroll-mt-32'
           >
             <HomeTestimonials scrollToTop={scrollToTop} />
           </section>
 
           <hr />
 
-          <section id='visit-us' className='flex scroll-mt-24 flex-col'>
+          <section
+            id='visit-us'
+            className='flex scroll-mt-24 flex-col  md:scroll-mt-32'
+          >
             <HomeMapView mapMarkers={mapMarkers} />
           </section>
 

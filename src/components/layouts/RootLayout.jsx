@@ -32,7 +32,7 @@ const RootLayout = (props) => {
       </Head>
 
       <AppContextProvider>
-        <div className='min-h-screen'>
+        <div className='layout-gradient min-h-screen'>
           <Header />
           <main className={`container px-2 sm:px-0`}>{children}</main>
           <Footer />
