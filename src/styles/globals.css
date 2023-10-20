@@ -24,7 +24,7 @@
 
   /*  */
   .home-page-layout {
-    @apply py-8;
+    @apply pb-8;
   }
 
   /* non-home page layout */
