@@ -151,16 +151,15 @@ const Footer = () => {
               width={16}
               height={16}
               className='rounded-full'
-            />{' '}
-            <span>Swiss-made by</span>
+            />
+            <span className='mx-2'>Swiss-made by</span>
             <a
               href={process.env.NEXT_PUBLIC_AUTHOR_WHATSAPP_LINK || '/'}
               target='_blank'
               className='underline-gradient-link'
             >
-              {' '}
               <span className='text-gradient-always-colored font-bold sm:text-lg md:text-xl'>
-                SiegfriedB
+                SiegfriedBz
               </span>
             </a>
           </div>
