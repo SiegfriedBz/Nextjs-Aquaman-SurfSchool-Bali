@@ -10,7 +10,7 @@ const RootLayout = (props) => {
   const router = useRouter()
 
   const meta = {
-    canonicalUrl: `https://aquaman-bali-v2.vercel.app/${router.asPath}`,
+    canonicalUrl: `https://aquaman-bali-surf-school.vercel.app${router.asPath}`,
     ...customMeta,
   }
 
@@ -20,11 +20,11 @@ const RootLayout = (props) => {
         <meta name='robots' content='follow, index' />
         <meta
           name='keywords'
-          content='Aquaman Bali, Surf Aquaman Bali, Aquaman Surf Bali, AquamanBali, Canggu Surf, Canggu Surf School, Canggu Surf Lessons, Bali Surf, Bali Surf Lessons, Bali Surf School, Bali Surf Trips, Bali Surf Photos, Canggu Surf Photos, Bali Surf Videos, Bali Surf Drone'
+          content='Aquaman Bali, Surf Aquaman Bali, Aquaman Surf Bali, AquamanBali, Canggu Surf, Canggu Surf School, Canggu Surf Lessons, Bali Surf, Bali Surf Lessons, Bali Surf School, Kid Surf School, Bali Surf Trips, Bali Surf Photos, Canggu Surf Photos, Bali Surf Videos, Bali Surf Drone'
         ></meta>
         <meta
           property='og:url'
-          content={`https://aquaman-bali-v2.vercel.app${router.asPath}`}
+          content={`https://aquaman-bali-surf-school.vercel.app${router.asPath}`}
         />
         <link rel='canonical' href={meta.canonicalUrl} />
         <meta property='og:site_name' content='Aquaman Bali' />
