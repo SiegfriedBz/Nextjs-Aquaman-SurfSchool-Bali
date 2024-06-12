@@ -13,6 +13,7 @@ const GalleryVideos = () => {
         autoPlay='always'
         loop={true}
         className='my-4 rounded-lg border-0 shadow-2xl'
+        muted={true}
       />
 
       <hr />
@@ -26,6 +27,7 @@ const GalleryVideos = () => {
         autoPlay='false'
         loop={true}
         className='my-4 rounded-md border-0 shadow-2xl'
+        muted={true}
       />
 
       <hr />
@@ -39,6 +41,7 @@ const GalleryVideos = () => {
         autoPlay='false'
         loop={true}
         className='mt-4 rounded-md border-0 shadow-2xl'
+        muted={true}
       />
     </GalleryLayout.Body>
   )
