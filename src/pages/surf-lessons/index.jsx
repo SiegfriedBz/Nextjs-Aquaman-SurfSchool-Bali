@@ -18,18 +18,18 @@ const SurfLessonsPrivate = ({ images }) => {
           </h2>
           <div className='flex items-center'>
             <h3>2 hours:</h3>
-            <h4 className='ms-2'>350K IDR (USD 22)</h4>
+            <h4 className='ms-2'>400K IDR (USD 26)</h4>
           </div>
         </div>
 
         <div className='flex flex-col items-center'>
           <h2 className='md:text-4xl'>
-            3 Surf Lessons
+            5 Surf Lessons
             <span className='ms-2 text-3xl text-white'>🏄‍♀️🏄‍♂️🏄‍♀️</span>
           </h2>
           <div className='flex items-center'>
-            <h3>3 * 2 hours:</h3>
-            <h4 className='ms-2'>1M IDR (USD 64)</h4>
+            <h3>5 * 2 hours:</h3>
+            <h4 className='ms-2'>1.75M IDR (USD 120)</h4>
           </div>
         </div>
 
