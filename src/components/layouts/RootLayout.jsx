@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { AppContextProvider } from '@/context/appContext'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { Analytics } from '@vercel/analytics/react'
 
 const RootLayout = (props) => {
   const { children, ...customMeta } = props
@@ -38,6 +39,7 @@ const RootLayout = (props) => {
           <Footer />
         </div>
       </AppContextProvider>
+      <Analytics />
     </>
   )
 }
