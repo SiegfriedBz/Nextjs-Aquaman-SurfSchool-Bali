@@ -22,13 +22,13 @@ const SurfLessonsGroup = ({ images }) => {
           </h4>
           <div className='flex items-center'>
             <h3>2 hours:</h3>
-            <h4 className='ms-2'>650K IDR (USD 42)</h4>
+            <h4 className='ms-2'>750K IDR (USD 52)</h4>
           </div>
         </div>
 
         <div className='flex flex-col items-center'>
           <h2 className='md:text-4xl'>
-            3 Surf Lessons
+            5 Surf Lessons
             <span className='ms-2 text-3xl text-white'>🏄‍♀️🏄‍♂️🏄‍♀️</span>
           </h2>
           <h3 className='text-cf-dark dark:text-cf-white md:hidden'>
@@ -36,8 +36,8 @@ const SurfLessonsGroup = ({ images }) => {
             Guests
           </h3>
           <div className='flex items-center'>
-            <h3>3 * 2 hours:</h3>
-            <h4 className='ms-2'>1.9M IDR (USD 123)</h4>
+            <h3>5 * 2 hours:</h3>
+            <h4 className='ms-2'>3.25M IDR (USD 224)</h4>
           </div>
         </div>
 
