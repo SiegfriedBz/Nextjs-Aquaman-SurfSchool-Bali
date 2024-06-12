@@ -256,6 +256,7 @@ function Footer({ scrollToTop }) {
         autoPlay='always'
         loop={true}
         className='rounded-md border-0 shadow-2xl'
+        muted={true}
       />
     </>
   )
