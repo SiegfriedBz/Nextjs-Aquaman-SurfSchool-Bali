@@ -23,6 +23,18 @@ const RootLayout = (props) => {
           name='keywords'
           content='Aquaman Bali, Surf Aquaman Bali, Aquaman Surf Bali, AquamanBali, Canggu Surf, Canggu Surf School, Canggu Surf Lessons, Bali Surf, Bali Surf Lessons, Bali Surf School, Kid Surf School, Bali Surf Trips, Bali Surf Photos, Canggu Surf Photos, Bali Surf Videos, Bali Surf Drone'
         ></meta>
+        <link
+          rel='apple-touch-icon'
+          sizes='180x180'
+          href='/apple-touch-icon.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='32x32'
+          href='/favicon-32x32.png'
+        />
+        <link rel='manifest' href='/site.webmanifest' />
         <meta
           property='og:url'
           content={`https://aquaman-bali-surf-school.vercel.app${router.asPath}`}
