@@ -1,40 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Aquaman Bali Surf School
 
-## Getting Started
+Aquaman Bali Surf School is a Next.js 13 application developed to enhance the online presence of a surf school in Bali. The project utilizes Next.js Pages Router to provide a seamless navigation experience for potential clients.
 
-First, run the development server:
+## Table of Contents
+- [Installation](#installation)
+- [Running the Development Server](#running-the-development-server)
+- [Building for Production](#building-for-production)
+- [Running the Production Server](#running-the-production-server)
+- [Live Demo](#live-demo)
+
+# Installation
+
+1. Clone the repository:
+```bash
+git clone git@github.com:SiegfriedBz/aquaman_bali_v2.git
+cd aquaman_bali_v2
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Set up environment variables:
+
+Create a .env file in the root directory and add the following environment variables
+    
+    # Mapbox
+    NEXT_PUBLIC_MAPBOX_TOKEN
+    
+    # Cloudinary
+    NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+    
+    # links
+    NEXT_PUBLIC_AUTHOR_WHATSAPP_LINK
+    NEXT_PUBLIC_WHATSAPP_LINK
+    NEXT_PUBLIC_STREETVIEW_LINK
+    NEXT_PUBLIC_IG_LINK
+    NEXT_PUBLIC_BMCOFFEE_LINK
+    NEXT_PUBLIC_TIKTOK_LINK
+    
+# Running the Development Server
+To start the development server, run:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  ```
+
+# Building for Production
+To build the project for production, run:
+
+```bash
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Running the Production Server
+After building the project, you can start the production server with:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+npm start
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+# Technologies Used
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Framework**: React, Next.js 13 Pages Router
+- **Styling**: Tailwind CSS, Framer Motion (note: focused on mobile users - no responsive design)
+- **Mapbox**: Integration for displaying surf school and surf spots locations
+- **Cloudinary**: for storing and optimizing images
+  
+## Live Demo
+Visit the live demo of [Aquaman Bali](https://aquaman-bali-surf-school.vercel.app/) deployed on Vercel.
