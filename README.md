@@ -65,8 +65,10 @@ npm start
 
 - **Framework**: React, Next.js 13 Pages Router
 - **Styling**: Tailwind CSS, Framer Motion (note: focused on mobile users - no responsive design)
-- **Mapbox**: Integration for displaying surf school and surf spots locations
+- **Theme**: Implemented dark theme for better user experience
 - **Cloudinary**: for storing and optimizing images
+- **Mapbox**: Integration for displaying surf school and surf spots locations
+
   
 ## Live Demo
 Visit the live demo of [Aquaman Bali](https://aquaman-bali-surf-school.vercel.app/) deployed on Vercel.
