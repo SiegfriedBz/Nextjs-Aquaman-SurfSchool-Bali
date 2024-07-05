@@ -1,6 +1,6 @@
 # Aquaman Bali Surf School
 
-Aquaman Bali Surf School is a Next.js 13 application developed to enhance the online presence of a surf school in Bali. The project utilizes Next.js Pages Router to provide a seamless navigation experience for potential clients.
+Aquaman Bali Surf School is a Next.js 13 application developed to enhance the online presence of a surf school in Bali (focused on mobile users - no responsive design). The project utilizes Next.js Pages Router to provide a seamless navigation experience for potential clients.
 
 ## Table of Contents
 - [Installation](#installation)
