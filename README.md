@@ -7,7 +7,7 @@ Aquaman Bali Surf School is a Next.js 13 application developed to enhance the on
 - [Running the Development Server](#running-the-development-server)
 - [Building for Production](#building-for-production)
 - [Running the Production Server](#running-the-production-server)
-- [Live Demo](#live-demo)
+- [Live Demo](#live-demo) 🚀
 
 # Installation
 
